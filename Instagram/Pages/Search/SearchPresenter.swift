@@ -16,7 +16,7 @@ class SearchPresenter: SearchPresenterDelegate {
     }
     
     func search(by name: String) {
-        networkService.loadDecodable(context: SearchContext(name: name), type: [ProfileModel].self) { result in
+        networkService.loadDecodable(context: SearchEndPoint(name: name), type: [ProfileModel].self) { result in
             switch result {
             case .success(let searchResult):
                 self.view.set(newResults: searchResult)

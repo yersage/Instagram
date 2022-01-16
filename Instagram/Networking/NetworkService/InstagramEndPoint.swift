@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+/*
 public enum InstagramAPI {
     case followers(page: Int)
     case posts(page: Int)
@@ -44,8 +44,6 @@ extension InstagramAPI: Endpoint {
     var headers: HTTPHeaders? {
         return nil
     }
-    
-    
 }
-
+*/
 

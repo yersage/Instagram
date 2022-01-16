@@ -30,7 +30,7 @@ class ChangePropertyPresenter: ChangePropertyPresenterDelegate {
     }
     
     private func isUsernameAvailable(username: String) {
-        networkService.load(context: UsernameAvailabilityContext(username: username)) { response in
+        networkService.load(context: UsernameAvailabilityEndPoint(username: username)) { response in
             switch response {
             case .failure(let error):
                 self.view.show(error: error.localizedDescription)

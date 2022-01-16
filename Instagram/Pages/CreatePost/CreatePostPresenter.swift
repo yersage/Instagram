@@ -23,7 +23,7 @@ class CreatePostPresenter: CreatePostPresenterDelegate {
             return
         }
         
-        networkService.upload(context: UploadPostContext(caption: caption, image: image), image: image.pngData()!, caption: caption.data(using: .utf8)!) { result in
+        networkService.upload(context: UploadPostEndPoint(caption: caption, image: image), image: image.pngData()!, caption: caption.data(using: .utf8)!) { result in
             switch result {
             case .success(_):
                 self.view.showSuccess()

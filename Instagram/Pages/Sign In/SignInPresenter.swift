@@ -9,7 +9,7 @@ import Foundation
 
 class SignInPresenter: SignInPresenterDelegate {
     private let view: SignInViewDelegate
-    private let networkService: NetworkService = NetworkAdapter()
+    private let networkService: NetworkRouterDelegate = NetworkRouter()
     
     init(view: SignInViewDelegate) {
         self.view = view

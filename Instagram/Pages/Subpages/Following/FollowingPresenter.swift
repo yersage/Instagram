@@ -30,7 +30,7 @@ class FollowingPresenter: FollowingPresenterDelegate {
             service.nullifyPage()
         }
                 
-        networkService.loadDecodable(context: FollowingContext(userID: userID!), type: [ProfileModel].self) { result in
+        networkService.loadDecodable(context: FollowingEndPoint(userID: userID!), type: [ProfileModel].self) { result in
             switch result {
             case .success(let newFollowings):
                 self.view?.removeSpinners()

@@ -26,7 +26,7 @@ class ProfilePresenter: ProfilePresenterDelegate {
             feedService.nullifyPage()
         }
         
-        networkService.loadDecodable(context: ProfilePostsContext(userID: userID, page: feedService.getPage()), type: [PostModel].self) { result in
+        networkService.loadDecodable(context: ProfilePostsEndPoint(userID: userID, page: feedService.getPage()), type: [PostModel].self) { result in
             switch result {
             case .success(let newPosts):
                 self.feedService.changeIsPaginating()
@@ -42,7 +42,7 @@ class ProfilePresenter: ProfilePresenterDelegate {
     }
     
     func getProfileData(userID: Int) {
-        networkService.loadDecodable(context: ProfileDataContext(userID: userID), type: ProfileModel.self) { result in
+        networkService.loadDecodable(context: ProfileDataEndPoint(userID: userID), type: ProfileModel.self) { result in
             switch result {
             case .success(let profileModel):
                 self.view?.set(profileModel: profileModel)
@@ -58,7 +58,7 @@ class ProfilePresenter: ProfilePresenterDelegate {
     func follow(userID: Int?) {
         guard let userID = userID else { self.view?.show(error: NetworkError.noData.description); return }
         
-        networkService.loadDecodable(context: FollowContext(userID: "\(userID)"), type: ProfileModel.self) { result in
+        networkService.loadDecodable(context: FollowEndPoint(userID: "\(userID)"), type: ProfileModel.self) { result in
             switch result {
             case .success(let profileModel):
                 self.view?.set(profileModel: profileModel)
@@ -72,7 +72,7 @@ class ProfilePresenter: ProfilePresenterDelegate {
     func unfollow(userID: Int?) {
         guard let userID = userID else { self.view?.show(error: NetworkError.noData.description); return }
 
-        networkService.loadDecodable(context: UnfollowContext(userID: "\(userID)"), type: ProfileModel.self) { result in
+        networkService.loadDecodable(context: UnfollowEndPoint(userID: "\(userID)"), type: ProfileModel.self) { result in
             switch result {
             case .success(let profileModel):
                 self.view?.set(profileModel: profileModel)

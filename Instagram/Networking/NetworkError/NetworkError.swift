@@ -15,6 +15,7 @@ enum NetworkError: AppError {
     case noConnection
     case urlValid
     case noData
+    case invalidParameters
     
     var description: String {
         switch self {
@@ -22,12 +23,16 @@ enum NetworkError: AppError {
             return description
         case .dataLoad:
             return "Error loading data."
-        case .unknown, .urlValid:
+        case .unknown:
             return "Unknown error."
+        case .urlValid:
+            return "URL is invalid."
         case .noConnection:
             return "No internet connection."
         case .noData:
             return "No content."
+        case .invalidParameters:
+            return "One of the parameters is invalid."
         }
     }
 }

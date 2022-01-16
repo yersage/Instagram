@@ -16,7 +16,7 @@ class EmailPresenter: EmailPresenterDelegate {
     }
     
     func isEmailAvailable(email: String) {
-        networkService.load(context: EmailAvailabilityContext(email: email)) { response in
+        networkService.load(context: EmailAvailabilityEndPoint(email: email)) { response in
             switch response {
             case .failure(let error):
                 self.view.show(error: error.localizedDescription)

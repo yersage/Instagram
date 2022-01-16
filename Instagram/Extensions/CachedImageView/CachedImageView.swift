@@ -15,7 +15,7 @@ class CachedImageView: UIImageView {
     
     func loadImagesFromPostID(postID: Int, completion: ((Result<UIImage?, Error>) -> Void)? = defaultCompletion(CachedImageView())) {
         
-        let urlString = InstagramRoute.postImages(postID: "\(postID)").urlString()
+        let urlString = InstagramAPI.postImages(postID: "\(postID)").urlString()
         imageURLString = urlString
         
         if let imageFromCache = CachedImageView.imageCache.object(forKey: urlString as NSString) {
@@ -25,10 +25,10 @@ class CachedImageView: UIImageView {
             return
         }
         
-        networkService.loadImage(context: ProfilePostImagesContext(postID: "\(postID)")) { result in
+        networkService.loadImage(context: ProfilePostEndPoint(postID: "\(postID)")) { result in
             switch result {
             case .success(let newImage):
-                CachedImageView.imageCache.setObject(newImage, forKey: ProfilePostImagesContext(postID: "\(postID)").route.urlString() as NSString)
+                CachedImageView.imageCache.setObject(newImage, forKey: ProfilePostEndPoint(postID: "\(postID)").path.urlString() as NSString)
                 self.defaultCompletion(result: .success(newImage))
                 let imageToCache = newImage
                 DispatchQueue.main.async {
@@ -44,7 +44,7 @@ class CachedImageView: UIImageView {
     }
     
     func loadImagesFromUserID(userID: Int, completion: ((Result<UIImage?, Error>) -> Void)? = defaultCompletion(CachedImageView())) {
-        let urlString = InstagramRoute.profileImage(userID: "\(userID)").urlString()
+        let urlString = InstagramAPI.profileImage(userID: "\(userID)").urlString()
         imageURLString = urlString
         
         if let imageFromCache = CachedImageView.imageCache.object(forKey: urlString as NSString) {
@@ -54,10 +54,10 @@ class CachedImageView: UIImageView {
             return
         }
         
-        networkService.loadImage(context: ProfileImageContext(userID: "\(userID)")) { result in
+        networkService.loadImage(context: ProfileImageEndPoint(userID: "\(userID)")) { result in
             switch result {
             case .success(let newImage):
-                CachedImageView.imageCache.setObject(newImage, forKey: ProfileImageContext(userID: "\(userID)").route.urlString() as NSString)
+                CachedImageView.imageCache.setObject(newImage, forKey: ProfileImageEndPoint(userID: "\(userID)").path.urlString() as NSString)
                 self.defaultCompletion(result: .success(newImage))
                 let imageToCache = newImage
                 DispatchQueue.main.async {

@@ -18,7 +18,7 @@ final class FollowersPresenter: FollowersPresenterDelegate {
     }
     
     func getFollowers(firstPage: Bool, userID: Int?) {
-        if userID == nil { return }
+        guard let userID = userID else { return }
         
         if service.getIsPaginating() { return }
         service.changeIsPaginating()
@@ -27,7 +27,7 @@ final class FollowersPresenter: FollowersPresenterDelegate {
             service.nullifyPage()
         }
         
-        networkService.loadDecodable(context: FollowerContext(userID: userID!), type: [ProfileModel].self) { result in
+        networkService.loadDecodable(endPoint: , type: [ProfileModel].self) { result in
             switch result {
             case .success(let newFollowers):
                 self.view?.removeSpinners()

@@ -25,7 +25,7 @@ class SelfProfilePresenter: SelfProfilePresenterDelegate {
             feedService.nullifyPage()
         }
         
-        networkService.loadDecodable(context: ProfilePostsContext(userID: userID, page: feedService.getPage()), type: [PostModel].self) { result in
+        networkService.loadDecodable(endPoint: ProfilePostsEndPoint(userID: userID, page: feedService.getPage()), type: [PostModel].self) { result in
             switch result {
             case .success(let newPosts):
                 self.feedService.changeIsPaginating()
@@ -41,7 +41,7 @@ class SelfProfilePresenter: SelfProfilePresenterDelegate {
     }
     
     func getProfileData(userID: Int) {
-        networkService.loadDecodable(context: ProfileDataContext(userID: userID), type: ProfileModel.self) { result in
+        networkService.loadDecodable(context: ProfileDataEndPoint(userID: userID), type: ProfileModel.self) { result in
             switch result {
             case .success(let profileModel):
                 self.view?.set(profileModel: profileModel)

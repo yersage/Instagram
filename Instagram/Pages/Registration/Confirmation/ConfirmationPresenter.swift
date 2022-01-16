@@ -16,7 +16,7 @@ class ConfirmationPresenter: ConfirmationPresenterDelegate {
     }
     
     func verify(email: String, verificationCode: String) {
-        networkService.load(context: AccountVerificationContext(confirmationCode: verificationCode, email: email)) { response in
+        networkService.load(context: AccountVerificationEndPoint(confirmationCode: verificationCode, email: email)) { response in
             switch response {
             case .failure(let error):
                 self.view.show(error: error.localizedDescription)
@@ -33,7 +33,7 @@ class ConfirmationPresenter: ConfirmationPresenterDelegate {
     }
     
     func signup(email: String, password: String, username: String) {
-        networkService.load(context: SignUpContext(username: username, password: password, email: email)) { response in
+        networkService.load(context: SignUpEndPoint(username: username, password: password, email: email)) { response in
             switch response {
             case .failure(let error):
                 self.view.show(error: error.localizedDescription)

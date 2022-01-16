@@ -30,7 +30,7 @@ class FeedPresenter: FeedPresenterDelegate {
         
         let page = self.feedService.getPage()
         
-        networkService.loadDecodable(context: FeedPostsContext(page: page), type: [PostModel].self) { result in
+        networkService.loadDecodable(context: FeedPostsEndPoint(page: page), type: [PostModel].self) { result in
             switch result {
             case .success(let newPosts):
                 self.view.removeSpinners()
@@ -47,7 +47,7 @@ class FeedPresenter: FeedPresenterDelegate {
     }
     
     func like(like: Bool, postID: Int, index: Int) {
-        networkService.loadDecodable(context: PostLikeContext(postID: "\(postID)"), type: PostModel.self) { result in
+        networkService.loadDecodable(context: PostLikeEndPoint(postID: "\(postID)"), type: PostModel.self) { result in
             switch result {
             case .success(let newPost):
                 self.view.setPost(post: newPost, index: index)
@@ -60,7 +60,7 @@ class FeedPresenter: FeedPresenterDelegate {
     }
     
     func unlike(like: Bool, postID: Int, index: Int) {
-        networkService.loadDecodable(context: PostUnlikeContext(postID: "\(postID)"), type: PostModel.self) { result in
+        networkService.loadDecodable(context: PostUnlikeEndPoint(postID: "\(postID)"), type: PostModel.self) { result in
             switch result {
             case .success(let newPost):
                 self.view.setPost(post: newPost, index: index)
