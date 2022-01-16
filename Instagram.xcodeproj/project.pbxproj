@@ -90,6 +90,7 @@
 		FCCC5EB427942C3F00E07F1A /* FormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCC5EB327942C3F00E07F1A /* FormData.swift */; };
 		FCCC5EB62794667E00E07F1A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCC5EB52794667E00E07F1A /* Constants.swift */; };
 		FCCC5EB8279492D500E07F1A /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCC5EB7279492D500E07F1A /* Router.swift */; };
+		FCCC5EBA279494E400E07F1A /* SignInRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCC5EB9279494E400E07F1A /* SignInRouter.swift */; };
 		FCCEFEF52736AD9B00C04D4D /* FeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCEFEF42736AD9B00C04D4D /* FeedService.swift */; };
 		FCD990A4278ABC1D0099CFD6 /* EditProfileViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD990A3278ABC1D0099CFD6 /* EditProfileViewDelegate.swift */; };
 		FCD990A6278ABC240099CFD6 /* EditProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD990A5278ABC240099CFD6 /* EditProfilePresenter.swift */; };
@@ -206,6 +207,7 @@
 		FCCC5EB327942C3F00E07F1A /* FormData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormData.swift; sourceTree = "<group>"; };
 		FCCC5EB52794667E00E07F1A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FCCC5EB7279492D500E07F1A /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		FCCC5EB9279494E400E07F1A /* SignInRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRouter.swift; sourceTree = "<group>"; };
 		FCCEFEF42736AD9B00C04D4D /* FeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedService.swift; sourceTree = "<group>"; };
 		FCD990A3278ABC1D0099CFD6 /* EditProfileViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewDelegate.swift; sourceTree = "<group>"; };
 		FCD990A5278ABC240099CFD6 /* EditProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfilePresenter.swift; sourceTree = "<group>"; };
@@ -421,6 +423,7 @@
 				FC7188AA275CA49900A6F2CA /* SignInViewDelegate.swift */,
 				FC7188AC275CA4B000A6F2CA /* SignInPresenter.swift */,
 				FC7188AE275CA4E300A6F2CA /* SignInPresenterDelegate.swift */,
+				FCCC5EB9279494E400E07F1A /* SignInRouter.swift */,
 			);
 			path = "Sign In";
 			sourceTree = "<group>";
@@ -864,6 +867,7 @@
 				FC7188C1275CACA900A6F2CA /* PasswordPresenterDelegate.swift in Sources */,
 				FC03365926EBAF1B00985244 /* PostModel.swift in Sources */,
 				FCC69E9E2772169400FE8AE9 /* PayloadModel.swift in Sources */,
+				FCCC5EBA279494E400E07F1A /* SignInRouter.swift in Sources */,
 				FC73D2F42761E97500BA5B35 /* CreatePostPresenterDelegate.swift in Sources */,
 				FC0322DB272011EB00DBDE82 /* FollowersService.swift in Sources */,
 				FCCC5EAC2793CF6100E07F1A /* AuthService.swift in Sources */,

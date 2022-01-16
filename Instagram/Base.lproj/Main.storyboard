@@ -28,7 +28,7 @@
         <!--Feed View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="FeedViewController" customModule="PostFeed" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="FeedViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -67,7 +67,7 @@
         <!--Create Post View Controller-->
         <scene sceneID="RIO-EG-Cyz">
             <objects>
-                <viewController id="WSX-xN-Nzp" customClass="CreatePostViewController" customModule="PostFeed" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="WSX-xN-Nzp" customClass="CreatePostViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QRb-t7-59R">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -111,7 +111,7 @@
         <!--Profile Posts View Controller-->
         <scene sceneID="EJW-z0-3e8">
             <objects>
-                <viewController storyboardIdentifier="ProfilePostsViewController" id="Niz-f2-L6s" customClass="ProfilePostsViewController" customModule="PostFeed" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfilePostsViewController" id="Niz-f2-L6s" customClass="ProfilePostsViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jb9-U5-PdR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -126,7 +126,7 @@
         <!--Comments View Controller-->
         <scene sceneID="Gru-zE-x8v">
             <objects>
-                <viewController storyboardIdentifier="CommentsViewController" id="JY9-wG-wvm" customClass="CommentsViewController" customModule="PostFeed" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CommentsViewController" id="JY9-wG-wvm" customClass="CommentsViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gTk-iO-r43">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -180,7 +180,7 @@
         <!--Followers View Controller-->
         <scene sceneID="0Vy-K2-BRb">
             <objects>
-                <viewController storyboardIdentifier="FollowersViewController" id="ORk-L7-ssG" customClass="FollowersViewController" customModule="PostFeed" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FollowersViewController" id="ORk-L7-ssG" customClass="FollowersViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MLZ-zo-lFS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -195,7 +195,7 @@
         <!--Following View Controller-->
         <scene sceneID="JmE-O0-qWd">
             <objects>
-                <viewController storyboardIdentifier="FollowingViewController" id="pKy-xF-Htr" customClass="FollowingViewController" customModule="PostFeed" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FollowingViewController" id="pKy-xF-Htr" customClass="FollowingViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qP9-J1-JV6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -210,12 +210,12 @@
         <!--Profile View Controller-->
         <scene sceneID="1Mb-V7-Rp7">
             <objects>
-                <viewController storyboardIdentifier="ProfileViewController" id="byC-at-l9K" customClass="ProfileViewController" customModule="PostFeed" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileViewController" id="byC-at-l9K" customClass="ProfileViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qde-UK-E79">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Wuy-0i-Eo7" customClass="CachedImageView" customModule="PostFeed" customModuleProvider="target">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Wuy-0i-Eo7" customClass="CachedImageView" customModule="Instagram" customModuleProvider="target">
                                 <rect key="frame" x="39" y="102.5" width="80" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -360,7 +360,7 @@
         <!--Search View Controller-->
         <scene sceneID="DM8-V8-Vfz">
             <objects>
-                <viewController id="lPy-YW-H8s" customClass="SearchViewController" customModule="PostFeed" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="lPy-YW-H8s" customClass="SearchViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Wpw-Oq-zrO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -377,7 +377,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchResultsTableViewCell" id="DYF-bT-ajj" customClass="SearchResultsTableViewCell" customModule="PostFeed" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchResultsTableViewCell" id="DYF-bT-ajj" customClass="SearchResultsTableViewCell" customModule="Instagram" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DYF-bT-ajj" id="M97-og-NNU">
@@ -421,7 +421,7 @@
         <!--Notifications View Controller-->
         <scene sceneID="vRn-bT-FEc">
             <objects>
-                <viewController id="FcN-tf-2aT" customClass="NotificationsViewController" customModule="PostFeed" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="FcN-tf-2aT" customClass="NotificationsViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dy8-Cq-U9i">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -437,7 +437,7 @@
         <!--Sign In View Controller-->
         <scene sceneID="VYe-sm-y0P">
             <objects>
-                <viewController id="bM8-SK-OkP" customClass="SignInViewController" customModule="PostFeed" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="bM8-SK-OkP" customClass="SignInViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oh4-3g-VqS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -533,7 +533,7 @@
         <!--Email View Controller-->
         <scene sceneID="2sq-I4-6TG">
             <objects>
-                <viewController id="Zbc-Mr-Sug" customClass="EmailViewController" customModule="PostFeed" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Zbc-Mr-Sug" customClass="EmailViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="niU-Y4-N9L">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -603,7 +603,7 @@
         <!--Username View Controller-->
         <scene sceneID="tsk-ma-2zP">
             <objects>
-                <viewController id="YFo-jT-v70" customClass="UsernameViewController" customModule="PostFeed" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="YFo-jT-v70" customClass="UsernameViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="y1G-UT-U6O">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -664,7 +664,7 @@
         <!--Password View Controller-->
         <scene sceneID="imF-2L-kX3">
             <objects>
-                <viewController id="Ib5-iu-dO0" customClass="PasswordViewController" customModule="PostFeed" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Ib5-iu-dO0" customClass="PasswordViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gGQ-sa-4Eg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -725,7 +725,7 @@
         <!--Confirmation View Controller-->
         <scene sceneID="RU9-8K-xSk">
             <objects>
-                <viewController id="Oqh-iw-5aU" customClass="ConfirmationViewController" customModule="PostFeed" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Oqh-iw-5aU" customClass="ConfirmationViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mHM-Jc-syk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -787,7 +787,7 @@
         <!--Welcome View Controller-->
         <scene sceneID="3IW-Rw-iUh">
             <objects>
-                <viewController id="AAU-Bs-4zj" customClass="WelcomeViewController" customModule="PostFeed" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="AAU-Bs-4zj" customClass="WelcomeViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xnP-oz-Zuo">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -834,12 +834,12 @@
         <!--Edit Profile-->
         <scene sceneID="2G5-Qu-ba2">
             <objects>
-                <viewController id="Jl8-Hm-poQ" customClass="EditProfileViewController" customModule="PostFeed" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Jl8-Hm-poQ" customClass="EditProfileViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VMZ-bF-lMc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="b7F-zh-CZD" customClass="CachedImageView" customModule="PostFeed" customModuleProvider="target">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="b7F-zh-CZD" customClass="CachedImageView" customModule="Instagram" customModuleProvider="target">
                                 <rect key="frame" x="144" y="112.5" width="126" height="126"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -953,7 +953,7 @@
         <!--Change Property View Controller-->
         <scene sceneID="vMB-kU-oZc">
             <objects>
-                <viewController storyboardIdentifier="ChangeDataViewController" id="m54-BX-RVi" customClass="ChangePropertyViewController" customModule="PostFeed" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChangeDataViewController" id="m54-BX-RVi" customClass="ChangePropertyViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="y9E-8o-3d6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1004,12 +1004,12 @@
         <!--Self Profile View Controller-->
         <scene sceneID="rJ1-Js-vO5">
             <objects>
-                <viewController storyboardIdentifier="SelfProfileViewController" id="tLI-kA-yg9" customClass="SelfProfileViewController" customModule="PostFeed" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SelfProfileViewController" id="tLI-kA-yg9" customClass="SelfProfileViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6m9-0i-uFn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Opb-uP-iFa" customClass="CachedImageView" customModule="PostFeed" customModuleProvider="target">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Opb-uP-iFa" customClass="CachedImageView" customModule="Instagram" customModuleProvider="target">
                                 <rect key="frame" x="39" y="102.5" width="80" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

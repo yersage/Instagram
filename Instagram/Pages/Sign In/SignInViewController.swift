@@ -15,6 +15,12 @@ class SignInViewController: UIViewController, SignInViewDelegate {
     @IBOutlet weak var passwordVisibilityButton: UIButton!
     @IBOutlet weak var loginButton: UIButton!
     
+    enum Route: String {
+          case login
+          case signUp
+    }
+    
+    var router: Router!
     var presenter: SignInPresenterDelegate?
     
     // MARK:- Lifecycle functions
@@ -53,6 +59,7 @@ class SignInViewController: UIViewController, SignInViewDelegate {
     }
     
     @IBAction func signUpButtonPressed(_ sender: UIButton) {
+        router.route(to: Route.signUp.rawValue, from: self, parameters: nil)
         performSegue(withIdentifier: "goToEmailVC", sender: self)
     }
     
@@ -64,6 +71,7 @@ class SignInViewController: UIViewController, SignInViewDelegate {
     }
     
     func goToFeedVC() {
+        router.route(to: Route.login.rawValue, from: self, parameters: nil)
         performSegue(withIdentifier: "goToFeedVC", sender: self)
     }
 }
