@@ -158,7 +158,7 @@ extension InstagramAPI: EndPointType {
     
     var encoding: ParameterEncoding {
         switch self {
-        case .signUp:
+        case .signUp, .login:
             return .json
         default:
             return .url
