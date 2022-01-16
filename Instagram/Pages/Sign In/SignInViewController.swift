@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SignInViewController: UIViewController {
+class SignInViewController: UIViewController, SignInViewDelegate {
     // MARK:- IBOutlets
     @IBOutlet weak var validationLabel: UILabel!
     @IBOutlet weak var usernameTextField: UITextField!
@@ -55,6 +55,17 @@ class SignInViewController: UIViewController {
     @IBAction func signUpButtonPressed(_ sender: UIButton) {
         performSegue(withIdentifier: "goToEmailVC", sender: self)
     }
+    
+    // MARK:- SignInViewDelegate funcs
+    func show(error: String) {
+        let alert = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func goToFeedVC() {
+        performSegue(withIdentifier: "goToFeedVC", sender: self)
+    }
 }
 
 // MARK:- UITextFieldDelegate
@@ -82,18 +93,5 @@ extension SignInViewController: UITextFieldDelegate {
             loginButton.isEnabled = true
             return
         }
-    }
-}
-
-// MARK:- SignInViewDelegate
-extension SignInViewController: SignInViewDelegate {
-    func show(error: String) {
-        let alert = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-    }
-    
-    func goToFeedVC() {
-        performSegue(withIdentifier: "goToFeedVC", sender: self)
     }
 }

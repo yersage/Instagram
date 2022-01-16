@@ -7,7 +7,7 @@
 
 import UIKit
 
-class WelcomeViewController: UIViewController {
+class WelcomeViewController: UIViewController, WelcomeViewDelegate {
     //MARK:- IBOutlets
     @IBOutlet weak var welcomeLabel: UILabel!
     
@@ -26,9 +26,7 @@ class WelcomeViewController: UIViewController {
     @IBAction func nextButtonPressed(_ sender: UIButton) {
         performSegue(withIdentifier: "goToFeedVC", sender: self)
     }
-}
-
-// MARK:- WelcomeViewDelegate
-extension WelcomeViewController: WelcomeViewDelegate {
     
+    // MARK:- WelcomeViewDelegate funcs
+
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class UsernameViewController: UIViewController {
+class UsernameViewController: UIViewController, UsernameViewDelegate {
     // MARK:- IBOutlets
     @IBOutlet weak var validationLabel: UILabel!
     @IBOutlet weak var usernameTextField: UITextField!
@@ -30,10 +30,8 @@ class UsernameViewController: UIViewController {
     @IBAction func nextButtonPressed(_ sender: UIButton) {
         presenter?.isUsernameAcceptable(username: usernameTextField.text!)
     }
-}
-
-// MARK:- UsernameViewDelegate
-extension UsernameViewController: UsernameViewDelegate {
+    
+    // MARK:- UsernameViewDelegate funcs
     func show(error: String) {
         let alert = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
@@ -52,6 +50,11 @@ extension UsernameViewController: UsernameViewDelegate {
     func goToPasswordVC() {
         performSegue(withIdentifier: "goToPasswordVC", sender: self)
     }
+}
+
+// MARK:- UsernameViewDelegate
+extension UsernameViewController: UsernameViewDelegate {
+    
 }
 
 //MARK:- Prepare for segue

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ConfirmationViewController: UIViewController {
+class ConfirmationViewController: UIViewController, ConfirmationViewDelegate {
     // MARK:- IBOutlets
     @IBOutlet weak var captionLabel: UILabel!
     @IBOutlet weak var validationLabel: UILabel!
@@ -30,10 +30,8 @@ class ConfirmationViewController: UIViewController {
     @IBAction func nextButtonPressed(_ sender: UIButton) {
         presenter!.verify(email: email!, verificationCode: verificationCodeTextField.text!)
     }
-}
-
-// MARK:- ConfirmationViewDelegate
-extension ConfirmationViewController: ConfirmationViewDelegate {
+    
+    // MARK:- ConfirmationViewDelegate funcs
     func showWarning() {
         let message = "Given parameters are reserved for one hour. If confirmation code is not provided, parameters will be removed from server."
         let alert = UIAlertController(title: "Warning", message: message, preferredStyle: .alert)

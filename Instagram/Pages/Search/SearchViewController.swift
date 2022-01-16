@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SearchViewController: UIViewController {
+class SearchViewController: UIViewController, SearchViewDelegate {
     
     @IBOutlet weak var searchResultsTableView: UITableView!
     @IBOutlet weak var searchTextField: UITextField!
@@ -32,6 +32,21 @@ class SearchViewController: UIViewController {
         searchResultsTableView.separatorStyle = .none
         searchTextField.delegate = self
         searchTextField.placeholder = "Search"
+    }
+    
+    // MARK:- SearchViewDelegate funcs
+    func set(newResults: [ProfileModel]) {
+        results = newResults
+    }
+    
+    func show(error: String) {
+        let alert = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func reloadData() {
+        searchResultsTableView.reloadData()
     }
 }
 
@@ -95,22 +110,5 @@ extension SearchViewController: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         presenter?.search(by: textField.text!)
-    }
-}
-
-// MARK:- SearchViewDelegate
-extension SearchViewController: SearchViewDelegate {
-    func set(newResults: [ProfileModel]) {
-        results = newResults
-    }
-    
-    func show(error: String) {
-        let alert = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-    }
-    
-    func reloadData() {
-        searchResultsTableView.reloadData()
     }
 }

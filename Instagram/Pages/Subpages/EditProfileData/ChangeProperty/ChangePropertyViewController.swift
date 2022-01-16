@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ChangePropertyViewController: UIViewController {
+class ChangePropertyViewController: UIViewController, ChangePropertyViewDelegate {
     
     @IBOutlet weak var propertyLabel: UILabel!
     @IBOutlet weak var propertyTextField: UITextField!
@@ -47,10 +47,8 @@ class ChangePropertyViewController: UIViewController {
             _ = navigationController?.popViewController(animated: true)
         }
     }
-}
-
-// MARK:- ChangePropertyViewDelegate
-extension ChangePropertyViewController: ChangePropertyViewDelegate {
+    
+    // MARK:- ChangePropertyViewDelegate funcs
     func hideValidationLabel() {
         isUsernameValid = true
         DispatchQueue.main.async {

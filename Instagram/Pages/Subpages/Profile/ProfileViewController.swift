@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, ProfileViewDelegate {
     // MARK:- IBOutlets
     @IBOutlet weak var profileImageView: CachedImageView!
     @IBOutlet weak var postsLabel: UILabel!
@@ -93,6 +93,45 @@ class ProfileViewController: UIViewController {
         }
     }
     
+    // MARK:- ProfileViewDelegate funcs
+    func set(profileModel: ProfileModel) {
+        self.profileModel = profileModel
+    }
+    
+    func setupProfileData() {
+        DispatchQueue.main.async { [self] in
+            
+            followersLabel.text = "\(profileModel?.user.numberOfFollowers ?? 0) Followers"
+            followingLabel.text = "\(profileModel?.user.numberOfFollowings ?? 0) Following"
+            postsLabel.text = "\(profileModel?.user.numberOfPosts ?? 0) Posts"
+            
+            usernameLabel.text = profileModel?.user.username
+            nameLabel.text = profileModel?.user.name
+            bioLabel.text = profileModel?.user.bio
+            websiteLabel.text = profileModel?.user.website
+            
+            followButton.layer.cornerRadius = 10
+            followButton.layer.borderWidth = 0.5
+            
+            if profileModel?.userMetaData.isFollowedByCurrentUser == true {
+                followButton.setTitleColor(.black, for: .normal)
+                followButton.setTitle("Following", for: .normal)
+                followButton.backgroundColor = .none
+            }
+        }
+    }
+    
+    func set(posts: [PostModel]) {
+        self.posts += posts
+    }
+    
+    func show(error: String) {
+        print(error)
+    }
+    
+    func reload() {
+        postsCollectionView.reloadData()
+    }
 }
 
 // MARK:- UICollectionViewDataSource
@@ -142,48 +181,5 @@ extension ProfileViewController: UICollectionViewDelegateFlowLayout {
         if (indexPath.row == posts.count ) {
 //            presenter?.getPosts(firstPage: false, userID: userID)
         }
-    }
-}
-
-// MARK:- ProfileViewDelegate functions
-extension ProfileViewController: ProfileViewDelegate {
-    
-    func set(profileModel: ProfileModel) {
-        self.profileModel = profileModel
-    }
-    
-    func setupProfileData() {
-        DispatchQueue.main.async { [self] in
-            
-            followersLabel.text = "\(profileModel?.user.numberOfFollowers ?? 0) Followers"
-            followingLabel.text = "\(profileModel?.user.numberOfFollowings ?? 0) Following"
-            postsLabel.text = "\(profileModel?.user.numberOfPosts ?? 0) Posts"
-            
-            usernameLabel.text = profileModel?.user.username
-            nameLabel.text = profileModel?.user.name
-            bioLabel.text = profileModel?.user.bio
-            websiteLabel.text = profileModel?.user.website
-            
-            followButton.layer.cornerRadius = 10
-            followButton.layer.borderWidth = 0.5
-            
-            if profileModel?.userMetaData.isFollowedByCurrentUser == true {
-                followButton.setTitleColor(.black, for: .normal)
-                followButton.setTitle("Following", for: .normal)
-                followButton.backgroundColor = .none
-            }
-        }
-    }
-    
-    func set(posts: [PostModel]) {
-        self.posts += posts
-    }
-    
-    func show(error: String) {
-        print(error)
-    }
-    
-    func reload() {
-        postsCollectionView.reloadData()
     }
 }

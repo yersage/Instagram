@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EditProfileViewController: UIViewController {
+class EditProfileViewController: UIViewController, EditProfileViewDelegate {
     
     @IBOutlet weak var bioButton: UIButton!
     @IBOutlet weak var nameButon: UIButton!
@@ -83,11 +83,6 @@ class EditProfileViewController: UIViewController {
         }
         self.navigationController!.pushViewController(changeDataVC, animated: true)
     }
-    
-}
-
-// MARK:- EditProfileViewDelegate
-extension EditProfileViewController: EditProfileViewDelegate {
     
 }
 

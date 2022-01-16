@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SelfProfileViewController: UIViewController {
+class SelfProfileViewController: UIViewController, SelfProfileViewDelegate {
     // MARK:- IBOutlets
     @IBOutlet weak var profileImageView: CachedImageView!
     @IBOutlet weak var postsLabel: UILabel!
@@ -56,6 +56,42 @@ class SelfProfileViewController: UIViewController {
         postsCollectionView.dataSource = self
     }
     
+    // MARK:- SelfProfileViewDelegate funcs
+    func set(profileModel: ProfileModel) {
+        self.profileModel = profileModel
+    }
+    
+    func setupProfileData() {
+        DispatchQueue.main.async { [self] in
+            followersLabel.text = "\(profileModel?.user.numberOfFollowers ?? 0) Followers"
+            followingLabel.text = "\(profileModel?.user.numberOfFollowings ?? 0) Following"
+            postsLabel.text = "\(profileModel?.user.numberOfPosts ?? 0) Posts"
+            
+            usernameLabel.text = profileModel?.user.username
+            nameLabel.text = profileModel?.user.name
+            bioLabel.text = profileModel?.user.bio
+            websiteLabel.text = profileModel?.user.website
+        }
+    }
+    
+    func set(posts: [PostModel]) {
+        self.posts += posts
+    }
+    
+    func show(error: String) {
+        print(error)
+    }
+    
+    func refresh() {
+        postsCollectionView.reloadData()
+    }
+    
+    func enableEditProfileButton() {
+        DispatchQueue.main.async {
+            self.editProfileButton.isEnabled = true
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToEditProfileVC" {
             guard let editProfileVC = segue.destination as? EditProfileViewController else { return }
@@ -90,44 +126,6 @@ extension SelfProfileViewController {
     
     @IBAction func editProfilePressed(_ sender: UIButton) {
         performSegue(withIdentifier: "goToEditProfileVC", sender: self)
-    }
-}
-
-// MARK:- SelfProfileViewDelegate
-extension SelfProfileViewController: SelfProfileViewDelegate {
-    func set(profileModel: ProfileModel) {
-        self.profileModel = profileModel
-    }
-    
-    func setupProfileData() {
-        DispatchQueue.main.async { [self] in            
-            followersLabel.text = "\(profileModel?.user.numberOfFollowers ?? 0) Followers"
-            followingLabel.text = "\(profileModel?.user.numberOfFollowings ?? 0) Following"
-            postsLabel.text = "\(profileModel?.user.numberOfPosts ?? 0) Posts"
-            
-            usernameLabel.text = profileModel?.user.username
-            nameLabel.text = profileModel?.user.name
-            bioLabel.text = profileModel?.user.bio
-            websiteLabel.text = profileModel?.user.website
-        }
-    }
-    
-    func set(posts: [PostModel]) {
-        self.posts += posts
-    }
-    
-    func show(error: String) {
-        print(error)
-    }
-    
-    func refresh() {
-        postsCollectionView.reloadData()
-    }
-    
-    func enableEditProfileButton() {
-        DispatchQueue.main.async {
-            self.editProfileButton.isEnabled = true
-        }
     }
 }
 

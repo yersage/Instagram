@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FollowersViewController: UIViewController {
+class FollowersViewController: UIViewController, FollowersViewDelegate {
     // MARK:-  Initialization
     var followers: [ProfileModel] = []
     var followersState: [FollowersState] = []
@@ -40,6 +40,29 @@ class FollowersViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         navigationController?.isNavigationBarHidden = false
+    }
+    
+    // MARK:- FollowersViewDelegate funcs
+    func set(followers: [ProfileModel]) {
+        for follower in followers {
+            followersState.append(FollowersState(isFollowing: follower.userMetaData.isFollowedByCurrentUser, isRemoved: false))
+        }
+        self.followers += followers
+    }
+    
+    func show(error: String) {
+        let alert = UIAlertController(title: "Title", message: error, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func removeSpinners() {
+        followersTableView.tableFooterView = nil
+        followersTableView.tableHeaderView = nil
+    }
+    
+    func refresh() {
+        followersTableView.reloadData()
     }
 }
 
@@ -97,31 +120,6 @@ extension FollowersViewController: UIScrollViewDelegate {
         spinner.startAnimating()
         
         return footerView
-    }
-}
-
-// MARK:- FollowersViewDelegate
-extension FollowersViewController: FollowersViewDelegate {
-    func set(followers: [ProfileModel]) {
-        for follower in followers {
-            followersState.append(FollowersState(isFollowing: follower.userMetaData.isFollowedByCurrentUser, isRemoved: false))
-        }
-        self.followers += followers
-    }
-    
-    func show(error: String) {
-        let alert = UIAlertController(title: "Title", message: error, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-    }
-    
-    func removeSpinners() {
-        followersTableView.tableFooterView = nil
-        followersTableView.tableHeaderView = nil
-    }
-    
-    func refresh() {
-        followersTableView.reloadData()
     }
 }
 

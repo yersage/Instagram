@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EmailViewController: UIViewController {
+class EmailViewController: UIViewController, EmailViewDelegate {
     // MARK:- IBOutlets
     @IBOutlet weak var validationLabel: UILabel!
     @IBOutlet weak var emailTextField: UITextField!
@@ -33,10 +33,8 @@ class EmailViewController: UIViewController {
     @IBAction func signInButtonPressed(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
-}
-
-// MARK:- EmailViewDelegate
-extension EmailViewController: EmailViewDelegate {
+    
+    // MARK:- EmailViewDelegate funcs
     func show(error: String) {
         let alert = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))

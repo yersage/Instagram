@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FollowingViewController: UIViewController {
+class FollowingViewController: UIViewController, FollowingViewDelegate {
     // MARK:- Initialization
     private var followings: [ProfileModel] = []
     private var followingState: [FollowingState] = []
@@ -41,6 +41,29 @@ class FollowingViewController: UIViewController {
         super.viewDidAppear(true)
         navigationController?.isNavigationBarHidden = false
     }
+    
+    // MARK:- FollowingViewDelegate funcs
+    func set(followings: [ProfileModel]) {
+        for following in followings {
+            followingState.append(FollowingState(isFollowing: following.userMetaData.isFollowedByCurrentUser))
+        }
+        self.followings += followings
+    }
+    
+    func removeSpinners() {
+        followingTableView.tableHeaderView = nil
+        followingTableView.tableFooterView = nil
+    }
+    
+    func refresh() {
+        followingTableView.reloadData()
+    }
+    
+    func show(error: String) {
+        let alert = UIAlertController(title: "Title", message: error, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
 }
 
 // MARK:- UITableViewDataSource
@@ -64,30 +87,6 @@ extension FollowingViewController: UITableViewDataSource {
         cell.followingModel = followings[indexPath.row]
         
         return cell
-    }
-}
-
-extension FollowingViewController: FollowingViewDelegate {
-    func set(followings: [ProfileModel]) {
-        for following in followings {
-            followingState.append(FollowingState(isFollowing: following.userMetaData.isFollowedByCurrentUser))
-        }
-        self.followings += followings
-    }
-    
-    func removeSpinners() {
-        followingTableView.tableHeaderView = nil
-        followingTableView.tableFooterView = nil
-    }
-    
-    func refresh() {
-        followingTableView.reloadData()
-    }
-    
-    func show(error: String) {
-        let alert = UIAlertController(title: "Title", message: error, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
     }
 }
 

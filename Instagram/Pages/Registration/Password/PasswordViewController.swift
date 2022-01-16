@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PasswordViewController: UIViewController {
+class PasswordViewController: UIViewController, PasswordViewDelegate {
     // MARK:- IBOutlets
     @IBOutlet weak var validationLabel: UILabel!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -31,10 +31,8 @@ class PasswordViewController: UIViewController {
     @IBAction func nextButtonPressed(_ sender: UIButton) {
         presenter?.isPasswordAcceptable(password: passwordTextField.text!)
     }
-}
-
-// MARK:- PasswordViewDelegate
-extension PasswordViewController: PasswordViewDelegate {
+    
+    // MARK:- PasswordViewDelegate funcs
     func show(error: String) {
         let alert = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))

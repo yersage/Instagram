@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FeedViewController: UIViewController {
+class FeedViewController: UIViewController, FeedViewDelegate {
     
     // MARK:- Initialization
     var posts: [PostModel] = []
@@ -42,6 +42,42 @@ class FeedViewController: UIViewController {
         feedTableView.separatorStyle = .none
         feedTableView.translatesAutoresizingMaskIntoConstraints = false
         feedTableView.rowHeight = UITableView.automaticDimension
+    }
+    
+    // MARK:- FeedViewDelegate funcs
+    func showError(error: String) {
+        let alert = UIAlertController(title: "Title", message: error, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func setPost(post: PostModel, index: Int) {
+        print(posts[index])
+        print(post)
+        posts[index] = post
+    }
+    
+    func set(newPosts: [PostModel]) {
+        postsState += Array(repeating: PostState(isMorePressed: false, isSavePressed: false), count: newPosts.count)
+        posts += newPosts
+        feedTableView.reloadData()
+    }
+    
+    func reload() {
+        DispatchQueue.main.async {
+            self.feedTableView.reloadData()
+        }
+    }
+    
+    func removeSpinners() {
+        DispatchQueue.main.async { [self] in
+            if (feedTableView.tableHeaderView != nil) {
+                feedTableView.tableHeaderView = nil
+            }
+            if feedTableView.tableFooterView != nil {
+                feedTableView.tableFooterView = nil
+            }
+        }
     }
 }
 
@@ -151,43 +187,5 @@ extension FeedViewController: PostTableViewCellDelegate {
         let indexPath = feedTableView.indexPath(for: cell)
         postsState[indexPath!.row].isSavePressed = postsState[indexPath!.row].isSavePressed ? false : true
         print("This functionality won't take place in the clone.")
-    }
-}
-
-// MARK:- FeedViewDelegate
-extension FeedViewController: FeedViewDelegate {
-    func showError(error: String) {
-        let alert = UIAlertController(title: "Title", message: error, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-    }
-    
-    func setPost(post: PostModel, index: Int) {
-        print(posts[index])
-        print(post)
-        posts[index] = post
-    }
-    
-    func set(newPosts: [PostModel]) {
-        postsState += Array(repeating: PostState(isMorePressed: false, isSavePressed: false), count: newPosts.count)
-        posts += newPosts
-        feedTableView.reloadData()
-    }
-    
-    func reload() {
-        DispatchQueue.main.async {
-            self.feedTableView.reloadData()
-        }
-    }
-    
-    func removeSpinners() {
-        DispatchQueue.main.async { [self] in
-            if (feedTableView.tableHeaderView != nil) {
-                feedTableView.tableHeaderView = nil
-            }
-            if feedTableView.tableFooterView != nil {
-                feedTableView.tableFooterView = nil
-            }
-        }
     }
 }
