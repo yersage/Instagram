@@ -8,7 +8,7 @@
 import Foundation
 
 public enum InstagramAPI {
-    case login
+    case login(username: String, password: String)
     case refreshToken(refreshToken: String)
     case emailAvailability(email: String)
     case usernameAvailability(username: String)
@@ -114,6 +114,9 @@ extension InstagramAPI: EndPointType {
     
     var parameters: [String: Any]? {
         switch self {
+        case .login(let username, let password):
+            return ["username": username,
+                    "password": password]
         case .signUp(let username, let password, let email):
             return ["username": username,
                     "password": password,
