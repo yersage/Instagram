@@ -89,6 +89,7 @@
 		FCCC5EB22794258A00E07F1A /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCC5EB12794258A00E07F1A /* NetworkRouter.swift */; };
 		FCCC5EB427942C3F00E07F1A /* FormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCC5EB327942C3F00E07F1A /* FormData.swift */; };
 		FCCC5EB62794667E00E07F1A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCC5EB52794667E00E07F1A /* Constants.swift */; };
+		FCCC5EB8279492D500E07F1A /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCC5EB7279492D500E07F1A /* Router.swift */; };
 		FCCEFEF52736AD9B00C04D4D /* FeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCEFEF42736AD9B00C04D4D /* FeedService.swift */; };
 		FCD990A4278ABC1D0099CFD6 /* EditProfileViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD990A3278ABC1D0099CFD6 /* EditProfileViewDelegate.swift */; };
 		FCD990A6278ABC240099CFD6 /* EditProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD990A5278ABC240099CFD6 /* EditProfilePresenter.swift */; };
@@ -204,6 +205,7 @@
 		FCCC5EB12794258A00E07F1A /* NetworkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
 		FCCC5EB327942C3F00E07F1A /* FormData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormData.swift; sourceTree = "<group>"; };
 		FCCC5EB52794667E00E07F1A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FCCC5EB7279492D500E07F1A /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		FCCEFEF42736AD9B00C04D4D /* FeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedService.swift; sourceTree = "<group>"; };
 		FCD990A3278ABC1D0099CFD6 /* EditProfileViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewDelegate.swift; sourceTree = "<group>"; };
 		FCD990A5278ABC240099CFD6 /* EditProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfilePresenter.swift; sourceTree = "<group>"; };
@@ -572,6 +574,7 @@
 				FCAE0BCC26EB48B0007DB573 /* SceneDelegate.swift */,
 				FCAE0BD526EB48B1007DB573 /* LaunchScreen.storyboard */,
 				FCCC5EB52794667E00E07F1A /* Constants.swift */,
+				FCCC5EB7279492D500E07F1A /* Router.swift */,
 			);
 			path = Supporting;
 			sourceTree = "<group>";
@@ -845,6 +848,7 @@
 				FCB6AB7E2789F5560018DCA7 /* ChangePropertyPresenterDelegate.swift in Sources */,
 				FC7188B1275CA60900A6F2CA /* EmailViewDelegate.swift in Sources */,
 				FCFA3D43271B1ED600658DF2 /* FeedPresenter.swift in Sources */,
+				FCCC5EB8279492D500E07F1A /* Router.swift in Sources */,
 				FC7188BB275CA84D00A6F2CA /* UsernamePresenterDelegate.swift in Sources */,
 				FCE7CEFD270DF52200A57919 /* EditProfileViewController.swift in Sources */,
 				FC73D2F22761E96E00BA5B35 /* CreatePostPresenter.swift in Sources */,
