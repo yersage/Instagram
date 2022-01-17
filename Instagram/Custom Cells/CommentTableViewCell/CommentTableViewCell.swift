@@ -268,67 +268,66 @@ final class CommentTableViewCell: UITableViewCell {
     }
     
     func layout1stColumn() {
-        profileImage.topAnchor.constraint(equalTo: horizontalStack.topAnchor, constant: 5).isActive = true
-        profileImage.widthAnchor.constraint(equalToConstant: 30).isActive = true
-        profileImage.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        NSLayoutConstraint.activate([
+            profileImage.topAnchor.constraint(equalTo: horizontalStack.topAnchor, constant: 5),
+            profileImage.widthAnchor.constraint(equalToConstant: 30),
+            profileImage.heightAnchor.constraint(equalToConstant: 30),
+            profileImageButton.topAnchor.constraint(equalTo: profileImage.topAnchor),
+            profileImageButton.leftAnchor.constraint(equalTo: profileImage.leftAnchor),
+            profileImageButton.rightAnchor.constraint(equalTo: profileImage.rightAnchor),
+            profileImageButton.bottomAnchor.constraint(equalTo: profileImage.bottomAnchor)
+        ])
         
         profileImageButton.addTarget(self, action: #selector(UsernameButtonPressed), for: .touchUpInside)
-        profileImageButton.topAnchor.constraint(equalTo: profileImage.topAnchor).isActive = true
-        profileImageButton.leftAnchor.constraint(equalTo: profileImage.leftAnchor).isActive = true
-        profileImageButton.rightAnchor.constraint(equalTo: profileImage.rightAnchor).isActive = true
-        profileImageButton.bottomAnchor.constraint(equalTo: profileImage.bottomAnchor).isActive = true
     }
     
     func layout2ndColumn() {
-        contentStack.topAnchor.constraint(equalTo: horizontalStack.topAnchor, constant: 5).isActive = true
-        contentStack.leftAnchor.constraint(equalTo: profileImage.rightAnchor, constant: 10).isActive = true
-        contentStack.rightAnchor.constraint(equalTo: likeImageView.leftAnchor, constant: -10).isActive = true
-        contentStack.bottomAnchor.constraint(equalTo: horizontalStack.bottomAnchor).isActive = true
-        
-        commentsContentLabel.topAnchor.constraint(equalTo: contentStack.topAnchor).isActive = true
-        commentsContentLabel.leftAnchor.constraint(equalTo: contentStack.leftAnchor).isActive = true
-        commentsContentLabel.rightAnchor.constraint(equalTo: contentStack.rightAnchor).isActive = true
+        NSLayoutConstraint.activate([
+            contentStack.topAnchor.constraint(equalTo: horizontalStack.topAnchor, constant: 5),
+            contentStack.leftAnchor.constraint(equalTo: profileImage.rightAnchor, constant: 10),
+            contentStack.rightAnchor.constraint(equalTo: likeImageView.leftAnchor, constant: -10),
+            contentStack.bottomAnchor.constraint(equalTo: horizontalStack.bottomAnchor),
+            commentsContentLabel.topAnchor.constraint(equalTo: contentStack.topAnchor),
+            commentsContentLabel.leftAnchor.constraint(equalTo: contentStack.leftAnchor),
+            commentsContentLabel.rightAnchor.constraint(equalTo: contentStack.rightAnchor),
+            usernameButton.topAnchor.constraint(equalTo: commentsContentLabel.topAnchor),
+            usernameButton.leftAnchor.constraint(equalTo: commentsContentLabel.leftAnchor),
+            dateOfCommentLabel.topAnchor.constraint(equalTo: commentsContentLabel.bottomAnchor),
+            replyFooterLabel.topAnchor.constraint(equalTo: dateOfCommentLabel.bottomAnchor, constant: 10),
+            replyFooterLabel.centerXAnchor.constraint(equalTo: contentStack.centerXAnchor),
+            replyFooterLabel.bottomAnchor.constraint(equalTo: contentStack.bottomAnchor, constant: -5),
+            replyFooterButton.leftAnchor.constraint(equalTo: replyFooterLabel.leftAnchor),
+            replyFooterButton.rightAnchor.constraint(equalTo: replyFooterLabel.rightAnchor),
+            replyFooterButton.bottomAnchor.constraint(equalTo: replyFooterLabel.bottomAnchor),
+            contentFooterStack.topAnchor.constraint(equalTo: commentsContentLabel.bottomAnchor),
+            contentFooterStack.leftAnchor.constraint(equalTo: contentStack.leftAnchor),
+            contentFooterStack.rightAnchor.constraint(equalTo: contentStack.rightAnchor),
+            contentFooterStack.bottomAnchor.constraint(equalTo: contentStack.bottomAnchor),
+            howManyLikesLabel.leftAnchor.constraint(equalTo: dateOfCommentLabel.rightAnchor, constant: 10),
+            replyLabel.leftAnchor.constraint(equalTo: howManyLikesLabel.rightAnchor, constant: 10),
+            replyButton.leftAnchor.constraint(equalTo: replyLabel.leftAnchor)
+        ])
         
         usernameButton.addTarget(self, action: #selector(UsernameButtonPressed), for: .touchUpInside)
-        usernameButton.topAnchor.constraint(equalTo: commentsContentLabel.topAnchor).isActive = true
-        usernameButton.leftAnchor.constraint(equalTo: commentsContentLabel.leftAnchor).isActive = true
-        
-        dateOfCommentLabel.topAnchor.constraint(equalTo: commentsContentLabel.bottomAnchor).isActive = true
-        
-        replyFooterLabel.topAnchor.constraint(equalTo: dateOfCommentLabel.bottomAnchor, constant: 10).isActive = true
-        replyFooterLabel.centerXAnchor.constraint(equalTo: contentStack.centerXAnchor).isActive = true
-        replyFooterLabel.bottomAnchor.constraint(equalTo: contentStack.bottomAnchor, constant: -5).isActive = true
-        
         replyFooterButton.addTarget(self, action: #selector(ViewRepliesButtonPressed), for: .touchUpInside)
-        replyFooterButton.leftAnchor.constraint(equalTo: replyFooterLabel.leftAnchor).isActive = true
-        replyFooterButton.rightAnchor.constraint(equalTo: replyFooterLabel.rightAnchor).isActive = true
-        replyFooterButton.bottomAnchor.constraint(equalTo: replyFooterLabel.bottomAnchor).isActive = true
-        
-        contentFooterStack.topAnchor.constraint(equalTo: commentsContentLabel.bottomAnchor).isActive = true
-        contentFooterStack.leftAnchor.constraint(equalTo: contentStack.leftAnchor).isActive = true
-        contentFooterStack.rightAnchor.constraint(equalTo: contentStack.rightAnchor).isActive = true
-        contentFooterStack.bottomAnchor.constraint(equalTo: contentStack.bottomAnchor).isActive = true
-        
-        howManyLikesLabel.leftAnchor.constraint(equalTo: dateOfCommentLabel.rightAnchor, constant: 10).isActive = true
-        replyLabel.leftAnchor.constraint(equalTo: howManyLikesLabel.rightAnchor, constant: 10).isActive = true
         replyButton.addTarget(self, action: #selector(ReplyButtonPressed), for: .touchUpInside)
-        replyButton.leftAnchor.constraint(equalTo: replyLabel.leftAnchor).isActive = true
     }
     
     func layout3rdColumn() {
-        likeImageView.topAnchor.constraint(equalTo: horizontalStack.topAnchor, constant: 5).isActive = true
-        likeImageView.rightAnchor.constraint(equalTo: horizontalStack.rightAnchor, constant: -10).isActive = true
-        likeImageView.widthAnchor.constraint(equalToConstant: 20).isActive = true
-        likeImageView.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        NSLayoutConstraint.activate([
+            likeImageView.topAnchor.constraint(equalTo: horizontalStack.topAnchor, constant: 5),
+            likeImageView.rightAnchor.constraint(equalTo: horizontalStack.rightAnchor, constant: -10),
+            likeImageView.widthAnchor.constraint(equalToConstant: 20),
+            likeImageView.heightAnchor.constraint(equalToConstant: 20),
+            likeButton.topAnchor.constraint(equalTo: likeImageView.topAnchor),
+            likeButton.rightAnchor.constraint(equalTo: likeImageView.rightAnchor),
+            horizontalStack.topAnchor.constraint(equalTo: contentView.topAnchor),
+            horizontalStack.leftAnchor.constraint(equalTo: contentView.leftAnchor),
+            horizontalStack.rightAnchor.constraint(equalTo: contentView.rightAnchor),
+            horizontalStack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+        ])
         
         likeButton.addTarget(self, action: #selector(LikeButtonPressed), for: .touchUpInside)
-        likeButton.topAnchor.constraint(equalTo: likeImageView.topAnchor).isActive = true
-        likeButton.rightAnchor.constraint(equalTo: likeImageView.rightAnchor).isActive = true
-        
-        horizontalStack.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        horizontalStack.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
-        horizontalStack.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
-        horizontalStack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
     }
     
     @objc func UsernameButtonPressed() {
@@ -358,37 +357,4 @@ final class CommentTableViewCell: UITableViewCell {
         }
         likeDelegate?.likeComment(self)
     }
-}
-
-// MARK:- Get Profile Image
-extension CommentTableViewCell {
-    
-//    func getProfileImage(userID: String) {
-//
-//        if commentModel == nil { return }
-//
-//        let profileImageRequest = URLRequests.profileImage(with: tokenModel?.accessToken ?? "", userID: userID)
-//        downloadProfileImage(with: profileImageRequest)
-//    }
-//
-//    func downloadProfileImage(with request: URLRequest) {
-//        URLSession.shared.dataTask(with: request) { (data, response, error) in
-//
-//            guard let httpResponse = response as? HTTPURLResponse else { print("From CommentTableViewCell downloadProfileImage: couldn't get response's status code."); return }
-//
-//            if httpResponse.statusCode != 200 && httpResponse.statusCode != 204 {
-//                print("From CommentTableViewCell downloadProfileImage: statusCode is not 200.")
-//                print(response ?? "No response at all.")
-//                return
-//            }
-//
-//            guard let safeData = data else { return }
-//            guard let safeImage = UIImage(data: safeData) else { print("From CommentTableViewCell downloadProfileImage: couldn't encode data to Image."); return }
-//
-//            DispatchQueue.main.async { [self] in
-//                profileImage.image = safeImage
-//            }
-//
-//        }.resume()
-//    }
 }
