@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol ProfilePresenterDelegate {
+protocol ProfilePresenterDelegate: AnyObject {
     func getPosts(firstPage: Bool, userID: String)
     func getProfileData(userID: Int)
     func follow(userID: Int?)

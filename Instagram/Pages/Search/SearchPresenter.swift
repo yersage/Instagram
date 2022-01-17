@@ -9,20 +9,16 @@ import Foundation
 
 class SearchPresenter: SearchPresenterDelegate {
     private let networkService: NetworkService = NetworkAdapter()
-    private let view: SearchViewDelegate
-    
-    init(view: SearchViewDelegate) {
-        self.view = view
-    }
+    weak var view: SearchViewDelegate?
     
     func search(by name: String) {
         networkService.loadDecodable(context: SearchEndPoint(name: name), type: [ProfileModel].self) { result in
             switch result {
             case .success(let searchResult):
-                self.view.set(newResults: searchResult)
-                self.view.reloadData()
+                self.view?.set(newResults: searchResult)
+                self.view?.reloadData()
             case .failure(let error):
-                self.view.show(error: error.localizedDescription)
+                self.view?.show(error: error.localizedDescription)
             }
         }
     }

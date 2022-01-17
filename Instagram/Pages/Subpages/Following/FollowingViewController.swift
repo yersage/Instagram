@@ -14,13 +14,23 @@ class FollowingViewController: UIViewController, FollowingViewDelegate {
     
     var userID: Int?
     
+    private let presenter: FollowingPresenterDelegate
+    
+    init?(presenter: FollowingPresenterDelegate, coder: NSCoder) {
+        self.presenter = presenter
+        super.init(coder: coder)
+    }
+    
+    @available(*, unavailable, renamed: "init(product:coder:)")
+    required init?(coder: NSCoder) {
+        fatalError("Invalid way of decoding this class")
+    }
+    
     private let followingTableView: UITableView = {
         let tableView = UITableView()
         return tableView
     }()
-    
-    private var presenter: FollowingPresenterDelegate?
-    
+        
     // MARK:- Lifecycle functions
     override func viewDidLoad() {
         super.viewDidLoad()

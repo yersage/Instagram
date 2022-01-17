@@ -8,16 +8,13 @@
 import Foundation
 
 class SignInPresenter: SignInPresenterDelegate {
-    private let view: SignInViewDelegate
+    weak var view: SignInViewDelegate?
     private let networkService: NetworkRouterDelegate = NetworkRouter()
     
-    init(view: SignInViewDelegate) {
-        self.view = view
-    }
-    
     func login(username: String, password: String) {
+        // Правильно ли форс анврапить view, если функция все равно вызовется от VC?
         if username == "" || password == "" {
-            self.view.show(error: "Username or password is not provided.")
+            self.view?.show(error: "Username or password is not provided.")
         }
         
         networkService.authorize(parameters: ["username": username, "password": password]) { result in
@@ -28,9 +25,9 @@ class SignInPresenter: SignInPresenterDelegate {
                     return 
                 }
                 UserDefaultsManager.shared.signIn(username: username, password: password, accessToken: tokenModel.accessToken, refreshToken: tokenModel.refreshToken)
-                self.view.goToFeedVC()
+                self.view?.goToFeedVC()
             case .failure(let error):
-                self.view.show(error: error.localizedDescription)
+                self.view?.show(error: error.localizedDescription)
             }
         }
     }

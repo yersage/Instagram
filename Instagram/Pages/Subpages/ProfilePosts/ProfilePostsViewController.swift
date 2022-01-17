@@ -14,7 +14,19 @@ class ProfilePostsViewController: UIViewController {
     
     var posts: [PostModel] = []
     var postsState: [PostState] = []
+    /*
+    private let presenter: PasswordPresenterDelegate
     
+    init?(presenter: PasswordPresenterDelegate, coder: NSCoder) {
+        self.presenter = presenter
+        super.init(coder: coder)
+    }
+    
+    @available(*, unavailable, renamed: "init(product:coder:)")
+    required init?(coder: NSCoder) {
+        fatalError("Invalid way of decoding this class")
+    }
+    */
     private let postsTableView: UITableView = {
         let tableView = UITableView()
         tableView.separatorStyle = .none

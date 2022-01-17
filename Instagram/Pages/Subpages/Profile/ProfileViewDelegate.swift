@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol ProfileViewDelegate {
+protocol ProfileViewDelegate: AnyObject {
     func set(posts: [PostModel])
     func set(profileModel: ProfileModel)
     func setupProfileData()

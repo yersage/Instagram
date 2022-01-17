@@ -21,7 +21,17 @@ class SelfProfileViewController: UIViewController, SelfProfileViewDelegate {
     @IBOutlet weak var postsCollectionView: UICollectionView!
     
     // MARK:- Initialization
-    private var presenter: SelfProfilePresenterDelegate?
+    private let presenter: SelfProfilePresenterDelegate
+    
+    init?(presenter: SelfProfilePresenterDelegate, coder: NSCoder) {
+        self.presenter = presenter
+        super.init(coder: coder)
+    }
+    
+    @available(*, unavailable, renamed: "init(product:coder:)")
+    required init?(coder: NSCoder) {
+        fatalError("Invalid way of decoding this class")
+    }
     
     var posts: [PostModel] = []
     var postState: [PostState] = []
@@ -38,9 +48,8 @@ class SelfProfileViewController: UIViewController, SelfProfileViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         layout()
-        presenter = SelfProfilePresenter(view: self)
-        presenter?.getProfileData(userID: userID)
-        presenter?.getPosts(firstPage: true, userID: "\(userID)")
+        presenter.getProfileData(userID: userID)
+        presenter.getPosts(firstPage: true, userID: "\(userID)")
         profileImageView.loadImagesFromUserID(userID: userID)
     }
     

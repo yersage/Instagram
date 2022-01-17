@@ -8,13 +8,9 @@
 import Foundation
 
 class WelcomePresenter: WelcomePresenterDelegate {
-    private let view: WelcomeViewDelegate
+    weak var view: WelcomeViewDelegate?
     private let networkService: NetworkService = NetworkAdapter()
-    
-    init(view: WelcomeViewDelegate) {
-        self.view = view
-    }
-    
+
     func login(username: String, password: String) {
         
     }

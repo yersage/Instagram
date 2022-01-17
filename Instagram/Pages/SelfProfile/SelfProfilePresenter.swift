@@ -9,12 +9,8 @@ import Foundation
 
 class SelfProfilePresenter: SelfProfilePresenterDelegate {
     private let networkService: NetworkService = NetworkAdapter()
-    private let view: SelfProfileViewDelegate?
+    weak var view: SelfProfileViewDelegate?
     private let feedService = FeedService()
-    
-    init(view: SelfProfileViewDelegate) {
-        self.view = view
-    }
     
     func getPosts(firstPage: Bool, userID: String) {
         

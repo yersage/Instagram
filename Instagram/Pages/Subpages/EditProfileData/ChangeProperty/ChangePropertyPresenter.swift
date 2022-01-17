@@ -10,22 +10,18 @@ import Foundation
 class ChangePropertyPresenter: ChangePropertyPresenterDelegate {
     
     private let networkService: NetworkService = NetworkAdapter()
-    private var view: ChangePropertyViewDelegate
-    
-    init(view: ChangePropertyViewDelegate) {
-        self.view = view
-    }
-    
+    weak var view: ChangePropertyViewDelegate?
+
     func checkUsername(_ username: String) {
         let usernameRegEx = "\\w{1,30}"
         let usernameTest = NSPredicate(format:"SELF MATCHES[c] %@", usernameRegEx)
         let isUsernameFormatValid = usernameTest.evaluate(with: username)
         
         if isUsernameFormatValid {
-            self.view.hideValidationLabel()
+            self.view?.hideValidationLabel()
             self.isUsernameAvailable(username: username)
         } else {
-            self.view.showValidationLabel("Username format is not valid.")
+            self.view?.showValidationLabel("Username format is not valid.")
         }
     }
     
@@ -33,13 +29,13 @@ class ChangePropertyPresenter: ChangePropertyPresenterDelegate {
         networkService.load(context: UsernameAvailabilityEndPoint(username: username)) { response in
             switch response {
             case .failure(let error):
-                self.view.show(error: error.localizedDescription)
-                self.view.showValidationLabel("Error")
+                self.view?.show(error: error.localizedDescription)
+                self.view?.showValidationLabel("Error")
             case .success(let statusCode):
                 if statusCode == 406 {
-                    self.view.showValidationLabel("Username is already in use.")
+                    self.view?.showValidationLabel("Username is already in use.")
                 } else if statusCode == 200 {
-                    self.view.hideValidationLabel()
+                    self.view?.hideValidationLabel()
                 }
             }
         }

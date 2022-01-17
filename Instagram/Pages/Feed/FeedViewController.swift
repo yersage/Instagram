@@ -12,14 +12,24 @@ class FeedViewController: UIViewController, FeedViewDelegate {
     // MARK:- Initialization
     var posts: [PostModel] = []
     var postsState: [PostState] = []
-        
-    var presenter: FeedPresenterDelegate?
-
+    
     private lazy var feedTableView: UITableView = {
         let tableView = UITableView()
         tableView.register(PostTableViewCell.self, forCellReuseIdentifier: PostTableViewCell.identifier)
         return tableView
     }()
+    
+    private let presenter: FeedPresenterDelegate
+    
+    init?(presenter: FeedPresenterDelegate, coder: NSCoder) {
+        self.presenter = presenter
+        super.init(coder: coder)
+    }
+    
+    @available(*, unavailable, renamed: "init(product:coder:)")
+    required init?(coder: NSCoder) {
+        fatalError("Invalid way of decoding this class")
+    }
     
     // MARK:- Lifecycle functions
     override func viewDidAppear(_ animated: Bool) {
@@ -29,9 +39,8 @@ class FeedViewController: UIViewController, FeedViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter = FeedPresenter(view: self)
         layout()
-        presenter?.downloadPosts(firstPage: true)
+        presenter.downloadPosts(firstPage: true)
     }
     
     private func layout() {
@@ -96,7 +105,7 @@ extension FeedViewController: UITableViewDataSource {
         
         cell.postModel = posts[indexPath.row]
         cell.postState = postsState[indexPath.row]
-                
+        
         return cell
     }
 }
@@ -108,12 +117,12 @@ extension FeedViewController: UIScrollViewDelegate {
         
         if position > feedTableView.contentSize.height - 200 - scrollView.frame.size.height {
             feedTableView.tableFooterView = createSpinnerFooter()
-            presenter?.downloadPosts(firstPage: false)
+            presenter.downloadPosts(firstPage: false)
         }
         
         if position < -200 {
             feedTableView.tableHeaderView = createSpinnerHeader()
-            presenter?.downloadPosts(firstPage: true)
+            presenter.downloadPosts(firstPage: true)
         }
     }
 }
@@ -161,16 +170,16 @@ extension FeedViewController: PostTableViewCellDelegate {
         
         self.navigationController!.pushViewController(profileViewController, animated: true)
     }
-
+    
     // TODO: is it correct to make postID optional?
     func likePressed(_ cell: UITableViewCell, postID: Int?) {
         guard let indexPath = feedTableView.indexPath(for: cell) else { return }
-        presenter?.like(like: posts[indexPath.row].postMetaData.isPostLikedByCurrentUser, postID: postID!, index: indexPath.row)
+        presenter.like(like: posts[indexPath.row].postMetaData.isPostLikedByCurrentUser, postID: postID!, index: indexPath.row)
     }
     
     func unlikePressed(_ cell: UITableViewCell, postID: Int?) {
         guard let indexPath = feedTableView.indexPath(for: cell) else { return }
-        presenter?.unlike(like: posts[indexPath.row].postMetaData.isPostLikedByCurrentUser, postID: postID!, index: indexPath.row)
+        presenter.unlike(like: posts[indexPath.row].postMetaData.isPostLikedByCurrentUser, postID: postID!, index: indexPath.row)
         
     }
     

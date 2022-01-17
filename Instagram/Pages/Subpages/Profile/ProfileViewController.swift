@@ -22,7 +22,17 @@ class ProfileViewController: UIViewController, ProfileViewDelegate {
     @IBOutlet weak var postsCollectionView: UICollectionView!
     
     // MARK:- Initialization
-    private var presenter: ProfilePresenterDelegate?
+    private let presenter: ProfilePresenterDelegate
+    
+    init?(presenter: ProfilePresenterDelegate, coder: NSCoder) {
+        self.presenter = presenter
+        super.init(coder: coder)
+    }
+    
+    @available(*, unavailable, renamed: "init(product:coder:)")
+    required init?(coder: NSCoder) {
+        fatalError("Invalid way of decoding this class")
+    }
     
     var posts: [PostModel] = []
     var postState: [PostState] = []
@@ -34,10 +44,9 @@ class ProfileViewController: UIViewController, ProfileViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         layout()
-        presenter = ProfilePresenter(view: self)
         guard let userID = userID else { return }
-        presenter?.getProfileData(userID: userID)
-        presenter?.getPosts(firstPage: true, userID: "\(userID)")
+        presenter.getProfileData(userID: userID)
+        presenter.getPosts(firstPage: true, userID: "\(userID)")
         profileImageView.loadImagesFromUserID(userID: userID)
     }
     
@@ -65,12 +74,12 @@ class ProfileViewController: UIViewController, ProfileViewDelegate {
     
     @IBAction func followButtonPressed(_ sender: UIButton) {
         if followButton.titleLabel?.text == "Follow" {
-            presenter?.follow(userID: userID)
+            presenter.follow(userID: userID)
             followButton.setTitleColor(.black, for: .normal)
             followButton.setTitle("Following", for: .normal)
             followButton.backgroundColor = .none
         } else {
-            presenter?.unfollow(userID: userID)
+            presenter.unfollow(userID: userID)
             followButton.setTitleColor(.white, for: .normal)
             followButton.setTitle("Follow", for: .normal)
             followButton.backgroundColor = .blue

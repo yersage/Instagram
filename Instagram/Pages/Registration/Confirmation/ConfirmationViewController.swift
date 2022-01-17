@@ -13,22 +13,32 @@ class ConfirmationViewController: UIViewController, ConfirmationViewDelegate {
     @IBOutlet weak var validationLabel: UILabel!
     @IBOutlet weak var verificationCodeTextField: UITextField!
     
-    var presenter: ConfirmationPresenterDelegate?
     var email: String?
     var username: String?
     var password: String?
+    
+    private let presenter: ConfirmationPresenterDelegate
+    
+    init?(presenter: ConfirmationPresenterDelegate, coder: NSCoder) {
+        self.presenter = presenter
+        super.init(coder: coder)
+    }
+    
+    @available(*, unavailable, renamed: "init(product:coder:)")
+    required init?(coder: NSCoder) {
+        fatalError("Invalid way of decoding this class")
+    }
     
     // MARK:- Lifecycle functions
     override func viewDidLoad() {
         super.viewDidLoad()
         captionLabel.text = "Enter the confirmation code we sent to \(email!)."
-        presenter = ConfirmationPresenter(view: self)
-        presenter!.signup(email: email!, password: password!, username: username!)
+        presenter.signup(email: email!, password: password!, username: username!)
     }
     
     // MARK:- IBActions
     @IBAction func nextButtonPressed(_ sender: UIButton) {
-        presenter!.verify(email: email!, verificationCode: verificationCodeTextField.text!)
+        presenter.verify(email: email!, verificationCode: verificationCodeTextField.text!)
     }
     
     // MARK:- ConfirmationViewDelegate funcs

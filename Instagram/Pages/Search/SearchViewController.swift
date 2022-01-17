@@ -11,13 +11,23 @@ class SearchViewController: UIViewController, SearchViewDelegate {
     
     @IBOutlet weak var searchResultsTableView: UITableView!
     @IBOutlet weak var searchTextField: UITextField!
-    private var presenter: SearchPresenterDelegate?
     private var results: [ProfileModel] = []
+    
+    private let presenter: SearchPresenterDelegate
+    
+    init?(presenter: SearchPresenterDelegate, coder: NSCoder) {
+        self.presenter = presenter
+        super.init(coder: coder)
+    }
+    
+    @available(*, unavailable, renamed: "init(product:coder:)")
+    required init?(coder: NSCoder) {
+        fatalError("Invalid way of decoding this class")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         layout()
-        presenter = SearchPresenter(view: self)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -109,6 +119,6 @@ extension SearchViewController: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        presenter?.search(by: textField.text!)
+        presenter.search(by: textField.text!)
     }
 }

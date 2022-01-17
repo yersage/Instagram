@@ -15,7 +15,17 @@ class EditProfileViewController: UIViewController, EditProfileViewDelegate {
     @IBOutlet weak var websiteTextField: UITextField!
     @IBOutlet weak var profileImageView: CachedImageView!
     
-    var presenter: EditProfilePresenterDelegate?
+    private let presenter: EditProfilePresenterDelegate
+    
+    init?(presenter: EditProfilePresenterDelegate, coder: NSCoder) {
+        self.presenter = presenter
+        super.init(coder: coder)
+    }
+    
+    @available(*, unavailable, renamed: "init(product:coder:)")
+    required init?(coder: NSCoder) {
+        fatalError("Invalid way of decoding this class")
+    }
     
     var dictionary: [String: String?] = [:]
     
@@ -31,7 +41,6 @@ class EditProfileViewController: UIViewController, EditProfileViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter = EditProfilePresenter(view: self)
         layoutSubviews()
         setupSubviews()
     }
@@ -64,7 +73,7 @@ class EditProfileViewController: UIViewController, EditProfileViewDelegate {
     }
     
     @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
-        presenter?.putProfileData(image: profileImageView.image!, name: dictionary["Name"]!, website: websiteTextField.text ?? websiteTextField.placeholder, bio: dictionary["Bio"]!, username: dictionary["Username"]!!)
+        presenter.putProfileData(image: profileImageView.image!, name: dictionary["Name"]!, website: websiteTextField.text ?? websiteTextField.placeholder, bio: dictionary["Bio"]!, username: dictionary["Username"]!!)
     }
     
     @IBAction func propertyButtonPressed(_ sender: UIButton) {

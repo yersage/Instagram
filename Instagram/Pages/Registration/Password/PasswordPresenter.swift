@@ -8,21 +8,17 @@
 import Foundation
 
 class PasswordPresenter: PasswordPresenterDelegate {
-    private let view: PasswordViewDelegate
+    weak var view: PasswordViewDelegate?
     private let networkService: NetworkService = NetworkAdapter()
-    
-    init(view: PasswordViewDelegate) {
-        self.view = view
-    }
     
     func isPasswordAcceptable(password: String) {
         let answer = isPasswordValid(password)
         
         if answer {
-            self.view.hideLabel()
-            self.view.goToWelcomeVC()
+            self.view?.hideLabel()
+            self.view?.goToWelcomeVC()
         } else {
-            self.view.showLabel(text: "Invalid password format.")
+            self.view?.showLabel(text: "Invalid password format.")
         }
     }
     

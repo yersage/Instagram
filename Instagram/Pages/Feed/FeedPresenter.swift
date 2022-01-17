@@ -13,11 +13,7 @@ class FeedPresenter: FeedPresenterDelegate {
     private let networkService: NetworkService = NetworkAdapter()
     private let feedService = FeedService()
     
-    private let view: FeedViewDelegate
-    
-    init(view: FeedViewDelegate) {
-        self.view = view
-    }
+    weak var view: FeedViewDelegate?
     
     func downloadPosts(firstPage: Bool) {
         
@@ -33,14 +29,14 @@ class FeedPresenter: FeedPresenterDelegate {
         networkService.loadDecodable(context: FeedPostsEndPoint(page: page), type: [PostModel].self) { result in
             switch result {
             case .success(let newPosts):
-                self.view.removeSpinners()
+                self.view?.removeSpinners()
                 self.feedService.changeIsPaginating()
-                self.view.set(newPosts: newPosts)
-                self.view.reload()
+                self.view?.set(newPosts: newPosts)
+                self.view?.reload()
                 self.feedService.increasePage()
             case .failure(let error):
                 if error.localizedDescription != NetworkError.noData.localizedDescription {
-                    self.view.showError(error: error.localizedDescription)
+                    self.view?.showError(error: error.localizedDescription)
                 }
             }
         }
@@ -50,7 +46,7 @@ class FeedPresenter: FeedPresenterDelegate {
         networkService.loadDecodable(context: PostLikeEndPoint(postID: "\(postID)"), type: PostModel.self) { result in
             switch result {
             case .success(let newPost):
-                self.view.setPost(post: newPost, index: index)
+                self.view?.setPost(post: newPost, index: index)
             case .failure(let error):
                 if error.localizedDescription != NetworkError.noData.localizedDescription {
                     self.view.showError(error: error.localizedDescription)
@@ -63,7 +59,7 @@ class FeedPresenter: FeedPresenterDelegate {
         networkService.loadDecodable(context: PostUnlikeEndPoint(postID: "\(postID)"), type: PostModel.self) { result in
             switch result {
             case .success(let newPost):
-                self.view.setPost(post: newPost, index: index)
+                self.view?.setPost(post: newPost, index: index)
             case .failure(let error):
                 if error.localizedDescription != NetworkError.noData.localizedDescription {
                     self.view.showError(error: error.localizedDescription)

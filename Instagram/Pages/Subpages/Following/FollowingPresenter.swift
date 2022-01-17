@@ -11,12 +11,11 @@ class FollowingPresenter: FollowingPresenterDelegate {
     
     private let networkService: NetworkService = NetworkAdapter()
     private let service = FollowingService()
-    private var view: FollowingViewDelegate?
+    weak var view: FollowingViewDelegate?
     
     private var userID: Int?
     
-    init(view: FollowingViewDelegate, userID: Int?) {
-        self.view = view
+    init(userID: Int?) {
         self.userID = userID
     }
     

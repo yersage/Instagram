@@ -13,7 +13,17 @@ class FollowersViewController: UIViewController, FollowersViewDelegate {
     var followersState: [FollowersState] = []
     
     var userID: Int?
-    private var presenter: FollowersPresenterDelegate?
+    private let presenter: FollowersPresenterDelegate
+    
+    init?(presenter: FollowersPresenterDelegate, coder: NSCoder) {
+        self.presenter = presenter
+        super.init(coder: coder)
+    }
+    
+    @available(*, unavailable, renamed: "init(product:coder:)")
+    required init?(coder: NSCoder) {
+        fatalError("Invalid way of decoding this class")
+    }
     
     private let followersTableView: UITableView = {
         let tableView = UITableView()
@@ -24,8 +34,7 @@ class FollowersViewController: UIViewController, FollowersViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         layout()
-        presenter = FollowersPresenter(view: self)
-        presenter?.getFollowers(firstPage: true, userID: userID)
+        presenter.getFollowers(firstPage: true, userID: userID)
     }
     
     private func layout() {
@@ -93,12 +102,12 @@ extension FollowersViewController: UIScrollViewDelegate {
         
         if position > followersTableView.contentSize.height - 200 - scrollView.frame.size.height {
             followersTableView.tableFooterView = createSpinnerFooter()
-            presenter?.getFollowers(firstPage: false, userID: userID)
+            presenter.getFollowers(firstPage: false, userID: userID)
         }
         
         if position < -200 {
             followersTableView.tableHeaderView = createSpinnerHeader()
-            presenter?.getFollowers(firstPage: true, userID: userID)
+            presenter.getFollowers(firstPage: true, userID: userID)
         }
     }
     
@@ -126,11 +135,11 @@ extension FollowersViewController: UIScrollViewDelegate {
 extension FollowersViewController: FollowersTableViewCellDelegate {
     
     func followPressed(_ cell: UITableViewCell) {
-        presenter?.follow()
+        presenter.follow()
     }
     
     func removePressed(_ cell: UITableViewCell, postID: Int?) {
-        presenter?.remove()
+        presenter.remove()
     }
     
     func usernamePressed(_ cell: UITableViewCell, userID: String?, username: String?) {

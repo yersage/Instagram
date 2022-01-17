@@ -39,7 +39,19 @@ class CommentsViewController: UIViewController {
     
     var clearText: String = ""
     var commentIdOfBeingReplied: Int?
+    /*
+    private let presenter: PasswordPresenterDelegate
     
+    init?(presenter: PasswordPresenterDelegate, coder: NSCoder) {
+        self.presenter = presenter
+        super.init(coder: coder)
+    }
+    
+    @available(*, unavailable, renamed: "init(product:coder:)")
+    required init?(coder: NSCoder) {
+        fatalError("Invalid way of decoding this class")
+    }
+    */
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         navigationController?.isNavigationBarHidden = false

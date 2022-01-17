@@ -14,7 +14,17 @@ class ChangePropertyViewController: UIViewController, ChangePropertyViewDelegate
     @IBOutlet weak var validationLabel: UILabel!
     @IBOutlet weak var hintLabel: UILabel!
     
-    private var presenter: ChangePropertyPresenterDelegate?
+    private let presenter: ChangePropertyPresenterDelegate
+    
+    init?(presenter: ChangePropertyPresenterDelegate, coder: NSCoder) {
+        self.presenter = presenter
+        super.init(coder: coder)
+    }
+    
+    @available(*, unavailable, renamed: "init(product:coder:)")
+    required init?(coder: NSCoder) {
+        fatalError("Invalid way of decoding this class")
+    }
     
     var property: String?
     var value: String?
@@ -23,7 +33,6 @@ class ChangePropertyViewController: UIViewController, ChangePropertyViewDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter = ChangePropertyPresenter(view: self)
         propertyTextField.delegate = self
         if let property = property {
             propertyLabel.text = property
@@ -75,7 +84,7 @@ class ChangePropertyViewController: UIViewController, ChangePropertyViewDelegate
 extension ChangePropertyViewController: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
         if property == "Username" && textField.text! != "" {
-            presenter?.checkUsername(textField.text!)
+            presenter.checkUsername(textField.text!)
         }
         if property != "Username" {
             isUsernameValid = true
@@ -89,7 +98,7 @@ extension ChangePropertyViewController: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         if property == "Username" && textField.text! != "" {
-            presenter?.checkUsername(textField.text!)
+            presenter.checkUsername(textField.text!)
         }
         if property != "Username" {
             isUsernameValid = true

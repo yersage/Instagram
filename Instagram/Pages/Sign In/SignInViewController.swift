@@ -21,12 +21,21 @@ class SignInViewController: UIViewController, SignInViewDelegate {
     }
     
     var router: Router!
-    var presenter: SignInPresenterDelegate?
+    private let presenter: SignInPresenterDelegate
+    
+    init?(presenter: SignInPresenterDelegate, coder: NSCoder) {
+        self.presenter = presenter
+        super.init(coder: coder)
+    }
+    
+    @available(*, unavailable, renamed: "init(product:coder:)")
+    required init?(coder: NSCoder) {
+        fatalError("Invalid way of decoding this class")
+    }
     
     // MARK:- Lifecycle functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter = SignInPresenter(view: self)
         usernameTextField.delegate = self
         passwordTextField.delegate = self
         
@@ -55,7 +64,7 @@ class SignInViewController: UIViewController, SignInViewDelegate {
     }
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {
-        presenter?.login(username: usernameTextField.text!, password: passwordTextField.text!)
+        presenter.login(username: usernameTextField.text!, password: passwordTextField.text!)
     }
     
     @IBAction func signUpButtonPressed(_ sender: UIButton) {
@@ -82,7 +91,7 @@ extension SignInViewController: UITextFieldDelegate {
         if textField == usernameTextField {
             passwordTextField.becomeFirstResponder()
         } else {
-            presenter?.login(username: usernameTextField.text!, password: passwordTextField.text!)
+            presenter.login(username: usernameTextField.text!, password: passwordTextField.text!)
         }
 
         return true

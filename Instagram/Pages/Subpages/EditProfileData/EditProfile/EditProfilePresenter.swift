@@ -9,11 +9,7 @@ import UIKit
 
 class EditProfilePresenter: EditProfilePresenterDelegate {
     private let networkService: NetworkService = NetworkAdapter()
-    private var view: EditProfileViewDelegate?
-    
-    init (view: EditProfileViewDelegate) {
-        self.view = view
-    }
+    weak var view: EditProfileViewDelegate?
     
     func putProfileData(image: UIImage, name: String?, website: String?, bio: String?, username: String) {
         let imageData = image.pngData()

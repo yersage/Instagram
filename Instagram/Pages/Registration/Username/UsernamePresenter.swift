@@ -8,24 +8,20 @@
 import Foundation
 
 class UsernamePresenter: UsernamePresenterDelegate {
-    private let view: UsernameViewDelegate
+    weak var view: UsernameViewDelegate?
     private let networkService: NetworkRouterDelegate = NetworkAdapter()
-    
-    init(view: UsernameViewDelegate) {
-        self.view = view
-    }
     
     func isUsernameAvailable(username: String) {
         networkService.load(context: UsernameAvailabilityEndPoint(username: username)) { response in
             switch response {
             case .failure(let error):
-                self.view.show(error: error.localizedDescription)
+                self.view?.show(error: error.localizedDescription)
             case .success(let statusCode):
                 if statusCode == 406 {
-                    self.view.showLabel(text: "Username is already in use.")
+                    self.view?.showLabel(text: "Username is already in use.")
                 } else if statusCode == 200 {
-                    self.view.hideLabel()
-                    self.view.goToPasswordVC()
+                    self.view?.hideLabel()
+                    self.view?.goToPasswordVC()
                 }
             }
         }
@@ -37,10 +33,10 @@ class UsernamePresenter: UsernamePresenterDelegate {
         let isUsernameFormatValid = usernameTest.evaluate(with: username)
         
         if isUsernameFormatValid {
-            self.view.hideLabel()
+            self.view?.hideLabel()
             self.isUsernameAvailable(username: username)
         } else {
-            self.view.showLabel(text: "Invalid username format.")
+            self.view?.showLabel(text: "Invalid username format.")
         }
     }
 }

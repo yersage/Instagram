@@ -8,24 +8,20 @@
 import Foundation
 
 class EmailPresenter: EmailPresenterDelegate {
-    private let view: EmailViewDelegate
+    weak var view: EmailViewDelegate?
     private let networkService: NetworkService = NetworkAdapter()
-    
-    init(view: EmailViewDelegate) {
-        self.view = view
-    }
-    
+
     func isEmailAvailable(email: String) {
         networkService.load(context: EmailAvailabilityEndPoint(email: email)) { response in
             switch response {
             case .failure(let error):
-                self.view.show(error: error.localizedDescription)
+                self.view?.show(error: error.localizedDescription)
             case .success(let statusCode):
                 if statusCode == 406 {
-                    self.view.showLabel(text: "Email is already in use.")
+                    self.view?.showLabel(text: "Email is already in use.")
                 } else if statusCode == 200 {
-                    self.view.hideLabel()
-                    self.view.goToUsernameVC()
+                    self.view?.hideLabel()
+                    self.view?.goToUsernameVC()
                 }
             }
         }
@@ -44,10 +40,10 @@ class EmailPresenter: EmailPresenterDelegate {
         let isEmailFormatValid = emailTest.evaluate(with: email)
         
         if isEmailFormatValid {
-            self.view.hideLabel()
+            self.view?.hideLabel()
             self.isEmailAvailable(email: email)
         } else {
-            self.view.showLabel(text: "Invalid email format.")
+            self.view?.showLabel(text: "Invalid email format.")
         }
     }
 }
