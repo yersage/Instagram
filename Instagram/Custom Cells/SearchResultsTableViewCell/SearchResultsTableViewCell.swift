@@ -8,18 +8,6 @@
 import UIKit
 
 final class SearchResultsTableViewCell: UITableViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
     
     static let identifier = "SearchResultsTableViewCell"
     var delegate: SearchResultsTableViewCellDelegate?
@@ -105,27 +93,27 @@ final class SearchResultsTableViewCell: UITableViewCell {
     func layout() {
         contentView.addSubview(searchResultStackView)
         
-        searchResultStackView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        searchResultStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
-        searchResultStackView.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
-        searchResultStackView.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
+        NSLayoutConstraint.activate([
+            searchResultStackView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            searchResultStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            searchResultStackView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
+            searchResultStackView.rightAnchor.constraint(equalTo: contentView.rightAnchor),
+            profileImageView.topAnchor.constraint(equalTo: searchResultStackView.topAnchor, constant: 10),
+            profileImageView.bottomAnchor.constraint(equalTo: searchResultStackView.bottomAnchor, constant: -10),
+            profileImageView.leftAnchor.constraint(equalTo: searchResultStackView.leftAnchor, constant: 10),
+            profileImageView.heightAnchor.constraint(equalToConstant: 30),
+            profileImageView.widthAnchor.constraint(equalToConstant: 30),
+            dataStackView.topAnchor.constraint(equalTo: profileImageView.topAnchor),
+            dataStackView.bottomAnchor.constraint(equalTo: profileImageView.bottomAnchor),
+            dataStackView.leftAnchor.constraint(equalTo: profileImageView.rightAnchor, constant: 10)
+        ])
         
         dataStackView.addSubview(username)
         dataStackView.addSubview(name)
         
         searchResultStackView.addSubview(profileImageView)
         searchResultStackView.addSubview(dataStackView)
-        
-        profileImageView.topAnchor.constraint(equalTo: searchResultStackView.topAnchor, constant: 10).isActive = true
-        profileImageView.bottomAnchor.constraint(equalTo: searchResultStackView.bottomAnchor, constant: -10).isActive = true
-        profileImageView.leftAnchor.constraint(equalTo: searchResultStackView.leftAnchor, constant: 10).isActive = true
-        profileImageView.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        profileImageView.widthAnchor.constraint(equalToConstant: 30).isActive = true
-        
-        dataStackView.topAnchor.constraint(equalTo: profileImageView.topAnchor).isActive = true
-        dataStackView.bottomAnchor.constraint(equalTo: profileImageView.bottomAnchor).isActive = true
-        dataStackView.leftAnchor.constraint(equalTo: profileImageView.rightAnchor, constant: 10).isActive = true
-        
+
         username.addGestureRecognizer(UITapGestureRecognizer(target:self, action: #selector(usernameButtonPressed)))
     }
     
