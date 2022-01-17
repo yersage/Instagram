@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FeedViewController: UIViewController, FeedViewDelegate {
+final class FeedViewController: UIViewController, FeedViewDelegate {
     
     // MARK:- Initialization
     var posts: [PostModel] = []

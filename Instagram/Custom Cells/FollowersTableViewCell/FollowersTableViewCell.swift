@@ -12,7 +12,7 @@ struct FollowersState {
     var isRemoved: Bool
 }
 
-class FollowersTableViewCell: UITableViewCell {
+final class FollowersTableViewCell: UITableViewCell {
     
     // MARK:- Initialization
     static let identifier = "FollowersTableViewCell"

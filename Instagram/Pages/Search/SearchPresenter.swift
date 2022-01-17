@@ -7,7 +7,7 @@
 
 import Foundation
 
-class SearchPresenter: SearchPresenterDelegate {
+final class SearchPresenter: SearchPresenterDelegate {
     private let networkService: NetworkService = NetworkAdapter()
     weak var view: SearchViewDelegate?
     

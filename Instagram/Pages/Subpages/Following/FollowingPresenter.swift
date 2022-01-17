@@ -7,7 +7,7 @@
 
 import Foundation
 
-class FollowingPresenter: FollowingPresenterDelegate {
+final class FollowingPresenter: FollowingPresenterDelegate {
     
     private let networkService: NetworkService = NetworkAdapter()
     private let service = FollowingService()

@@ -17,7 +17,7 @@ struct ReplyState {
     var page: Int
 }
 
-class CommentsViewController: UIViewController {
+final class CommentsViewController: UIViewController {
     
     @IBOutlet weak var commentsTableView: UITableView!
     @IBOutlet weak var profileImageView: UIImageView!

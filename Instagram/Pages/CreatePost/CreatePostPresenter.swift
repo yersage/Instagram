@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CreatePostPresenter: CreatePostPresenterDelegate {
+final class CreatePostPresenter: CreatePostPresenterDelegate {
     weak var view: CreatePostViewDelegate?
     private let networkService: NetworkService = NetworkAdapter()
     

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EditProfileViewController: UIViewController, EditProfileViewDelegate {
+final class EditProfileViewController: UIViewController, EditProfileViewDelegate {
     
     @IBOutlet weak var bioButton: UIButton!
     @IBOutlet weak var nameButon: UIButton!

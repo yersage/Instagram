@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ChangePropertyPresenter: ChangePropertyPresenterDelegate {
+final class ChangePropertyPresenter: ChangePropertyPresenterDelegate {
     
     private let networkService: NetworkService = NetworkAdapter()
     weak var view: ChangePropertyViewDelegate?

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ConfirmationViewController: UIViewController, ConfirmationViewDelegate {
+final class ConfirmationViewController: UIViewController, ConfirmationViewDelegate {
     // MARK:- IBOutlets
     @IBOutlet weak var captionLabel: UILabel!
     @IBOutlet weak var validationLabel: UILabel!

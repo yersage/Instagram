@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SignInRouter: RouterDelegate {
+final class SignInRouter: RouterDelegate {
     func route(to routeID: String, from context: UIViewController, parameters: Any?) {
         guard let route = SignInViewController.Route(rawValue: routeID) else { return }
         switch route {

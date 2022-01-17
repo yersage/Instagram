@@ -23,7 +23,7 @@ protocol UsernameDelegate: AnyObject {
     func goToUsername(_ cell: CommentTableViewCell)
 }
 
-class CommentTableViewCell: UITableViewCell {
+final class CommentTableViewCell: UITableViewCell {
     
     let horizontalStack: UIStackView = {
         let stackView = UIStackView()

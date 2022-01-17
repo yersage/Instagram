@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ChangePropertyViewController: UIViewController, ChangePropertyViewDelegate {
+final class ChangePropertyViewController: UIViewController, ChangePropertyViewDelegate {
     
     @IBOutlet weak var propertyLabel: UILabel!
     @IBOutlet weak var propertyTextField: UITextField!

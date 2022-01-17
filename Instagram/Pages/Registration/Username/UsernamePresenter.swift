@@ -7,7 +7,7 @@
 
 import Foundation
 
-class UsernamePresenter: UsernamePresenterDelegate {
+final class UsernamePresenter: UsernamePresenterDelegate {
     weak var view: UsernameViewDelegate?
     private let networkService: NetworkRouterDelegate = NetworkAdapter()
     

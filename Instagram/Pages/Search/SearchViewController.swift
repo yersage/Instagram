@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SearchViewController: UIViewController, SearchViewDelegate {
+final class SearchViewController: UIViewController, SearchViewDelegate {
     
     @IBOutlet weak var searchResultsTableView: UITableView!
     @IBOutlet weak var searchTextField: UITextField!

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ConfirmationPresenter: ConfirmationPresenterDelegate {
+final class ConfirmationPresenter: ConfirmationPresenterDelegate {
     weak var view: ConfirmationViewDelegate?
     private let networkService: NetworkService = NetworkAdapter()
     

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LoaderCell: UICollectionViewCell {
+final class LoaderCell: UICollectionViewCell {
     
     static let identifier = "loader"
     

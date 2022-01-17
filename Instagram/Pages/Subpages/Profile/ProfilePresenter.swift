@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ProfilePresenter: ProfilePresenterDelegate {
+final class ProfilePresenter: ProfilePresenterDelegate {
     
     private let networkService: NetworkService = NetworkAdapter()
     weak var view: ProfileViewDelegate?

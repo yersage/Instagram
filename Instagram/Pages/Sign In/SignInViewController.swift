@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SignInViewController: UIViewController, SignInViewDelegate {
+final class SignInViewController: UIViewController, SignInViewDelegate {
     // MARK:- IBOutlets
     @IBOutlet weak var validationLabel: UILabel!
     @IBOutlet weak var usernameTextField: UITextField!

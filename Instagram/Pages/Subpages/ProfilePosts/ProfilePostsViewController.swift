@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProfilePostsViewController: UIViewController {
+final class ProfilePostsViewController: UIViewController {
     
     var page: Int = 0
     var isPaginating: Bool = false

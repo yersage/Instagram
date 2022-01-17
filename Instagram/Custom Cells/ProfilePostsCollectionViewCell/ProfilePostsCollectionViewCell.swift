@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProfilePostsCollectionViewCell: UICollectionViewCell {
+final class ProfilePostsCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var imageView: CachedImageView!
     

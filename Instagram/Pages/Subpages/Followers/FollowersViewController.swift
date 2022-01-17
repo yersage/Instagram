@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FollowersViewController: UIViewController, FollowersViewDelegate {
+final class FollowersViewController: UIViewController, FollowersViewDelegate {
     // MARK:-  Initialization
     var followers: [ProfileModel] = []
     var followersState: [FollowersState] = []

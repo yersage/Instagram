@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PasswordViewController: UIViewController, PasswordViewDelegate {
+final class PasswordViewController: UIViewController, PasswordViewDelegate {
     // MARK:- IBOutlets
     @IBOutlet weak var validationLabel: UILabel!
     @IBOutlet weak var passwordTextField: UITextField!

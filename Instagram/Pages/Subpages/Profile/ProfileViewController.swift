@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController, ProfileViewDelegate {
+final class ProfileViewController: UIViewController, ProfileViewDelegate {
     // MARK:- IBOutlets
     @IBOutlet weak var profileImageView: CachedImageView!
     @IBOutlet weak var postsLabel: UILabel!

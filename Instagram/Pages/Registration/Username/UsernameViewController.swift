@@ -7,7 +7,7 @@
 
 import UIKit
 
-class UsernameViewController: UIViewController, UsernameViewDelegate {
+final class UsernameViewController: UIViewController, UsernameViewDelegate {
     // MARK:- IBOutlets
     @IBOutlet weak var validationLabel: UILabel!
     @IBOutlet weak var usernameTextField: UITextField!

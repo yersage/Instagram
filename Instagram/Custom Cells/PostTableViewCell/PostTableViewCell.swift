@@ -58,7 +58,7 @@ extension PostTableViewCell {
     }
 }
 
-class PostTableViewCell: UITableViewCell {
+final class PostTableViewCell: UITableViewCell {
     
     // MARK:- Initalization
     static let identifier = "PostTableViewCell"

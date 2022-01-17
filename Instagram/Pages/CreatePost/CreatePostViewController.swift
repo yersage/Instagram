@@ -8,7 +8,7 @@
 import UIKit
 import Photos
 
-class CreatePostViewController: UIViewController, CreatePostViewDelegate {
+final class CreatePostViewController: UIViewController, CreatePostViewDelegate {
     
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var postTextView: UITextView!

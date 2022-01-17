@@ -7,7 +7,7 @@
 
 import Foundation
 
-class SignInPresenter: SignInPresenterDelegate {
+final class SignInPresenter: SignInPresenterDelegate {
     weak var view: SignInViewDelegate?
     private let networkService: NetworkRouterDelegate = NetworkRouter()
     

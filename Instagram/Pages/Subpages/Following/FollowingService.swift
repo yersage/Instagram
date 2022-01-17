@@ -7,7 +7,7 @@
 
 import Foundation
 
-class FollowingService {
+final class FollowingService {
     private var page: Int = 0
     private var isPaginating: Bool = false
     

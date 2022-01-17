@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EmailViewController: UIViewController, EmailViewDelegate {
+final class EmailViewController: UIViewController, EmailViewDelegate {
     // MARK:- IBOutlets
     @IBOutlet weak var validationLabel: UILabel!
     @IBOutlet weak var emailTextField: UITextField!

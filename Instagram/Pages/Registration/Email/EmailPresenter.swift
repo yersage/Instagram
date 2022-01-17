@@ -7,7 +7,7 @@
 
 import Foundation
 
-class EmailPresenter: EmailPresenterDelegate {
+final class EmailPresenter: EmailPresenterDelegate {
     weak var view: EmailViewDelegate?
     private let networkService: NetworkService = NetworkAdapter()
 

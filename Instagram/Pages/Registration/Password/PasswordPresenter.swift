@@ -7,7 +7,7 @@
 
 import Foundation
 
-class PasswordPresenter: PasswordPresenterDelegate {
+final class PasswordPresenter: PasswordPresenterDelegate {
     weak var view: PasswordViewDelegate?
     private let networkService: NetworkService = NetworkAdapter()
     

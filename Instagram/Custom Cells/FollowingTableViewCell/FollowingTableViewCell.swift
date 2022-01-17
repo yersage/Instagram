@@ -11,7 +11,7 @@ struct FollowingState {
     var isFollowing: Bool
 }
 
-class FollowingTableViewCell: UITableViewCell {
+final class FollowingTableViewCell: UITableViewCell {
     
     static let identifier = "FollowingTableViewCell"
     var delegate: FollowingTableViewCellDelegate?

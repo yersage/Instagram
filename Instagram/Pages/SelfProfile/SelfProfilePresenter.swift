@@ -7,7 +7,7 @@
 
 import Foundation
 
-class SelfProfilePresenter: SelfProfilePresenterDelegate {
+final class SelfProfilePresenter: SelfProfilePresenterDelegate {
     private let networkService: NetworkService = NetworkAdapter()
     weak var view: SelfProfileViewDelegate?
     private let feedService = FeedService()

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class WelcomePresenter: WelcomePresenterDelegate {
+final class WelcomePresenter: WelcomePresenterDelegate {
     weak var view: WelcomeViewDelegate?
     private let networkService: NetworkService = NetworkAdapter()
 

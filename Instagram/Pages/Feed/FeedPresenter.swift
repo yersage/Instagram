@@ -8,7 +8,7 @@
 import UIKit
 import Alamofire
 
-class FeedPresenter: FeedPresenterDelegate {
+final class FeedPresenter: FeedPresenterDelegate {
     // MARK:- Initialization
     private let networkService: NetworkService = NetworkAdapter()
     private let feedService = FeedService()

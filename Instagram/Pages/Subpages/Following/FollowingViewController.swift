@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FollowingViewController: UIViewController, FollowingViewDelegate {
+final class FollowingViewController: UIViewController, FollowingViewDelegate {
     // MARK:- Initialization
     private var followings: [ProfileModel] = []
     private var followingState: [FollowingState] = []

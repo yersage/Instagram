@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EditProfilePresenter: EditProfilePresenterDelegate {
+final class EditProfilePresenter: EditProfilePresenterDelegate {
     private let networkService: NetworkService = NetworkAdapter()
     weak var view: EditProfileViewDelegate?
     
