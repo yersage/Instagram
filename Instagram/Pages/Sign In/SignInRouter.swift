@@ -7,23 +7,24 @@
 
 import UIKit
 
-class SignInRouter: Router {
+class SignInRouter: RouterDelegate {
     func route(to routeID: String, from context: UIViewController, parameters: Any?) {
         guard let route = SignInViewController.Route(rawValue: routeID) else { return }
         switch route {
         case .login:
-            let presenter = FeedPresenter(view: self)
-            let vc = FeedViewController()
-            
+            let presenter = FeedPresenter()
+            guard let vc = context.storyboard?.instantiateViewController(identifier: "FeedViewController", creator: { coder in
+                FeedViewController(presenter: presenter, coder: coder)
+            }) else { return }
+            presenter.view = vc
+            context.navigationController?.pushViewController(vc, animated: true)
         case .signUp:
-            // Push sign-up-screen:
-            let vc = SignUpViewController()
-            let vm = SignUpViewModel()
-            vc.viewModel = vm
-            vc.router = SignUpRouter(viewModel: vm)
-            context.navigationController.push(vc, animated: true)
-        case . forgotPasswordScreen:
-        // Push forgot-password-screen.
+            let presenter = EmailPresenter()
+            guard let vc = context.storyboard?.instantiateViewController(identifier: "EmailViewController", creator: { coder in
+                EmailViewController(presenter: presenter, coder: coder)
+            }) else { return }
+            presenter.view = vc
+            context.navigationController?.pushViewController(vc, animated: true)
         }
     }
 }

@@ -20,7 +20,7 @@ class SignInViewController: UIViewController, SignInViewDelegate {
           case signUp
     }
     
-    var router: Router!
+    var router: RouterDelegate!
     private let presenter: SignInPresenterDelegate
     
     init?(presenter: SignInPresenterDelegate, coder: NSCoder) {
@@ -69,7 +69,6 @@ class SignInViewController: UIViewController, SignInViewDelegate {
     
     @IBAction func signUpButtonPressed(_ sender: UIButton) {
         router.route(to: Route.signUp.rawValue, from: self, parameters: nil)
-        performSegue(withIdentifier: "goToEmailVC", sender: self)
     }
     
     // MARK:- SignInViewDelegate funcs
@@ -81,7 +80,6 @@ class SignInViewController: UIViewController, SignInViewDelegate {
     
     func goToFeedVC() {
         router.route(to: Route.login.rawValue, from: self, parameters: nil)
-        performSegue(withIdentifier: "goToFeedVC", sender: self)
     }
 }
 

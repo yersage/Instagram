@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol Router {
+protocol RouterDelegate {
    func route(
       to routeID: String,
       from context: UIViewController,
