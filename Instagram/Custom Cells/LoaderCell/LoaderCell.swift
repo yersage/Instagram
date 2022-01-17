@@ -30,8 +30,10 @@ final class LoaderCell: UICollectionViewCell {
     func setup() {
         loader.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(loader)
-        loader.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
-        loader.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
+        NSLayoutConstraint.activate([
+            loader.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            loader.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+        ])
         loader.startAnimating()
     }
 }
