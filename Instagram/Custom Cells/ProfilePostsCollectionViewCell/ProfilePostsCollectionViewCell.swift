@@ -17,13 +17,11 @@ final class ProfilePostsCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
     public func configure(with postID: Int) {
         self.postID = postID
         imageView.loadImagesFromPostID(postID: postID)
-//        imageView.loadImagesFromURLString(urlString: InstagramRoute.postImages(postID: "\(postID)").urlString())
     }
     
     static func nib() -> UINib {
