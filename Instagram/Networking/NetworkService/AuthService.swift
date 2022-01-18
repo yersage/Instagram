@@ -9,13 +9,13 @@ import Foundation
 import Alamofire
 
 class AuthService {
-    func authorize(parameters: [String: Any]?, completion: @escaping (Result<Data, Error>) -> Void) {
-        guard let url = InstagramAPI.login.url else {
+    func authorize(_ route: EndPointType, completion: @escaping (Result<Data, Error>) -> Void) {
+        guard let url = route.url else {
             completion(.failure(NetworkError.urlValid))
             return
         }
         
-        AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+        AF.request(url, method: .post, parameters: route.parameters, encoding: JSONEncoding.default).responseJSON { response in
             if let error = response.error {
                 completion(.failure(error))
             }
