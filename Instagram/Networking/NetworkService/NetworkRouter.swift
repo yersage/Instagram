@@ -10,10 +10,10 @@ import Alamofire
 
 public typealias NetworkRouterCompletion = (_ data: Data?,_ response: URLResponse?,_ error: Error?)->()
 
-class NetworkRouter: NetworkRouterDelegate {
+class NetworkRouter<EndPoint: EndPointType>: NetworkRouterDelegate {
     private let interceptor = Interceptor()
     
-    func request(_ route: InstagramAPI, completion: @escaping NetworkRouterCompletion) {
+    func request(_ route: EndPointType, completion: @escaping NetworkRouterCompletion) {
         guard let url = route.url else {
             completion(nil, nil, NetworkError.urlValid)
             return
@@ -30,7 +30,7 @@ class NetworkRouter: NetworkRouterDelegate {
         }
     }
     
-    func upload(_ route: InstagramAPI, completion: @escaping NetworkRouterCompletion) {
+    func upload(_ route: EndPointType, completion: @escaping NetworkRouterCompletion) {
         guard let url = route.url else {
             completion(nil, nil, NetworkError.urlValid)
             return

@@ -9,6 +9,6 @@ import UIKit
 import Alamofire
 
 protocol NetworkRouterDelegate {
-    func request(_ route: InstagramAPI, completion: @escaping NetworkRouterCompletion)
-    func upload(_ route: InstagramAPI, completion: @escaping NetworkRouterCompletion)
+    func request(_ route: EndPointType, completion: @escaping NetworkRouterCompletion)
+    func upload(_ route: EndPointType, completion: @escaping NetworkRouterCompletion)
 }
