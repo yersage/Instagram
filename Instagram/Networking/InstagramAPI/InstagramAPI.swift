@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Alamofire
 
 public enum InstagramAPI {
     case login(username: String, password: String)
@@ -101,14 +102,14 @@ extension InstagramAPI: EndPointType {
         }
     }
     
-    var method: HTTPMethods {
+    var method: HTTPMethod {
         switch self {
         case .feedPosts, .postLike, .postUnlike, .profileData, .profilePosts, .follow, .unfollow, .comments, .showCommentReplies, .commentLike, .commentUnlike, .followersList, .followingList, .search:
-            return .GET
+            return .get
         case .emailAvailability, .usernameAvailability, .signUp, .accountVerification, .uploadPost, .postComment, .login, .refreshToken:
-            return .POST
+            return .post
         case .editProfile:
-            return .PUT
+            return .put
         }
     }
     
@@ -162,9 +163,9 @@ extension InstagramAPI: EndPointType {
     var encoding: ParameterEncoding {
         switch self {
         case .signUp, .login:
-            return .json
+            return JSONEncoding.default
         default:
-            return .url
+            return URLEncoding.default
         }
     }
 }

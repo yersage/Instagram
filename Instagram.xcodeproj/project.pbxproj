@@ -65,7 +65,6 @@
 		FC768BCD272920BF003F0EBB /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC768BCC272920BF003F0EBB /* NetworkError.swift */; };
 		FC768BCF272920CE003F0EBB /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC768BCE272920CE003F0EBB /* AppError.swift */; };
 		FC768BD7272921CE003F0EBB /* NetworkRouterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC768BD6272921CE003F0EBB /* NetworkRouterDelegate.swift */; };
-		FC768BDD27292249003F0EBB /* HTTPMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC768BDC27292249003F0EBB /* HTTPMethods.swift */; };
 		FC768BDF2729225D003F0EBB /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC768BDE2729225D003F0EBB /* EndPointType.swift */; };
 		FC79B3EC272F77CD00D4AFBD /* CachedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC79B3EB272F77CD00D4AFBD /* CachedImageView.swift */; };
 		FC84EAD126F0F5DB0096BCC8 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC84EAD026F0F5DB0096BCC8 /* ProfileModel.swift */; };
@@ -86,7 +85,6 @@
 		FCB7E5F226FC19E7009DC8B0 /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB7E5F126FC19E7009DC8B0 /* CreatePostViewController.swift */; };
 		FCC69E9E2772169400FE8AE9 /* PayloadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC69E9D2772169400FE8AE9 /* PayloadModel.swift */; };
 		FCCC5EAC2793CF6100E07F1A /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCC5EAB2793CF6100E07F1A /* AuthService.swift */; };
-		FCCC5EB02793F7DD00E07F1A /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCC5EAF2793F7DD00E07F1A /* ParameterEncoding.swift */; };
 		FCCC5EB22794258A00E07F1A /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCC5EB12794258A00E07F1A /* NetworkRouter.swift */; };
 		FCCC5EB427942C3F00E07F1A /* FormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCC5EB327942C3F00E07F1A /* FormData.swift */; };
 		FCCC5EB62794667E00E07F1A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCC5EB52794667E00E07F1A /* Constants.swift */; };
@@ -180,7 +178,6 @@
 		FC768BCC272920BF003F0EBB /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		FC768BCE272920CE003F0EBB /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		FC768BD6272921CE003F0EBB /* NetworkRouterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouterDelegate.swift; sourceTree = "<group>"; };
-		FC768BDC27292249003F0EBB /* HTTPMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethods.swift; sourceTree = "<group>"; };
 		FC768BDE2729225D003F0EBB /* EndPointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPointType.swift; sourceTree = "<group>"; };
 		FC79B3EB272F77CD00D4AFBD /* CachedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedImageView.swift; sourceTree = "<group>"; };
 		FC84EAD026F0F5DB0096BCC8 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
@@ -203,7 +200,6 @@
 		FCB7E5F126FC19E7009DC8B0 /* CreatePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
 		FCC69E9D2772169400FE8AE9 /* PayloadModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayloadModel.swift; sourceTree = "<group>"; };
 		FCCC5EAB2793CF6100E07F1A /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
-		FCCC5EAF2793F7DD00E07F1A /* ParameterEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
 		FCCC5EB12794258A00E07F1A /* NetworkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
 		FCCC5EB327942C3F00E07F1A /* FormData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormData.swift; sourceTree = "<group>"; };
 		FCCC5EB52794667E00E07F1A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -529,8 +525,6 @@
 			isa = PBXGroup;
 			children = (
 				FC768BDE2729225D003F0EBB /* EndPointType.swift */,
-				FC768BDC27292249003F0EBB /* HTTPMethods.swift */,
-				FCCC5EAF2793F7DD00E07F1A /* ParameterEncoding.swift */,
 				FCCC5EB327942C3F00E07F1A /* FormData.swift */,
 			);
 			path = EndPointType;
@@ -842,7 +836,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC423FC926F1D89300F1BE5E /* FollowersViewController.swift in Sources */,
-				FC768BDD27292249003F0EBB /* HTTPMethods.swift in Sources */,
 				FC32333A27846D7A00F6A640 /* SearchResultsTableViewCellDelegate.swift in Sources */,
 				FCFA3D41271B1D0C00658DF2 /* FeedViewDelegate.swift in Sources */,
 				FC16D968278459A400A84488 /* SearchViewController.swift in Sources */,
@@ -916,7 +909,6 @@
 				FCFA604527006E42005F1B4A /* WelcomeViewController.swift in Sources */,
 				FCFA603F27006E28005F1B4A /* UsernameViewController.swift in Sources */,
 				FCB7E5EF26FC196E009DC8B0 /* NotificationsViewController.swift in Sources */,
-				FCCC5EB02793F7DD00E07F1A /* ParameterEncoding.swift in Sources */,
 				FC7188B5275CA68B00A6F2CA /* EmailPresenterDelegate.swift in Sources */,
 				FC43DCBD273A5EF80098C882 /* ProfileViewDelegate.swift in Sources */,
 				FC2FFBAF278C2C1C00E30AB9 /* ProfileDataModel.swift in Sources */,

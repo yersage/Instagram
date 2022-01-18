@@ -6,13 +6,12 @@
 //
 
 import Foundation
-
-public typealias HTTPHeaders = [String: String]
+import Alamofire
 
 protocol EndPointType {
     var url: URL? { get }
     var path: String { get }
-    var method: HTTPMethods { get }
+    var method: HTTPMethod { get }
     var parameters: [String: Any]? { get }
     var formDataParts: [FormData]? { get }
     var encoding: ParameterEncoding { get }

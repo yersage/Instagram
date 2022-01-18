@@ -21,9 +21,9 @@ class NetworkRouter<EndPoint: EndPointType>: NetworkRouterDelegate {
         
         AF.request(
             url,
-            method: .get,
+            method: route.method,
             parameters: route.parameters,
-            encoding: route.encoding == .url ? URLEncoding.default : JSONEncoding.default,
+            encoding: route.encoding,
             interceptor: interceptor
         ).responseJSON { response in
             completion(response.data, response.response, response.error)
@@ -45,7 +45,7 @@ class NetworkRouter<EndPoint: EndPointType>: NetworkRouterDelegate {
             for formData in formDataParts {
                 multipartFormData.append(formData.data, withName: formData.withName, fileName: formData.fileName, mimeType: formData.mimeType)
             }
-        }, to: url, method: .put, interceptor: interceptor).responseData { response in
+        }, to: url, method: route.method, interceptor: interceptor).responseData { response in
             completion(response.data, response.response, response.error)
         }
     }
