@@ -87,7 +87,6 @@
 		FCC69E9E2772169400FE8AE9 /* PayloadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC69E9D2772169400FE8AE9 /* PayloadModel.swift */; };
 		FCCC5EAC2793CF6100E07F1A /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCC5EAB2793CF6100E07F1A /* AuthService.swift */; };
 		FCCC5EB22794258A00E07F1A /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCC5EB12794258A00E07F1A /* NetworkRouter.swift */; };
-		FCCC5EB427942C3F00E07F1A /* FormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCC5EB327942C3F00E07F1A /* FormData.swift */; };
 		FCCC5EB62794667E00E07F1A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCC5EB52794667E00E07F1A /* Constants.swift */; };
 		FCCC5EB8279492D500E07F1A /* RouterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCC5EB7279492D500E07F1A /* RouterDelegate.swift */; };
 		FCCEFEF52736AD9B00C04D4D /* FeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCEFEF42736AD9B00C04D4D /* FeedService.swift */; };
@@ -203,7 +202,6 @@
 		FCC69E9D2772169400FE8AE9 /* PayloadModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayloadModel.swift; sourceTree = "<group>"; };
 		FCCC5EAB2793CF6100E07F1A /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		FCCC5EB12794258A00E07F1A /* NetworkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
-		FCCC5EB327942C3F00E07F1A /* FormData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormData.swift; sourceTree = "<group>"; };
 		FCCC5EB52794667E00E07F1A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FCCC5EB7279492D500E07F1A /* RouterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterDelegate.swift; sourceTree = "<group>"; };
 		FCCEFEF42736AD9B00C04D4D /* FeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedService.swift; sourceTree = "<group>"; };
@@ -506,7 +504,7 @@
 			children = (
 				FCC8C62B2760F6DF0093B6B3 /* Interceptor */,
 				FC3FD5872796FAB50071E78E /* NetworkManager */,
-				FCA4DB97272644050099E9C3 /* NetworkService */,
+				FCA4DB97272644050099E9C3 /* NetworkRouter */,
 				FCA4DB9A2726441D0099E9C3 /* EndPointType */,
 				FC768BCB27292080003F0EBB /* NetworkError */,
 				FCA4DB99272644170099E9C3 /* InstagramEndPoint */,
@@ -514,14 +512,14 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
-		FCA4DB97272644050099E9C3 /* NetworkService */ = {
+		FCA4DB97272644050099E9C3 /* NetworkRouter */ = {
 			isa = PBXGroup;
 			children = (
 				FCCC5EAB2793CF6100E07F1A /* AuthService.swift */,
 				FCCC5EB12794258A00E07F1A /* NetworkRouter.swift */,
 				FC768BD6272921CE003F0EBB /* NetworkRouterDelegate.swift */,
 			);
-			path = NetworkService;
+			path = NetworkRouter;
 			sourceTree = "<group>";
 		};
 		FCA4DB99272644170099E9C3 /* InstagramEndPoint */ = {
@@ -536,7 +534,6 @@
 			isa = PBXGroup;
 			children = (
 				FC768BDE2729225D003F0EBB /* EndPointType.swift */,
-				FCCC5EB327942C3F00E07F1A /* FormData.swift */,
 			);
 			path = EndPointType;
 			sourceTree = "<group>";
@@ -942,7 +939,6 @@
 				FCFA350227035A8600B8E1AC /* FollowerModel.swift in Sources */,
 				FC5AC37726F3891100114152 /* CommentModel.swift in Sources */,
 				FC84EAD126F0F5DB0096BCC8 /* ProfileModel.swift in Sources */,
-				FCCC5EB427942C3F00E07F1A /* FormData.swift in Sources */,
 				FCFA603D27006E11005F1B4A /* EmailViewController.swift in Sources */,
 				FCF1A1812727C4B5001846ED /* Interceptor.swift in Sources */,
 				FC043495273CFCA800DFE63D /* FollowingPresenterDelegate.swift in Sources */,

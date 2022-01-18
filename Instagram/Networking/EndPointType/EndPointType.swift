@@ -16,3 +16,10 @@ protocol EndPointType {
     var formDataParts: [FormData]? { get }
     var encoding: ParameterEncoding { get }
 }
+
+struct FormData {
+    var data: Data
+    var withName: String
+    var fileName: String?
+    var mimeType: String?
+}
