@@ -20,8 +20,6 @@ enum NetworkError: AppError {
     
     var description: String {
         switch self {
-        case .serverError(let description):
-            return description
         case .dataLoad:
             return "Error loading data."
         case .unknown:
