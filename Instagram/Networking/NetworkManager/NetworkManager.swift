@@ -8,7 +8,7 @@
 import Foundation
 
 class NetworkManager {
-    
+    // сделать манагер общим на весь апп?
     let networkRouter: NetworkRouterDelegate
     
     init(networkRouter: NetworkRouterDelegate) {
