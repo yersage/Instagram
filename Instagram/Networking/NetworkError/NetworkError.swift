@@ -16,6 +16,7 @@ enum NetworkError: AppError {
     case urlValid
     case noData
     case invalidParameters
+    case alreadyCreated
     
     var description: String {
         switch self {
@@ -33,6 +34,8 @@ enum NetworkError: AppError {
             return "No content."
         case .invalidParameters:
             return "One of the parameters is invalid."
+        case .alreadyCreated:
+            return "Provided parameter already exists."
         }
     }
 }
