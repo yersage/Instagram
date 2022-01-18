@@ -9,7 +9,6 @@ import Foundation
 
 enum NetworkError: AppError {
     
-    case serverError(description: String)
     case dataLoad
     case unknown
     case noConnection
