@@ -46,7 +46,6 @@ class Interceptor: RequestInterceptor {
                     UserDefaultsManager.shared.setRefreshToken(token: decodedData.refreshToken)
                     completion(true)
                 } else {
-                    print("Couldn't load tokens")
                     completion(false)
                 }
                 
