@@ -7,22 +7,31 @@
 
 import Foundation
 
-enum NetworkResponse:String {
-    case success
-    case authenticationError = "You need to be authenticated first."
-    case badRequest = "Bad request"
-    case outdated = "The url you requested is outdated."
-    case failed = "Network request failed."
-    case noData = "Response returned with no data to decode."
-    case unableToDecode = "We could not decode the response."
-}
-
 class NetworkManager {
     
     let networkRouter: NetworkRouterDelegate
     
     init(networkRouter: NetworkRouterDelegate) {
         self.networkRouter = networkRouter
+    }
+    
+    func upload<T: Decodable>(_ route: EndPointType, completion: @escaping (Result<T, Error>) -> Void) {
+        
+        networkRouter.upload(route) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            guard let data = data else { completion(.failure(NetworkError.noData)); return }
+            
+            do {
+                let result: T = try JSONDecoder().decode(T.self, from: data)
+                completion(.success(result))
+            } catch {
+                completion(.failure(NetworkError.dataLoad))
+            }
+        }
     }
     
     func request<T: Decodable>(_ route: EndPointType, completion: @escaping (Result<T, Error>) -> Void) {
@@ -33,7 +42,7 @@ class NetworkManager {
                 return
             }
             
-            guard let data = data else { completion(.failure(NetworkError.noData)) }
+            guard let data = data else { completion(.failure(NetworkError.noData)); return }
             
             do {
                 let result: T = try JSONDecoder().decode(T.self, from: data)
@@ -46,31 +55,33 @@ class NetworkManager {
     
     func request(_ route: EndPointType, completion: @escaping (Result<Int, Error>) -> Void) {
         
-        networkRouter.request(route) { data, response, error in
+        networkRouter.request(route) { _, response, error in
             if let error = error {
                 completion(.failure(error))
                 return
             }
             
-            guard let data = data else { completion(.failure(NetworkError.noData)) }
-            
-            do {
-                let result: T = try JSONDecoder().decode(T.self, from: data)
-                completion(.success(result))
-            } catch {
+            guard let response = response as? HTTPURLResponse else {
                 completion(.failure(NetworkError.dataLoad))
+                return
+            }
+            
+            self.handleNetworkResponse(response) { result in
+                completion(result)
             }
         }
     }
     
-    fileprivate func handleNetworkResponse(_ response: HTTPURLResponse) -> Result<String, Error> {
+    fileprivate func handleNetworkResponse(_ response: HTTPURLResponse, completion: @escaping (Result<Int, Error>) -> Void) {
         switch response.statusCode {
-        case 200: return .success("")
-        case 201: return .failure(NetworkError.alreadyCreated)
-        case 401...500: return .failure(NetworkError.)
-        case 501...599: return .failure(NetworkResponse.badRequest.rawValue)
-        case 600: return .failure(NetworkResponse.outdated.rawValue)
-        default: return .failure(NetworkResponse.failed.rawValue)
+        case 200:
+            completion(.success(response.statusCode))
+        case 201:
+            completion(.failure(NetworkError.alreadyCreated))
+        case 401...500:
+            completion(.failure(NetworkError.dataLoad))
+        default:
+            completion(.failure(NetworkError.unknown))
         }
     }
 }
