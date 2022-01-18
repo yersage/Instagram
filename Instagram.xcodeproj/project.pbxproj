@@ -61,7 +61,7 @@
 		FC73D2F02761E96500BA5B35 /* CreatePostViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC73D2EF2761E96500BA5B35 /* CreatePostViewDelegate.swift */; };
 		FC73D2F22761E96E00BA5B35 /* CreatePostPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC73D2F12761E96E00BA5B35 /* CreatePostPresenter.swift */; };
 		FC73D2F42761E97500BA5B35 /* CreatePostPresenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC73D2F32761E97500BA5B35 /* CreatePostPresenterDelegate.swift */; };
-		FC768BC627291B43003F0EBB /* InstagramAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC768BC527291B43003F0EBB /* InstagramAPI.swift */; };
+		FC768BC627291B43003F0EBB /* InstagramEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC768BC527291B43003F0EBB /* InstagramEndPoint.swift */; };
 		FC768BCD272920BF003F0EBB /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC768BCC272920BF003F0EBB /* NetworkError.swift */; };
 		FC768BCF272920CE003F0EBB /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC768BCE272920CE003F0EBB /* AppError.swift */; };
 		FC768BD7272921CE003F0EBB /* NetworkRouterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC768BD6272921CE003F0EBB /* NetworkRouterDelegate.swift */; };
@@ -174,7 +174,7 @@
 		FC73D2EF2761E96500BA5B35 /* CreatePostViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewDelegate.swift; sourceTree = "<group>"; };
 		FC73D2F12761E96E00BA5B35 /* CreatePostPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostPresenter.swift; sourceTree = "<group>"; };
 		FC73D2F32761E97500BA5B35 /* CreatePostPresenterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostPresenterDelegate.swift; sourceTree = "<group>"; };
-		FC768BC527291B43003F0EBB /* InstagramAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramAPI.swift; sourceTree = "<group>"; };
+		FC768BC527291B43003F0EBB /* InstagramEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramEndPoint.swift; sourceTree = "<group>"; };
 		FC768BCC272920BF003F0EBB /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		FC768BCE272920CE003F0EBB /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		FC768BD6272921CE003F0EBB /* NetworkRouterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouterDelegate.swift; sourceTree = "<group>"; };
@@ -498,7 +498,7 @@
 				FCA4DB97272644050099E9C3 /* NetworkService */,
 				FCA4DB9A2726441D0099E9C3 /* EndPointType */,
 				FC768BCB27292080003F0EBB /* NetworkError */,
-				FCA4DB99272644170099E9C3 /* InstagramAPI */,
+				FCA4DB99272644170099E9C3 /* InstagramEndPoint */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -513,12 +513,12 @@
 			path = NetworkService;
 			sourceTree = "<group>";
 		};
-		FCA4DB99272644170099E9C3 /* InstagramAPI */ = {
+		FCA4DB99272644170099E9C3 /* InstagramEndPoint */ = {
 			isa = PBXGroup;
 			children = (
-				FC768BC527291B43003F0EBB /* InstagramAPI.swift */,
+				FC768BC527291B43003F0EBB /* InstagramEndPoint.swift */,
 			);
-			path = InstagramAPI;
+			path = InstagramEndPoint;
 			sourceTree = "<group>";
 		};
 		FCA4DB9A2726441D0099E9C3 /* EndPointType */ = {
@@ -854,7 +854,7 @@
 				FC16D9642784599100A84488 /* SearchPresenter.swift in Sources */,
 				FC7188B7275CA81500A6F2CA /* UsernameViewDelegate.swift in Sources */,
 				FCB6AB7A2789F5420018DCA7 /* ChangePropertyViewDelegate.swift in Sources */,
-				FC768BC627291B43003F0EBB /* InstagramAPI.swift in Sources */,
+				FC768BC627291B43003F0EBB /* InstagramEndPoint.swift in Sources */,
 				FCF1AF2F26F48A5F00E4BEF5 /* CommentTableViewCell.swift in Sources */,
 				FC7188C3275CAD8800A6F2CA /* ConfirmationViewDelegate.swift in Sources */,
 				FC7188C1275CACA900A6F2CA /* PasswordPresenterDelegate.swift in Sources */,

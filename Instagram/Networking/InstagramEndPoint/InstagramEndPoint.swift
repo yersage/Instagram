@@ -8,7 +8,7 @@
 import Foundation
 import Alamofire
 
-public enum InstagramAPI {
+public enum InstagramEndPoint {
     case login(username: String, password: String)
     case refreshToken(refreshToken: String)
     case emailAvailability(email: String)
@@ -34,7 +34,7 @@ public enum InstagramAPI {
     case followingList(userID: Int)
 }
 
-extension InstagramAPI: EndPointType {
+extension InstagramEndPoint: EndPointType {
     
     var baseURL : String {
         return "http://localhost:8090/"

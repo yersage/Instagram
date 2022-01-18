@@ -34,7 +34,7 @@ class Interceptor: RequestInterceptor {
     func refreshToken(completion: @escaping (_ isSuccess: Bool) -> Void) {
         guard let refreshToken = UserDefaultsManager.shared.getRefreshToken() else { completion(false); return }
         
-        guard let url = InstagramAPI.refreshToken(refreshToken: refreshToken).url else {
+        guard let url = InstagramEndPoint.refreshToken(refreshToken: refreshToken).url else {
             completion(false); return
         }
         

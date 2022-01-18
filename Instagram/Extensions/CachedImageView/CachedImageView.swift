@@ -15,7 +15,7 @@ class CachedImageView: UIImageView {
     
     func loadImagesFromPostID(postID: Int, completion: ((Result<UIImage?, Error>) -> Void)? = defaultCompletion(CachedImageView())) {
         
-        let urlString = InstagramAPI.postImages(postID: "\(postID)").urlString()
+        let urlString = InstagramEndPoint.postImages(postID: "\(postID)").urlString()
         imageURLString = urlString
         
         if let imageFromCache = CachedImageView.imageCache.object(forKey: urlString as NSString) {
@@ -44,7 +44,7 @@ class CachedImageView: UIImageView {
     }
     
     func loadImagesFromUserID(userID: Int, completion: ((Result<UIImage?, Error>) -> Void)? = defaultCompletion(CachedImageView())) {
-        let urlString = InstagramAPI.profileImage(userID: "\(userID)").urlString()
+        let urlString = InstagramEndPoint.profileImage(userID: "\(userID)").urlString()
         imageURLString = urlString
         
         if let imageFromCache = CachedImageView.imageCache.object(forKey: urlString as NSString) {
