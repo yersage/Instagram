@@ -8,9 +8,9 @@
 import Foundation
 
 final class SelfProfilePresenter: SelfProfilePresenterDelegate {
-    private let networkService: NetworkService = NetworkAdapter()
     weak var view: SelfProfileViewDelegate?
     private let feedService = FeedService()
+    private let networkManager: NetworkManager = NetworkManager()
     
     func getPosts(firstPage: Bool, userID: String) {
         

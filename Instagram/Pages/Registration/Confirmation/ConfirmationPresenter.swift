@@ -9,7 +9,7 @@ import Foundation
 
 final class ConfirmationPresenter: ConfirmationPresenterDelegate {
     weak var view: ConfirmationViewDelegate?
-    private let networkService: NetworkService = NetworkAdapter()
+    private let networkManager: NetworkManager = NetworkManager()
     
     func verify(email: String, verificationCode: String) {
         networkService.load(context: AccountVerificationEndPoint(confirmationCode: verificationCode, email: email)) { response in

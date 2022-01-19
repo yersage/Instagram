@@ -9,8 +9,8 @@ import Foundation
 
 final class ChangePropertyPresenter: ChangePropertyPresenterDelegate {
     
-    private let networkService: NetworkService = NetworkAdapter()
     weak var view: ChangePropertyViewDelegate?
+    private let networkManager: NetworkManager = NetworkManager()
 
     func checkUsername(_ username: String) {
         let usernameRegEx = "\\w{1,30}"

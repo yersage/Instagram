@@ -9,7 +9,7 @@ import Foundation
 
 final class WelcomePresenter: WelcomePresenterDelegate {
     weak var view: WelcomeViewDelegate?
-    private let networkService: NetworkService = NetworkAdapter()
+    private let networkManager: NetworkManager = NetworkManager()
 
     func login(username: String, password: String) {
         

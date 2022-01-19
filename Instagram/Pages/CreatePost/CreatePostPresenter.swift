@@ -9,8 +9,8 @@ import UIKit
 
 final class CreatePostPresenter: CreatePostPresenterDelegate {
     weak var view: CreatePostViewDelegate?
-    private let networkService: NetworkService = NetworkAdapter()
-    
+    private let networkManager: NetworkManager = NetworkManager()
+
     func uploadPost(image: UIImage?, caption: String) {
         guard let image = image else { view?.show(error: "Image is not provided."); return }
         

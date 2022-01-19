@@ -9,9 +9,9 @@ import Foundation
 
 final class FollowingPresenter: FollowingPresenterDelegate {
     
-    private let networkService: NetworkService = NetworkAdapter()
     private let service = FollowingService()
     weak var view: FollowingViewDelegate?
+    private let networkManager: NetworkManager = NetworkManager()
     
     private var userID: Int?
     

@@ -8,8 +8,8 @@
 import UIKit
 
 final class EditProfilePresenter: EditProfilePresenterDelegate {
-    private let networkService: NetworkService = NetworkAdapter()
     weak var view: EditProfileViewDelegate?
+    private let networkManager: NetworkManager = NetworkManager()
     
     func putProfileData(image: UIImage, name: String?, website: String?, bio: String?, username: String) {
         let imageData = image.pngData()

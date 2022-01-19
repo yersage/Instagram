@@ -9,9 +9,9 @@ import UIKit
 
 final class FollowersPresenter: FollowersPresenterDelegate {
     
-    private let networkService: NetworkService = NetworkAdapter()
     weak var view: FollowersViewDelegate?
     private let service = FollowersService()
+    private let networkManager: NetworkManager = NetworkManager()
     
     func getFollowers(firstPage: Bool, userID: Int?) {
         guard let userID = userID else { return }

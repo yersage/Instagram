@@ -10,8 +10,8 @@ import Alamofire
 
 final class FeedPresenter: FeedPresenterDelegate {
     // MARK:- Initialization
-    private let networkService: NetworkService = NetworkAdapter()
     private let feedService = FeedService()
+    private let networkManager: NetworkManager = NetworkManager()
     
     weak var view: FeedViewDelegate?
     

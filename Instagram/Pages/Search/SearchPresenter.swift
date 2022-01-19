@@ -8,8 +8,8 @@
 import Foundation
 
 final class SearchPresenter: SearchPresenterDelegate {
-    private let networkService: NetworkService = NetworkAdapter()
     weak var view: SearchViewDelegate?
+    private let networkManager: NetworkManager = NetworkManager()
     
     func search(by name: String) {
         networkService.loadDecodable(context: SearchEndPoint(name: name), type: [ProfileModel].self) { result in

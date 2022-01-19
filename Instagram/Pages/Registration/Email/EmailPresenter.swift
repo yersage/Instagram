@@ -9,20 +9,16 @@ import Foundation
 
 final class EmailPresenter: EmailPresenterDelegate {
     weak var view: EmailViewDelegate?
-    private let networkService: NetworkService = NetworkAdapter()
+    private let networkManager: NetworkManager = NetworkManager()
 
     func isEmailAvailable(email: String) {
-        networkService.load(context: EmailAvailabilityEndPoint(email: email)) { response in
-            switch response {
+        networkManager.request(InstagramEndPoint.emailAvailability(email: email)) { result in
+            switch result {
+            case .success(_):
+                self.view?.hideLabel()
+                self.view?.goToUsernameVC()
             case .failure(let error):
                 self.view?.show(error: error.localizedDescription)
-            case .success(let statusCode):
-                if statusCode == 406 {
-                    self.view?.showLabel(text: "Email is already in use.")
-                } else if statusCode == 200 {
-                    self.view?.hideLabel()
-                    self.view?.goToUsernameVC()
-                }
             }
         }
     }
