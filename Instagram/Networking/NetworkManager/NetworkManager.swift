@@ -34,7 +34,7 @@ class NetworkManager {
         }
     }
     
-    func request<T: Decodable>(_ route: EndPointType, completion: @escaping (Result<T, Error>) -> Void) {
+    func request<T: Decodable>(_ route: EndPointType, model: T.Type, completion: @escaping (Result<T, Error>) -> Void) {
         
         networkRouter.request(route) { data, response, error in
             if let error = error {
