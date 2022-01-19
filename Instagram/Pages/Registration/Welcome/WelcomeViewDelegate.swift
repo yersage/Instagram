@@ -8,5 +8,6 @@
 import Foundation
 
 protocol WelcomeViewDelegate: AnyObject {
-    
+    func show(error: String)
+    func goToFeedVC()
 }

@@ -26,7 +26,12 @@ final class FeedPresenter: FeedPresenterDelegate {
         
         let page = self.feedService.getPage()
         
-        networkService.loadDecodable(context: FeedPostsEndPoint(page: page), type: [PostModel].self) { result in
+        networkManager.request(InstagramEndPoint.feedPosts(page: page)) { result in
+            switch result {
+            }
+        }
+        
+        networkManager.request(InstagramEndPoint.feedPosts(page: page), model: [PostModel].self) { result in
             switch result {
             case .success(let newPosts):
                 self.view?.removeSpinners()
@@ -43,26 +48,26 @@ final class FeedPresenter: FeedPresenterDelegate {
     }
     
     func like(like: Bool, postID: Int, index: Int) {
-        networkService.loadDecodable(context: PostLikeEndPoint(postID: "\(postID)"), type: PostModel.self) { result in
+        networkManager.request(InstagramEndPoint.postLike(postID: "\(postID)"), model: PostModel.self) { result in
             switch result {
             case .success(let newPost):
                 self.view?.setPost(post: newPost, index: index)
             case .failure(let error):
                 if error.localizedDescription != NetworkError.noData.localizedDescription {
-                    self.view.showError(error: error.localizedDescription)
+                    self.view?.showError(error: error.localizedDescription)
                 }
             }
         }
     }
     
     func unlike(like: Bool, postID: Int, index: Int) {
-        networkService.loadDecodable(context: PostUnlikeEndPoint(postID: "\(postID)"), type: PostModel.self) { result in
+        networkManager.request(InstagramEndPoint.postUnlike(postID: "\(postID)"), model: PostModel.self) { result in
             switch result {
             case .success(let newPost):
                 self.view?.setPost(post: newPost, index: index)
             case .failure(let error):
                 if error.localizedDescription != NetworkError.noData.localizedDescription {
-                    self.view.showError(error: error.localizedDescription)
+                    self.view?.showError(error: error.localizedDescription)
                 }
             }
         }

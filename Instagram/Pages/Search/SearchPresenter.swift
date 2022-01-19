@@ -12,7 +12,7 @@ final class SearchPresenter: SearchPresenterDelegate {
     private let networkManager: NetworkManager = NetworkManager()
     
     func search(by name: String) {
-        networkService.loadDecodable(context: SearchEndPoint(name: name), type: [ProfileModel].self) { result in
+        networkManager.request(InstagramEndPoint.search(name: name), model: [ProfileModel].self) { result in
             switch result {
             case .success(let searchResult):
                 self.view?.set(newResults: searchResult)
@@ -22,6 +22,4 @@ final class SearchPresenter: SearchPresenterDelegate {
             }
         }
     }
-    
-    
 }

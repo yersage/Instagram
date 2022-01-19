@@ -8,6 +8,7 @@
 import UIKit
 
 final class WelcomeViewController: UIViewController, WelcomeViewDelegate {
+    
     //MARK:- IBOutlets
     @IBOutlet weak var welcomeLabel: UILabel!
     
@@ -38,5 +39,13 @@ final class WelcomeViewController: UIViewController, WelcomeViewDelegate {
     }
     
     // MARK:- WelcomeViewDelegate funcs
-
+    func show(error: String) {
+        let alert = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func goToFeedVC() {
+        //router.route(to: Route.login.rawValue, from: self, parameters: nil)
+    }
 }

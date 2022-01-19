@@ -12,10 +12,8 @@ final class ConfirmationPresenter: ConfirmationPresenterDelegate {
     private let networkManager: NetworkManager = NetworkManager()
     
     func verify(email: String, verificationCode: String) {
-        networkService.load(context: AccountVerificationEndPoint(confirmationCode: verificationCode, email: email)) { response in
-            switch response {
-            case .failure(let error):
-                self.view?.show(error: error.localizedDescription)
+        networkManager.request(InstagramEndPoint.accountVerification(confirmationCode: verificationCode, email: email)) { result in
+            switch result {
             case .success(let statusCode):
                 if statusCode == 200 {
                     self.view?.hideLabel()
@@ -24,19 +22,21 @@ final class ConfirmationPresenter: ConfirmationPresenterDelegate {
                 if statusCode == 201 {
                     self.view?.showLabel()
                 }
+            case .failure(let error):
+                self.view?.show(error: error.localizedDescription)
             }
         }
     }
     
     func signup(email: String, password: String, username: String) {
-        networkService.load(context: SignUpEndPoint(username: username, password: password, email: email)) { response in
-            switch response {
-            case .failure(let error):
-                self.view?.show(error: error.localizedDescription)
+        networkManager.request(InstagramEndPoint.signUp(username: username, password: password, email: email)) { result in
+            switch result {
             case .success(let statusCode):
                 if statusCode == 200 {
                     self.view?.showWarning()
                 }
+            case .failure(let error):
+                self.view?.show(error: error.localizedDescription)
             }
         }
     }

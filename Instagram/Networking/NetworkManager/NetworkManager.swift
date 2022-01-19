@@ -74,10 +74,8 @@ class NetworkManager {
     
     fileprivate func handleNetworkResponse(_ response: HTTPURLResponse, completion: @escaping (Result<Int, Error>) -> Void) {
         switch response.statusCode {
-        case 200:
+        case 200...299:
             completion(.success(response.statusCode))
-        case 201:
-            completion(.failure(NetworkError.alreadyCreated))
         case 401...500:
             completion(.failure(NetworkError.dataLoad))
         default:
