@@ -9,12 +9,12 @@ import Foundation
 
 class NetworkManager {
     // сделать манагер общим на весь апп?
-    let networkRouter: NetworkRouterDelegate
-    
+    let networkRouter: NetworkRouterDelegate = NetworkRouter<InstagramEndPoint>()
+    /*
     init(networkRouter: NetworkRouterDelegate) {
         self.networkRouter = networkRouter
     }
-    
+    */
     func upload<T: Decodable>(_ route: EndPointType, completion: @escaping (Result<T, Error>) -> Void) {
         
         networkRouter.upload(route) { data, response, error in
