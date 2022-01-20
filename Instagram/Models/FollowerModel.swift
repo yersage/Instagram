@@ -14,13 +14,13 @@ struct FollowerModel: Codable {
 
 struct FollowerProjection: Codable {
     var name: String?
-    var id: Int = 0
+    var id: Int
     var bio: String?
     var website: String?
-    var username: String = ""
-    var numberOfPosts: Int = 0
-    var numberOfFollowers: Int = 0
-    var numberOfFollowings: Int = 0
+    var username: String
+    var numberOfPosts: Int
+    var numberOfFollowers: Int
+    var numberOfFollowings: Int
 }
 
 struct FollowerMetaData: Codable {

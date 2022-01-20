@@ -8,6 +8,6 @@
 import Foundation
 
 class TokenModel: Codable {
-    @objc dynamic var accessToken: String = ""
-    @objc dynamic var refreshToken: String = ""
+    let accessToken: String
+    let refreshToken: String
 }

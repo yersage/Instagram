@@ -13,12 +13,12 @@ struct PostModel: Codable {
 }
 
 struct Post: Codable {
-    var caption: String = ""
-    var created: String = ""
-    var id: Int = 0
-    var numberOfComments: Int = 0
-    var numberOfImages: Int = 1
-    var numberOfLikes: Int = 0
+    var caption: String
+    var created: String
+    var id: Int
+    var numberOfComments: Int
+    var numberOfImages: Int
+    var numberOfLikes: Int
     var user: UserProjection
 }
 
@@ -28,5 +28,5 @@ struct UserProjection: Codable {
 }
 
 struct PostMetaData: Codable {
-    var isPostLikedByCurrentUser: Bool = false
+    var isPostLikedByCurrentUser: Bool
 }
