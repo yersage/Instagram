@@ -26,13 +26,13 @@ final class ChangePropertyPresenter: ChangePropertyPresenterDelegate {
     }
     
     private func isUsernameAvailable(username: String) {
-        networkService.load(context: UsernameAvailabilityEndPoint(username: username)) { response in
-            switch response {
+        networkManager.request(InstagramEndPoint.usernameAvailability(username: username)) { result in
+            switch result {
             case .failure(let error):
                 self.view?.show(error: error.localizedDescription)
                 self.view?.showValidationLabel("Error")
             case .success(let statusCode):
-                if statusCode == 406 {
+                if statusCode == 201 {
                     self.view?.showValidationLabel("Username is already in use.")
                 } else if statusCode == 200 {
                     self.view?.hideValidationLabel()

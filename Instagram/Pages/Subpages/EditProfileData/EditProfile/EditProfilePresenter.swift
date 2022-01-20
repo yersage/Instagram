@@ -12,9 +12,13 @@ final class EditProfilePresenter: EditProfilePresenterDelegate {
     private let networkManager: NetworkManager = NetworkManager()
     
     func putProfileData(image: UIImage, name: String?, website: String?, bio: String?, username: String) {
-        let imageData = image.pngData()
+        guard let image = image.pngData() else { return }
+        let name = name?.data(using: .utf8)
+        let website = website?.data(using: .utf8)
+        let bio = bio?.data(using: .utf8)
+        guard let username = username.data(using: .utf8) else { return }
         
-            networkService.putProfile(endPoint: EditProfileEndPoint(name: name, website: website, bio: bio, username: username), image: imageData!, name: name?.data(using: .utf8), bio: bio?.data(using: .utf8), website: website?.data(using: .utf8), username: username.data(using: .utf8)!) { result in
+        networkManager.request(InstagramEndPoint.editProfile(image: image, name: name, website: website, bio: bio, username: username), model: ProfileDataModel.self) { result in
             switch result {
             case .success(let profileModel):
                 print(profileModel)

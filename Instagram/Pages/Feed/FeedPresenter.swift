@@ -26,11 +26,6 @@ final class FeedPresenter: FeedPresenterDelegate {
         
         let page = self.feedService.getPage()
         
-        networkManager.request(InstagramEndPoint.feedPosts(page: page)) { result in
-            switch result {
-            }
-        }
-        
         networkManager.request(InstagramEndPoint.feedPosts(page: page), model: [PostModel].self) { result in
             switch result {
             case .success(let newPosts):

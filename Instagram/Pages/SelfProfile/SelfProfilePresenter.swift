@@ -21,7 +21,9 @@ final class SelfProfilePresenter: SelfProfilePresenterDelegate {
             feedService.nullifyPage()
         }
         
-        networkService.loadDecodable(endPoint: ProfilePostsEndPoint(userID: userID, page: feedService.getPage()), type: [PostModel].self) { result in
+        let page = feedService.getPage()
+        
+        networkManager.request(InstagramEndPoint.profilePosts(userID: userID, page: page), model: [PostModel].self) { result in
             switch result {
             case .success(let newPosts):
                 self.feedService.changeIsPaginating()
@@ -37,7 +39,7 @@ final class SelfProfilePresenter: SelfProfilePresenterDelegate {
     }
     
     func getProfileData(userID: Int) {
-        networkService.loadDecodable(context: ProfileDataEndPoint(userID: userID), type: ProfileModel.self) { result in
+        networkManager.request(InstagramEndPoint.profileData(userID: userID), model: ProfileModel.self) { result in
             switch result {
             case .success(let profileModel):
                 self.view?.set(profileModel: profileModel)

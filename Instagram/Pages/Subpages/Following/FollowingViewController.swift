@@ -34,8 +34,7 @@ final class FollowingViewController: UIViewController, FollowingViewDelegate {
     // MARK:- Lifecycle functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter = FollowingPresenter(view: self, userID: userID)
-        presenter?.getFollowings(firstPage: true)
+        presenter.getFollowings(firstPage: true)
         layout()
         view.addSubview(followingTableView)
     }
@@ -115,11 +114,11 @@ extension FollowingViewController: FollowingTableViewCellDelegate {
     }
     
     func follow() {
-        presenter?.follow()
+        presenter.follow()
     }
     
     func unfollow() {
-        presenter?.unfollow()
+        presenter.unfollow()
     }
     
     
@@ -133,12 +132,12 @@ extension FollowingViewController: UIScrollViewDelegate {
         
         if position > followingTableView.contentSize.height - 400 - scrollView.frame.size.height {
             followingTableView.tableFooterView = createSpinnerFooter()
-            presenter?.getFollowings(firstPage: false)
+            presenter.getFollowings(firstPage: false)
         }
         
         if position < -200 {
             followingTableView.tableHeaderView = createSpinnerHeader()
-            presenter?.getFollowings(firstPage: true)
+            presenter.getFollowings(firstPage: true)
         }
     }
     

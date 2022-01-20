@@ -20,7 +20,7 @@ final class FollowingPresenter: FollowingPresenterDelegate {
     }
     
     func getFollowings(firstPage: Bool) {
-        if userID == nil { return }
+        guard let userID = userID else { return }
         
         if service.getIsPaginating() { return }
         service.changeIsPaginating()
@@ -28,8 +28,8 @@ final class FollowingPresenter: FollowingPresenterDelegate {
         if firstPage {
             service.nullifyPage()
         }
-                
-        networkService.loadDecodable(context: FollowingEndPoint(userID: userID!), type: [ProfileModel].self) { result in
+        
+        networkManager.request(InstagramEndPoint.followingList(userID: userID), model: [ProfileModel].self) { result in
             switch result {
             case .success(let newFollowings):
                 self.view?.removeSpinners()

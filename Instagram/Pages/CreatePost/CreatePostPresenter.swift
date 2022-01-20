@@ -22,10 +22,14 @@ final class CreatePostPresenter: CreatePostPresenterDelegate {
         guard let caption = caption.data(using: .utf8) else { return }
         guard let image = image.pngData() else { return }
         
-        networkManager.request(InstagramEndPoint.uploadPost(caption: caption, images: image), model: <#T##Decodable.Protocol#>, completion: <#T##(Result<Decodable, Error>) -> Void#>)
-        
-        networkService.upload(context: UploadPostEndPoint(caption: caption, image: image), image: image.pngData()!, caption: caption.data(using: .utf8)!) { result in
-            
+        networkManager.request(InstagramEndPoint.uploadPost(caption: caption, images: image), model: PostModel.self) { result in
+            switch result {
+            case .success(_):
+                self.view?.showSuccess()
+                self.view?.goToFeedVC()
+            case .failure(let error):
+                self.view?.show(error: error.localizedDescription)
+            }
         }
     }
 }

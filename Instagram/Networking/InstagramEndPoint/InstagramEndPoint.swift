@@ -32,6 +32,8 @@ public enum InstagramEndPoint {
     case unfollow(userID: String)
     case followersList(userID: Int)
     case followingList(userID: Int)
+    case profileImage(userID: Int)
+    case postImage(postID: Int)
 }
 
 extension InstagramEndPoint: EndPointType {
@@ -99,12 +101,16 @@ extension InstagramEndPoint: EndPointType {
             return "user/followers-list?userId=\(userID)"
         case .followingList(let userID):
             return "user/followings-list?userId=\(userID)"
+        case .profileImage(let userID):
+            return "user/image?userId=\(userID)"
+        case .postImage(let postID):
+            return "post/image?postId=\(postID)&imageId=1"
         }
     }
     
     var method: HTTPMethod {
         switch self {
-        case .feedPosts, .postLike, .postUnlike, .profileData, .profilePosts, .follow, .unfollow, .comments, .showCommentReplies, .commentLike, .commentUnlike, .followersList, .followingList, .search:
+        case .feedPosts, .postLike, .postUnlike, .profileData, .profilePosts, .follow, .unfollow, .comments, .showCommentReplies, .commentLike, .commentUnlike, .followersList, .followingList, .search, .postImage, .profileImage:
             return .get
         case .emailAvailability, .usernameAvailability, .signUp, .accountVerification, .uploadPost, .postComment, .login, .refreshToken:
             return .post
