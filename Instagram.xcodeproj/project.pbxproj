@@ -86,7 +86,6 @@
 		FCB7E5EF26FC196E009DC8B0 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB7E5EE26FC196E009DC8B0 /* NotificationsViewController.swift */; };
 		FCB7E5F226FC19E7009DC8B0 /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB7E5F126FC19E7009DC8B0 /* CreatePostViewController.swift */; };
 		FCC69E9E2772169400FE8AE9 /* PayloadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC69E9D2772169400FE8AE9 /* PayloadModel.swift */; };
-		FCCC5EAC2793CF6100E07F1A /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCC5EAB2793CF6100E07F1A /* AuthService.swift */; };
 		FCCC5EB22794258A00E07F1A /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCC5EB12794258A00E07F1A /* NetworkRouter.swift */; };
 		FCCC5EB62794667E00E07F1A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCC5EB52794667E00E07F1A /* Constants.swift */; };
 		FCCC5EB8279492D500E07F1A /* RouterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCC5EB7279492D500E07F1A /* RouterDelegate.swift */; };
@@ -204,7 +203,6 @@
 		FCB7E5EE26FC196E009DC8B0 /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		FCB7E5F126FC19E7009DC8B0 /* CreatePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
 		FCC69E9D2772169400FE8AE9 /* PayloadModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayloadModel.swift; sourceTree = "<group>"; };
-		FCCC5EAB2793CF6100E07F1A /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		FCCC5EB12794258A00E07F1A /* NetworkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
 		FCCC5EB52794667E00E07F1A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FCCC5EB7279492D500E07F1A /* RouterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterDelegate.swift; sourceTree = "<group>"; };
@@ -521,7 +519,6 @@
 		FCA4DB97272644050099E9C3 /* NetworkRouter */ = {
 			isa = PBXGroup;
 			children = (
-				FCCC5EAB2793CF6100E07F1A /* AuthService.swift */,
 				FCCC5EB12794258A00E07F1A /* NetworkRouter.swift */,
 				FC768BD6272921CE003F0EBB /* NetworkRouterDelegate.swift */,
 			);
@@ -887,7 +884,6 @@
 				FCC69E9E2772169400FE8AE9 /* PayloadModel.swift in Sources */,
 				FC73D2F42761E97500BA5B35 /* CreatePostPresenterDelegate.swift in Sources */,
 				FC0322DB272011EB00DBDE82 /* FollowersService.swift in Sources */,
-				FCCC5EAC2793CF6100E07F1A /* AuthService.swift in Sources */,
 				FC16D96A278459B200A84488 /* SearchViewDelegate.swift in Sources */,
 				FCAE0BCF26EB48B0007DB573 /* FeedViewController.swift in Sources */,
 				FC73D2F02761E96500BA5B35 /* CreatePostViewDelegate.swift in Sources */,
