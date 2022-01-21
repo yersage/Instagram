@@ -12,7 +12,7 @@ final class WelcomePresenter: WelcomePresenterDelegate {
     private let networkManager: NetworkManager = NetworkManager()
 
     func login(username: String, password: String) {
-        networkManager.request(InstagramEndPoint.login(username: username, password: password), model: TokenModel.self) { result in
+        networkManager.request(InstagramEndPoint.login(username: username, password: password)) { (result: Result<TokenModel, Error>) -> Void in
             switch result {
             case .success(let tokenModel):
                 UserDefaultsManager.shared.signIn(username: username, password: password, accessToken: tokenModel.accessToken, refreshToken: tokenModel.refreshToken)

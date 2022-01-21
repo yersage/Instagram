@@ -29,7 +29,7 @@ final class FollowingPresenter: FollowingPresenterDelegate {
             service.nullifyPage()
         }
         
-        networkManager.request(InstagramEndPoint.followingList(userID: userID), model: [ProfileModel].self) { result in
+        networkManager.request(InstagramEndPoint.followingList(userID: userID)) { (result: Result<[ProfileModel], Error>) -> Void in
             switch result {
             case .success(let newFollowings):
                 self.view?.removeSpinners()

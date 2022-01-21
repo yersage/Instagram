@@ -24,7 +24,7 @@ final class ProfilePresenter: ProfilePresenterDelegate {
         
         let page = feedService.getPage()
         
-        networkManager.request(InstagramEndPoint.profilePosts(userID: userID, page: page), model: [PostModel].self) { result in
+        networkManager.request(InstagramEndPoint.profilePosts(userID: userID, page: page)) { (result: Result<[PostModel], Error>) -> Void in
             switch result {
             case .success(let newPosts):
                 self.feedService.changeIsPaginating()
@@ -40,7 +40,7 @@ final class ProfilePresenter: ProfilePresenterDelegate {
     }
     
     func getProfileData(userID: Int) {
-        networkManager.request(InstagramEndPoint.profileData(userID: userID), model: ProfileModel.self) { result in
+        networkManager.request(InstagramEndPoint.profileData(userID: userID)) { (result: Result<ProfileModel, Error>) -> Void in
             switch result {
             case .success(let profileModel):
                 self.view?.set(profileModel: profileModel)
@@ -56,7 +56,7 @@ final class ProfilePresenter: ProfilePresenterDelegate {
     func follow(userID: Int?) {
         guard let userID = userID else { self.view?.show(error: NetworkError.noData.description); return }
         
-        networkManager.request(InstagramEndPoint.follow(userID: "\(userID)"), model: ProfileModel.self) { result in
+        networkManager.request(InstagramEndPoint.follow(userID: "\(userID)")) { (result: Result<ProfileModel, Error>) -> Void in
             switch result {
             case .success(let profileModel):
                 self.view?.set(profileModel: profileModel)
@@ -70,7 +70,7 @@ final class ProfilePresenter: ProfilePresenterDelegate {
     func unfollow(userID: Int?) {
         guard let userID = userID else { self.view?.show(error: NetworkError.noData.description); return }
         
-        networkManager.request(InstagramEndPoint.unfollow(userID: "\(userID)"), model: ProfileModel.self) { result in
+        networkManager.request(InstagramEndPoint.unfollow(userID: "\(userID)")) { (result: Result<ProfileModel, Error>) -> Void in
             switch result {
             case .success(let profileModel):
                 self.view?.set(profileModel: profileModel)

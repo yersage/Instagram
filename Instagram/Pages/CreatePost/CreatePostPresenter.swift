@@ -22,7 +22,7 @@ final class CreatePostPresenter: CreatePostPresenterDelegate {
         guard let caption = caption.data(using: .utf8) else { return }
         guard let image = image.pngData() else { return }
         
-        networkManager.request(InstagramEndPoint.uploadPost(caption: caption, images: image), model: PostModel.self) { result in
+        networkManager.request(InstagramEndPoint.uploadPost(caption: caption, images: image)) { (result: Result<PostModel, Error>) -> Void in
             switch result {
             case .success(_):
                 self.view?.showSuccess()

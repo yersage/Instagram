@@ -25,7 +25,7 @@ class CachedImageView: UIImageView {
             return
         }
         
-        networkManager.request(InstagramEndPoint.postImage(postID: postID), model: PostImageModel.self) { result in
+        networkManager.request(InstagramEndPoint.postImage(postID: postID)) { (result: Result<PostImageModel, Error>) -> Void in
             switch result {
             case .success(let postImageModel):
                 let path = InstagramEndPoint.postImage(postID: postID).baseURL + InstagramEndPoint.postImage(postID: postID).path
@@ -56,7 +56,7 @@ class CachedImageView: UIImageView {
             return
         }
         
-        networkManager.request(InstagramEndPoint.profileImage(userID: userID), model: ProfileImageModel.self) { result in
+        networkManager.request(InstagramEndPoint.profileImage(userID: userID)) { (result: Result<ProfileImageModel, Error>) -> Void in
             switch result {
             case .success(let profileImageModel):
                 let urlString = InstagramEndPoint.profileImage(userID: userID).baseURL + InstagramEndPoint.profileImage(userID: userID).path

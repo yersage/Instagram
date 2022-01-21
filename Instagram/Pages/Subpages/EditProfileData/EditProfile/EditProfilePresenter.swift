@@ -18,7 +18,7 @@ final class EditProfilePresenter: EditProfilePresenterDelegate {
         let bio = bio?.data(using: .utf8)
         guard let username = username.data(using: .utf8) else { return }
         
-        networkManager.request(InstagramEndPoint.editProfile(image: image, name: name, website: website, bio: bio, username: username), model: ProfileDataModel.self) { result in
+        networkManager.request(InstagramEndPoint.editProfile(image: image, name: name, website: website, bio: bio, username: username)) { (result: Result<ProfileDataModel, Error>) -> Void in
             switch result {
             case .success(let profileModel):
                 print(profileModel)

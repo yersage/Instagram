@@ -12,7 +12,7 @@ final class SearchPresenter: SearchPresenterDelegate {
     private let networkManager: NetworkManager = NetworkManager()
     
     func search(by name: String) {
-        networkManager.request(InstagramEndPoint.search(name: name), model: [ProfileModel].self) { result in
+        networkManager.request(InstagramEndPoint.search(name: name)) { (result: Result<[ProfileModel], Error>) -> Void in
             switch result {
             case .success(let searchResult):
                 self.view?.set(newResults: searchResult)

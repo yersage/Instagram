@@ -26,7 +26,7 @@ final class FeedPresenter: FeedPresenterDelegate {
         
         let page = self.feedService.getPage()
         
-        networkManager.request(InstagramEndPoint.feedPosts(page: page), model: [PostModel].self) { result in
+        networkManager.request(InstagramEndPoint.feedPosts(page: page)) { (result: Result<[PostModel], Error>) -> Void in
             switch result {
             case .success(let newPosts):
                 self.view?.removeSpinners()
@@ -43,7 +43,7 @@ final class FeedPresenter: FeedPresenterDelegate {
     }
     
     func like(like: Bool, postID: Int, index: Int) {
-        networkManager.request(InstagramEndPoint.postLike(postID: "\(postID)"), model: PostModel.self) { result in
+        networkManager.request(InstagramEndPoint.postLike(postID: "\(postID)")) { (result: Result<PostModel, Error>) -> Void in
             switch result {
             case .success(let newPost):
                 self.view?.setPost(post: newPost, index: index)
@@ -56,7 +56,7 @@ final class FeedPresenter: FeedPresenterDelegate {
     }
     
     func unlike(like: Bool, postID: Int, index: Int) {
-        networkManager.request(InstagramEndPoint.postUnlike(postID: "\(postID)"), model: PostModel.self) { result in
+        networkManager.request(InstagramEndPoint.postUnlike(postID: "\(postID)")) { (result: Result<PostModel, Error>) -> Void in
             switch result {
             case .success(let newPost):
                 self.view?.setPost(post: newPost, index: index)
