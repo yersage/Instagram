@@ -121,11 +121,12 @@ final class FollowingTableViewCell: UITableViewCell {
     
     func layout() {
         contentView.addSubview(followingStackView)
-        
-        followingStackView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        followingStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
-        followingStackView.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
-        followingStackView.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
+        NSLayoutConstraint.activate([
+            followingStackView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            followingStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            followingStackView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
+            followingStackView.rightAnchor.constraint(equalTo: contentView.rightAnchor)
+        ])
         
         dataStackView.addSubview(username)
         dataStackView.addSubview(name)
@@ -134,20 +135,20 @@ final class FollowingTableViewCell: UITableViewCell {
         followingStackView.addSubview(dataStackView)
         followingStackView.addSubview(followingButton)
         
-        profileImageView.topAnchor.constraint(equalTo: followingStackView.topAnchor, constant: 10).isActive = true
-        profileImageView.bottomAnchor.constraint(equalTo: followingStackView.bottomAnchor, constant: -10).isActive = true
-        profileImageView.leftAnchor.constraint(equalTo: followingStackView.leftAnchor, constant: 10).isActive = true
-        profileImageView.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        profileImageView.widthAnchor.constraint(equalToConstant: 30).isActive = true
-        
-        dataStackView.topAnchor.constraint(equalTo: profileImageView.topAnchor).isActive = true
-        dataStackView.bottomAnchor.constraint(equalTo: profileImageView.bottomAnchor).isActive = true
-        dataStackView.leftAnchor.constraint(equalTo: profileImageView.rightAnchor, constant: 10).isActive = true
-        dataStackView.rightAnchor.constraint(equalTo: followingButton.leftAnchor, constant: -10).isActive = true
-        
-        followingButton.centerYAnchor.constraint(equalTo: followingStackView.centerYAnchor).isActive = true
-        followingButton.rightAnchor.constraint(equalTo: followingStackView.rightAnchor, constant: -10).isActive = true
-        followingButton.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        NSLayoutConstraint.activate([
+            profileImageView.topAnchor.constraint(equalTo: followingStackView.topAnchor, constant: 10),
+            profileImageView.bottomAnchor.constraint(equalTo: followingStackView.bottomAnchor, constant: -10),
+            profileImageView.leftAnchor.constraint(equalTo: followingStackView.leftAnchor, constant: 10),
+            profileImageView.heightAnchor.constraint(equalToConstant: 30),
+            profileImageView.widthAnchor.constraint(equalToConstant: 30),
+            dataStackView.topAnchor.constraint(equalTo: profileImageView.topAnchor),
+            dataStackView.bottomAnchor.constraint(equalTo: profileImageView.bottomAnchor),
+            dataStackView.leftAnchor.constraint(equalTo: profileImageView.rightAnchor, constant: 10),
+            dataStackView.rightAnchor.constraint(equalTo: followingButton.leftAnchor, constant: -10),
+            followingButton.centerYAnchor.constraint(equalTo: followingStackView.centerYAnchor),
+            followingButton.rightAnchor.constraint(equalTo: followingStackView.rightAnchor, constant: -10),
+            followingButton.widthAnchor.constraint(equalToConstant: 80)
+        ])
         
         username.addGestureRecognizer(UITapGestureRecognizer(target:self, action: #selector(usernameButtonPressed)))
         followingButton.addTarget(self, action: #selector(followingButtonPressed), for: .touchUpInside)
