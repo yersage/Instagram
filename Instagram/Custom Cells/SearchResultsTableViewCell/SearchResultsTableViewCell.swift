@@ -31,7 +31,7 @@ final class SearchResultsTableViewCell: UITableViewCell {
     }()
         
     let profileImageView: CachedImageView = {
-        let imageView = CachedImageView(image: UIImage(named: "image"))
+        let imageView = CachedImageView()
         imageView.layer.borderWidth = 1
         imageView.layer.masksToBounds = false
         imageView.layer.borderColor = UIColor.black.cgColor
