@@ -19,28 +19,18 @@ final class FeedViewController: UIViewController, FeedViewDelegate {
         return tableView
     }()
     
-    private let presenter: FeedPresenterDelegate
-    
-    init?(presenter: FeedPresenterDelegate, coder: NSCoder) {
-        self.presenter = presenter
-        super.init(coder: coder)
-    }
-    
-    @available(*, unavailable, renamed: "init(product:coder:)")
-    required init?(coder: NSCoder) {
-        fatalError("Invalid way of decoding this class")
-    }
+    var presenter: FeedPresenterDelegate? = nil
     
     // MARK:- Lifecycle functions
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         navigationController?.isNavigationBarHidden = true
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         layout()
-        presenter.downloadPosts(firstPage: true)
+        presenter?.downloadPosts(firstPage: true)
     }
     
     private func layout() {
@@ -117,12 +107,12 @@ extension FeedViewController: UIScrollViewDelegate {
         
         if position > feedTableView.contentSize.height - 200 - scrollView.frame.size.height {
             feedTableView.tableFooterView = createSpinnerFooter()
-            presenter.downloadPosts(firstPage: false)
+            presenter?.downloadPosts(firstPage: false)
         }
         
         if position < -200 {
             feedTableView.tableHeaderView = createSpinnerHeader()
-            presenter.downloadPosts(firstPage: true)
+            presenter?.downloadPosts(firstPage: true)
         }
     }
 }
@@ -168,18 +158,18 @@ extension FeedViewController: PostTableViewCellDelegate {
         backItem.title = posts[indexPath.row].post.user.username
         navigationItem.backBarButtonItem = backItem
         
-        self.navigationController!.pushViewController(profileViewController, animated: true)
+        self.navigationController?.pushViewController(profileViewController, animated: true)
     }
     
     // TODO: is it correct to make postID optional?
     func likePressed(_ cell: UITableViewCell, postID: Int?) {
         guard let indexPath = feedTableView.indexPath(for: cell) else { return }
-        presenter.like(like: posts[indexPath.row].postMetaData.isPostLikedByCurrentUser, postID: postID!, index: indexPath.row)
+        presenter?.like(like: posts[indexPath.row].postMetaData.isPostLikedByCurrentUser, postID: postID!, index: indexPath.row)
     }
     
     func unlikePressed(_ cell: UITableViewCell, postID: Int?) {
         guard let indexPath = feedTableView.indexPath(for: cell) else { return }
-        presenter.unlike(like: posts[indexPath.row].postMetaData.isPostLikedByCurrentUser, postID: postID!, index: indexPath.row)
+        presenter?.unlike(like: posts[indexPath.row].postMetaData.isPostLikedByCurrentUser, postID: postID!, index: indexPath.row)
         
     }
     

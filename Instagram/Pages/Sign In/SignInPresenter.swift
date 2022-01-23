@@ -17,7 +17,7 @@ final class SignInPresenter: SignInPresenterDelegate {
             self.view?.show(error: "Username or password is not provided.")
         }
         
-        networkManager.request(InstagramEndPoint.login(username: username, password: password)) { (result: Result<TokenModel, Error>) -> Void in
+        networkManager.noInterceptorRequest(InstagramEndPoint.login(username: username, password: password)) { (result: Result<TokenModel, Error>) -> Void in
             switch result {
             case .success(let tokenModel):
                 UserDefaultsManager.shared.signIn(username: username, password: password, accessToken: tokenModel.accessToken, refreshToken: tokenModel.refreshToken)

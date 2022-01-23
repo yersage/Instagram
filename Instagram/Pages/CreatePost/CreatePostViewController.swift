@@ -14,17 +14,7 @@ final class CreatePostViewController: UIViewController, CreatePostViewDelegate {
     @IBOutlet weak var postTextView: UITextView!
     @IBOutlet weak var createPostNavigationItem: UINavigationItem!
         
-    private let presenter: CreatePostPresenterDelegate
-    
-    init?(presenter: CreatePostPresenterDelegate, coder: NSCoder) {
-        self.presenter = presenter
-        super.init(coder: coder)
-    }
-    
-    @available(*, unavailable, renamed: "init(product:coder:)")
-    required init?(coder: NSCoder) {
-        fatalError("Invalid way of decoding this class")
-    }
+    var presenter: CreatePostPresenterDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -108,6 +98,6 @@ extension CreatePostViewController {
     }
     
     @objc func nextButtonPressed() {
-        presenter.uploadPost(image: postImageView.image, caption: postTextView.text)
+        presenter?.uploadPost(image: postImageView.image, caption: postTextView.text)
     }
 }

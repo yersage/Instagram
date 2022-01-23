@@ -15,26 +15,13 @@ final class SignInViewController: UIViewController, SignInViewDelegate {
     @IBOutlet weak var passwordVisibilityButton: UIButton!
     @IBOutlet weak var loginButton: UIButton!
     
-    enum Route: String {
-          case login
-          case signUp
-    }
-    
-    var router: RouterDelegate!
-    private let presenter: SignInPresenterDelegate
-    
-    init?(presenter: SignInPresenterDelegate, coder: NSCoder) {
-        self.presenter = presenter
-        super.init(coder: coder)
-    }
-    
-    @available(*, unavailable, renamed: "init(product:coder:)")
-    required init?(coder: NSCoder) {
-        fatalError("Invalid way of decoding this class")
-    }
+    private var presenter: SignInPresenter?
     
     // MARK:- Lifecycle functions
     override func viewDidLoad() {
+        presenter = SignInPresenter()
+        presenter?.view = self
+
         super.viewDidLoad()
         usernameTextField.delegate = self
         passwordTextField.delegate = self
@@ -64,11 +51,19 @@ final class SignInViewController: UIViewController, SignInViewDelegate {
     }
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {
-        presenter.login(username: usernameTextField.text!, password: passwordTextField.text!)
+        presenter?.login(username: usernameTextField.text!, password: passwordTextField.text!)
     }
     
     @IBAction func signUpButtonPressed(_ sender: UIButton) {
-        router.route(to: Route.signUp.rawValue, from: self, parameters: nil)
+        guard let emailVC = storyboard?.instantiateViewController(withIdentifier: "EmailViewController") as? EmailViewController else { return }
+        let presenter = EmailPresenter()
+        presenter.view = emailVC
+        emailVC.presenter = EmailPresenter()
+        
+        let backItem = UIBarButtonItem()
+        navigationItem.backBarButtonItem = backItem
+        
+        navigationController?.pushViewController(emailVC, animated: true)
     }
     
     // MARK:- SignInViewDelegate funcs
@@ -79,7 +74,46 @@ final class SignInViewController: UIViewController, SignInViewDelegate {
     }
     
     func goToFeedVC() {
-        router.route(to: Route.login.rawValue, from: self, parameters: nil)
+        let tabBarVC = UITabBarController()
+        
+        guard let feedVC = storyboard?.instantiateViewController(withIdentifier: "FeedViewController") as? FeedViewController else { return }
+        let feedPresenter = FeedPresenter()
+        feedPresenter.view = feedVC
+        feedVC.presenter = feedPresenter
+        
+        guard let searchVC = storyboard?.instantiateViewController(withIdentifier: "SearchViewController") as? SearchViewController else { return }        
+        let searchPresenter = SearchPresenter()
+        searchPresenter.view = searchVC
+        searchVC.presenter = searchPresenter
+        
+        guard let createPostVC = storyboard?.instantiateViewController(withIdentifier: "CreatePostViewController") as? CreatePostViewController else { return }
+        let createPostPresenter = CreatePostPresenter()
+        createPostPresenter.view = createPostVC
+        createPostVC.presenter = createPostPresenter
+        
+        guard let notificationsVC = storyboard?.instantiateViewController(withIdentifier: "NotificationsViewController") as? NotificationsViewController else { return }
+        
+        guard let selfProfileVC = storyboard?.instantiateViewController(withIdentifier: "SelfProfileViewController") as? SelfProfileViewController else { return }
+        let selfProfilePresenter = SelfProfilePresenter()
+        selfProfilePresenter.view = selfProfileVC
+        selfProfileVC.presenter = selfProfilePresenter
+        
+        feedVC.title = "Feed"
+        searchVC.title = "Search"
+        createPostVC.title = "Create Post"
+        notificationsVC.title = "Notifications"
+        selfProfileVC.title = "Profile"
+            
+        tabBarVC.setViewControllers([
+            UINavigationController(rootViewController: feedVC),
+            UINavigationController(rootViewController: searchVC),
+            UINavigationController(rootViewController: createPostVC),
+            UINavigationController(rootViewController: notificationsVC),
+            UINavigationController(rootViewController: selfProfileVC)],
+                                    animated: false)
+        
+        tabBarVC.modalPresentationStyle = .fullScreen
+        present(tabBarVC, animated: false)
     }
 }
 
@@ -89,7 +123,7 @@ extension SignInViewController: UITextFieldDelegate {
         if textField == usernameTextField {
             passwordTextField.becomeFirstResponder()
         } else {
-            presenter.login(username: usernameTextField.text!, password: passwordTextField.text!)
+            presenter?.login(username: usernameTextField.text!, password: passwordTextField.text!)
         }
 
         return true

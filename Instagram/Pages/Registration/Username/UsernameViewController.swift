@@ -13,17 +13,7 @@ final class UsernameViewController: UIViewController, UsernameViewDelegate {
     @IBOutlet weak var usernameTextField: UITextField!
     
     var email: String?
-    private let presenter: UsernamePresenterDelegate
-    
-    init?(presenter: UsernamePresenterDelegate, coder: NSCoder) {
-        self.presenter = presenter
-        super.init(coder: coder)
-    }
-    
-    @available(*, unavailable, renamed: "init(product:coder:)")
-    required init?(coder: NSCoder) {
-        fatalError("Invalid way of decoding this class")
-    }
+    var presenter: UsernamePresenterDelegate?
     
     // MARK:- Lifecycle functions
     override func viewDidLoad() {
@@ -37,7 +27,7 @@ final class UsernameViewController: UIViewController, UsernameViewDelegate {
     
     // MARK:- IBActions
     @IBAction func nextButtonPressed(_ sender: UIButton) {
-        presenter.isUsernameAcceptable(username: usernameTextField.text!)
+        presenter?.isUsernameAcceptable(username: usernameTextField.text!)
     }
     
     // MARK:- UsernameViewDelegate funcs

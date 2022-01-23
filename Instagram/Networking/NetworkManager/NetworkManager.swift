@@ -53,6 +53,25 @@ class NetworkManager {
         }
     }
     
+    func noInterceptorRequest<T: Decodable>(_ route: EndPointType, completion: @escaping (Result<T, Error>) -> Void) {
+        
+        networkRouter.noInterceptorRequest(route) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            guard let data = data else { completion(.failure(NetworkError.noData)); return }
+            
+            do {
+                let result: T = try JSONDecoder().decode(T.self, from: data)
+                completion(.success(result))
+            } catch {
+                completion(.failure(NetworkError.dataLoad))
+            }
+        }
+    }
+    
     func request(_ route: EndPointType, completion: @escaping (Result<Int, Error>) -> Void) {
         
         networkRouter.request(route) { _, response, error in

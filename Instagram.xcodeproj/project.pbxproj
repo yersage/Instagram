@@ -17,7 +17,6 @@
 		FC043499273CFFFA00DFE63D /* FollowingViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC043498273CFFFA00DFE63D /* FollowingViewDelegate.swift */; };
 		FC04349B273D002200DFE63D /* FollowingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC04349A273D002200DFE63D /* FollowingService.swift */; };
 		FC04349D273D013B00DFE63D /* FollowingTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC04349C273D013B00DFE63D /* FollowingTableViewCellDelegate.swift */; };
-		FC1025D22795322B003048C3 /* SignInRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1025D12795322B003048C3 /* SignInRouter.swift */; };
 		FC16D9642784599100A84488 /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC16D9632784599100A84488 /* SearchPresenter.swift */; };
 		FC16D9662784599800A84488 /* SearchPresenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC16D9652784599800A84488 /* SearchPresenterDelegate.swift */; };
 		FC16D968278459A400A84488 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC16D967278459A400A84488 /* SearchViewController.swift */; };
@@ -88,7 +87,6 @@
 		FCC69E9E2772169400FE8AE9 /* PayloadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC69E9D2772169400FE8AE9 /* PayloadModel.swift */; };
 		FCCC5EB22794258A00E07F1A /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCC5EB12794258A00E07F1A /* NetworkRouter.swift */; };
 		FCCC5EB62794667E00E07F1A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCC5EB52794667E00E07F1A /* Constants.swift */; };
-		FCCC5EB8279492D500E07F1A /* RouterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCC5EB7279492D500E07F1A /* RouterDelegate.swift */; };
 		FCCEFEF52736AD9B00C04D4D /* FeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCEFEF42736AD9B00C04D4D /* FeedService.swift */; };
 		FCD990A4278ABC1D0099CFD6 /* EditProfileViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD990A3278ABC1D0099CFD6 /* EditProfileViewDelegate.swift */; };
 		FCD990A6278ABC240099CFD6 /* EditProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD990A5278ABC240099CFD6 /* EditProfilePresenter.swift */; };
@@ -132,7 +130,6 @@
 		FC043498273CFFFA00DFE63D /* FollowingViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingViewDelegate.swift; sourceTree = "<group>"; };
 		FC04349A273D002200DFE63D /* FollowingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingService.swift; sourceTree = "<group>"; };
 		FC04349C273D013B00DFE63D /* FollowingTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingTableViewCellDelegate.swift; sourceTree = "<group>"; };
-		FC1025D12795322B003048C3 /* SignInRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRouter.swift; sourceTree = "<group>"; };
 		FC16D9632784599100A84488 /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
 		FC16D9652784599800A84488 /* SearchPresenterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenterDelegate.swift; sourceTree = "<group>"; };
 		FC16D967278459A400A84488 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -205,7 +202,6 @@
 		FCC69E9D2772169400FE8AE9 /* PayloadModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayloadModel.swift; sourceTree = "<group>"; };
 		FCCC5EB12794258A00E07F1A /* NetworkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
 		FCCC5EB52794667E00E07F1A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		FCCC5EB7279492D500E07F1A /* RouterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterDelegate.swift; sourceTree = "<group>"; };
 		FCCEFEF42736AD9B00C04D4D /* FeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedService.swift; sourceTree = "<group>"; };
 		FCD990A3278ABC1D0099CFD6 /* EditProfileViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewDelegate.swift; sourceTree = "<group>"; };
 		FCD990A5278ABC240099CFD6 /* EditProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfilePresenter.swift; sourceTree = "<group>"; };
@@ -431,7 +427,6 @@
 				FC7188AA275CA49900A6F2CA /* SignInViewDelegate.swift */,
 				FC7188AC275CA4B000A6F2CA /* SignInPresenter.swift */,
 				FC7188AE275CA4E300A6F2CA /* SignInPresenterDelegate.swift */,
-				FC1025D12795322B003048C3 /* SignInRouter.swift */,
 			);
 			path = "Sign In";
 			sourceTree = "<group>";
@@ -578,7 +573,6 @@
 		FCAE0BE226EB4D0E007DB573 /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
-				FCCC5EB7279492D500E07F1A /* RouterDelegate.swift */,
 				FCAE0BD326EB48B1007DB573 /* Assets.xcassets */,
 				FCAE0BCA26EB48B0007DB573 /* AppDelegate.swift */,
 				FCAE0BCC26EB48B0007DB573 /* SceneDelegate.swift */,
@@ -866,7 +860,6 @@
 				FCB6AB7E2789F5560018DCA7 /* ChangePropertyPresenterDelegate.swift in Sources */,
 				FC7188B1275CA60900A6F2CA /* EmailViewDelegate.swift in Sources */,
 				FCFA3D43271B1ED600658DF2 /* FeedPresenter.swift in Sources */,
-				FCCC5EB8279492D500E07F1A /* RouterDelegate.swift in Sources */,
 				FC7188BB275CA84D00A6F2CA /* UsernamePresenterDelegate.swift in Sources */,
 				FCE7CEFD270DF52200A57919 /* EditProfileViewController.swift in Sources */,
 				FC73D2F22761E96E00BA5B35 /* CreatePostPresenter.swift in Sources */,
@@ -925,7 +918,6 @@
 				FCF1A1832727C515001846ED /* UserDefaultsManager.swift in Sources */,
 				FC0322DF2720120600DBDE82 /* FollowersViewDelegate.swift in Sources */,
 				FCAE0BE126EB4A76007DB573 /* TokenModel.swift in Sources */,
-				FC1025D22795322B003048C3 /* SignInRouter.swift in Sources */,
 				FC43DCBB273A5C8D0098C882 /* ProfilePresenter.swift in Sources */,
 				FC768BCD272920BF003F0EBB /* NetworkError.swift in Sources */,
 				FCFA604527006E42005F1B4A /* WelcomeViewController.swift in Sources */,

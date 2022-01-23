@@ -12,18 +12,8 @@ final class EmailViewController: UIViewController, EmailViewDelegate {
     @IBOutlet weak var validationLabel: UILabel!
     @IBOutlet weak var emailTextField: UITextField!
         
-    private let presenter: EmailPresenterDelegate
-    
-    init?(presenter: EmailPresenterDelegate, coder: NSCoder) {
-        self.presenter = presenter
-        super.init(coder: coder)
-    }
-    
-    @available(*, unavailable, renamed: "init(product:coder:)")
-    required init?(coder: NSCoder) {
-        fatalError("Invalid way of decoding this class")
-    }
-    
+    var presenter: EmailPresenterDelegate?
+
     // MARK:- Lifecycle functions
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,11 +26,11 @@ final class EmailViewController: UIViewController, EmailViewDelegate {
     
     // MARK:- IBActions
     @IBAction func nextButtonPressed(_ sender: UIButton) {
-        presenter.isEmailAcceptable(email: emailTextField.text!)
+        presenter?.isEmailAcceptable(email: emailTextField.text!)
     }
     
     @IBAction func signInButtonPressed(_ sender: UIButton) {
-        self.navigationController?.popViewController(animated: true)
+        navigationController?.popViewController(animated: true)
     }
     
     // MARK:- EmailViewDelegate funcs

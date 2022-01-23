@@ -14,17 +14,7 @@ final class ChangePropertyViewController: UIViewController, ChangePropertyViewDe
     @IBOutlet weak var validationLabel: UILabel!
     @IBOutlet weak var hintLabel: UILabel!
     
-    private let presenter: ChangePropertyPresenterDelegate
-    
-    init?(presenter: ChangePropertyPresenterDelegate, coder: NSCoder) {
-        self.presenter = presenter
-        super.init(coder: coder)
-    }
-    
-    @available(*, unavailable, renamed: "init(product:coder:)")
-    required init?(coder: NSCoder) {
-        fatalError("Invalid way of decoding this class")
-    }
+    var presenter: ChangePropertyPresenterDelegate?
     
     var property: String?
     var value: String?
@@ -84,7 +74,7 @@ final class ChangePropertyViewController: UIViewController, ChangePropertyViewDe
 extension ChangePropertyViewController: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
         if property == "Username" && textField.text! != "" {
-            presenter.checkUsername(textField.text!)
+            presenter?.checkUsername(textField.text!)
         }
         if property != "Username" {
             isUsernameValid = true
@@ -98,7 +88,7 @@ extension ChangePropertyViewController: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         if property == "Username" && textField.text! != "" {
-            presenter.checkUsername(textField.text!)
+            presenter?.checkUsername(textField.text!)
         }
         if property != "Username" {
             isUsernameValid = true

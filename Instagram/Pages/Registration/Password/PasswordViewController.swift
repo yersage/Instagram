@@ -15,17 +15,7 @@ final class PasswordViewController: UIViewController, PasswordViewDelegate {
     var email: String?
     var username: String?
     
-    private let presenter: PasswordPresenterDelegate
-    
-    init?(presenter: PasswordPresenterDelegate, coder: NSCoder) {
-        self.presenter = presenter
-        super.init(coder: coder)
-    }
-    
-    @available(*, unavailable, renamed: "init(product:coder:)")
-    required init?(coder: NSCoder) {
-        fatalError("Invalid way of decoding this class")
-    }
+    var presenter: PasswordPresenterDelegate?
     
     // MARK:- Lifecycle functions
     override func viewDidLoad() {
@@ -39,7 +29,7 @@ final class PasswordViewController: UIViewController, PasswordViewDelegate {
     
     // MARK:- IBActions
     @IBAction func nextButtonPressed(_ sender: UIButton) {
-        presenter.isPasswordAcceptable(password: passwordTextField.text!)
+        presenter?.isPasswordAcceptable(password: passwordTextField.text!)
     }
     
     // MARK:- PasswordViewDelegate funcs

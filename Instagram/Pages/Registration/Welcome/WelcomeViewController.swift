@@ -15,22 +15,12 @@ final class WelcomeViewController: UIViewController, WelcomeViewDelegate {
     var username: String?
     var password: String?
     
-    private let presenter: WelcomePresenterDelegate
-    
-    init?(presenter: WelcomePresenterDelegate, coder: NSCoder) {
-        self.presenter = presenter
-        super.init(coder: coder)
-    }
-    
-    @available(*, unavailable, renamed: "init(product:coder:)")
-    required init?(coder: NSCoder) {
-        fatalError("Invalid way of decoding this class")
-    }
+    var presenter: WelcomePresenterDelegate?
     
     // MARK:- Lifecycle functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter.login(username: username!, password: password!)
+        presenter?.login(username: username!, password: password!)
     }
     
     // MARK:- IBActions

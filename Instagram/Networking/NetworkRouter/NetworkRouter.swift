@@ -13,6 +13,22 @@ public typealias NetworkRouterCompletion = (_ data: Data?,_ response: URLRespons
 class NetworkRouter<EndPoint: EndPointType>: NetworkRouterDelegate {
     private let interceptor = Interceptor() // нужно ли интерсептор сделать параметром инициализации?
     
+    func noInterceptorRequest(_ route: EndPointType, completion: @escaping NetworkRouterCompletion) {
+        guard let url = route.url else {
+            completion(nil, nil, NetworkError.urlValid)
+            return
+        }
+        
+        AF.request(
+            url,
+            method: route.method,
+            parameters: route.parameters,
+            encoding: route.encoding
+        ).responseJSON { response in
+            completion(response.data, response.response, response.error)
+        }
+    }
+    
     func request(_ route: EndPointType, completion: @escaping NetworkRouterCompletion) {
         guard let url = route.url else {
             completion(nil, nil, NetworkError.urlValid)

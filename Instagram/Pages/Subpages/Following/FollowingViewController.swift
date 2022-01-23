@@ -14,17 +14,7 @@ final class FollowingViewController: UIViewController, FollowingViewDelegate {
     
     var userID: Int?
     
-    private let presenter: FollowingPresenterDelegate
-    
-    init?(presenter: FollowingPresenterDelegate, coder: NSCoder) {
-        self.presenter = presenter
-        super.init(coder: coder)
-    }
-    
-    @available(*, unavailable, renamed: "init(product:coder:)")
-    required init?(coder: NSCoder) {
-        fatalError("Invalid way of decoding this class")
-    }
+    var presenter: FollowingPresenterDelegate?
     
     private let followingTableView: UITableView = {
         let tableView = UITableView()
@@ -34,7 +24,7 @@ final class FollowingViewController: UIViewController, FollowingViewDelegate {
     // MARK:- Lifecycle functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter.getFollowings(firstPage: true)
+        presenter?.getFollowings(firstPage: true)
         layout()
         view.addSubview(followingTableView)
     }
@@ -114,11 +104,11 @@ extension FollowingViewController: FollowingTableViewCellDelegate {
     }
     
     func follow() {
-        presenter.follow()
+        presenter?.follow()
     }
     
     func unfollow() {
-        presenter.unfollow()
+        presenter?.unfollow()
     }
     
     
@@ -132,12 +122,12 @@ extension FollowingViewController: UIScrollViewDelegate {
         
         if position > followingTableView.contentSize.height - 400 - scrollView.frame.size.height {
             followingTableView.tableFooterView = createSpinnerFooter()
-            presenter.getFollowings(firstPage: false)
+            presenter?.getFollowings(firstPage: false)
         }
         
         if position < -200 {
             followingTableView.tableHeaderView = createSpinnerHeader()
-            presenter.getFollowings(firstPage: true)
+            presenter?.getFollowings(firstPage: true)
         }
     }
     
