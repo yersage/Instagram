@@ -92,9 +92,10 @@ extension FeedViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: PostTableViewCell.identifier) as? PostTableViewCell else { print("FeedVC: Error dequeuing FeedTableViewCell."); return UITableViewCell() }
         
         cell.feedTableViewCellDelegate = self
-        
-        cell.postModel = posts[indexPath.row]
-        cell.postState = postsState[indexPath.row]
+        cell.set(posts[indexPath.row])
+        cell.set(postsState[indexPath.row])
+//        cell.postModel = posts[indexPath.row]
+//        cell.postState = postsState[indexPath.row]
         
         return cell
     }

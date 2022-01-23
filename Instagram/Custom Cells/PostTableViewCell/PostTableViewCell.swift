@@ -22,48 +22,47 @@ final class PostTableViewCell: UITableViewCell {
     var postState: PostState?
     
     // MARK:- didSet
-    var postModel: PostModel? {
-        didSet {
-            guard let postModel = postModel else { return }
-            guard let postState = postState else { return }
-            
-            let postID = postModel.post.id
-            postImageView.loadImagesFromPostID(postID: postID)
-            
-            let userID = postModel.post.user.id
-            profileImageView.loadImagesFromUserID(userID: userID)
-            
-            usernameLabel.text = postModel.post.user.username
-            
-            if postState.isMorePressed {
-                postCaptionLabel.numberOfLines = 0
-                captionMoreButton.isHidden = true
-            }
-            
-            if postModel.postMetaData.isPostLikedByCurrentUser {
-                likePostImageView.tintColor = .red
-            }
-            
-            if postState.isSavePressed {
-                savePostImageView.tintColor = .red
-            }
-            
-            let text = "\(postModel.post.user.username) \(postModel.post.caption)"
-            postCaptionLabel.text = text
-            let underlineAttrString = NSMutableAttributedString(string: text)
-            let range1 = (text as NSString).range(of: "\(postModel.post.caption)")
-            underlineAttrString.addAttribute(NSAttributedString.Key.font, value: UIFont.systemFont(ofSize: 12), range: range1)
-            underlineAttrString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.black, range: range1)
-            postCaptionLabel.attributedText = underlineAttrString
-            
-            if calculateCaptionLines() <= 2 {
-                captionMoreButton.isHidden = true
-            }
-            
-            howManyLikesLabel.text = "\(postModel.post.numberOfLikes) Likes"
-            howManyCommentsLabel.text = "View all \(postModel.post.numberOfComments) comments"
-            dateOfCreationLabel.text = postModel.post.created
+    var postModel: PostModel?
+    
+    func set(_ postState: PostState) {
+        if postState.isMorePressed {
+            postCaptionLabel.numberOfLines = 0
+            captionMoreButton.isHidden = true
         }
+
+        if postState.isSavePressed {
+            savePostImageView.tintColor = .red
+        }
+    }
+    
+    func set(_ postModel: PostModel) {
+        let postID = postModel.post.id
+        postImageView.loadImagesFromPostID(postID: postID)
+        
+        let userID = postModel.post.user.id
+        profileImageView.loadImagesFromUserID(userID: userID)
+        
+        usernameLabel.text = postModel.post.user.username
+        
+        if postModel.postMetaData.isPostLikedByCurrentUser {
+            likePostImageView.tintColor = .red
+        }
+        
+        let text = "\(postModel.post.user.username) \(postModel.post.caption)"
+        postCaptionLabel.text = text
+        let underlineAttrString = NSMutableAttributedString(string: text)
+        let range1 = (text as NSString).range(of: "\(postModel.post.caption)")
+        underlineAttrString.addAttribute(NSAttributedString.Key.font, value: UIFont.systemFont(ofSize: 12), range: range1)
+        underlineAttrString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.black, range: range1)
+        postCaptionLabel.attributedText = underlineAttrString
+        
+        if calculateCaptionLines() <= 2 {
+            captionMoreButton.isHidden = true
+        }
+        
+        howManyLikesLabel.text = "\(postModel.post.numberOfLikes) Likes"
+        howManyCommentsLabel.text = "View all \(postModel.post.numberOfComments) comments"
+        dateOfCreationLabel.text = postModel.post.created
     }
     
     private func calculateCaptionLines() -> Int {
