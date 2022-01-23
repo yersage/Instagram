@@ -88,10 +88,10 @@ extension SearchViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchResultsTableViewCell.identifier, for: indexPath) as? SearchResultsTableViewCell else { print("From FollowingVC: error dequeuing cell."); return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchResultsTableViewCell.identifier, for: indexPath) as? SearchResultsTableViewCell else { print("From SearchVC: error dequeuing cell."); return UITableViewCell() }
         
         cell.delegate = self
-        cell.profileModel = results[indexPath.row]
+        cell.set(results[indexPath.row])
         
         return cell
     }

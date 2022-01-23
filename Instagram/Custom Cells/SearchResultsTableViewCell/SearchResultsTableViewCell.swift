@@ -64,21 +64,20 @@ final class SearchResultsTableViewCell: UITableViewCell {
         return label
     }()
         
-    var profileModel: ProfileModel? {
-        didSet {
-            guard let userID = profileModel?.user.id else { return }
-            profileImageView.loadImagesFromUserID(userID: userID)
-            
-            if ((profileModel?.user.name) != nil) {
-                username.topAnchor.constraint(equalTo: dataStackView.topAnchor).isActive = true
-                name.bottomAnchor.constraint(equalTo: dataStackView.bottomAnchor).isActive = true
-                name.isHidden = false
-            } else {
-                username.centerYAnchor.constraint(equalTo: dataStackView.centerYAnchor).isActive = true
-            }
-            username.text = profileModel?.user.username
-            name.text = profileModel?.user.name
+    private var profileModel: ProfileModel?
+    
+    func set(_ profileModel: ProfileModel) {
+        profileImageView.loadImagesFromUserID(userID: profileModel.user.id)
+        
+        if ((profileModel.user.name) != nil) {
+            username.topAnchor.constraint(equalTo: dataStackView.topAnchor).isActive = true
+            name.bottomAnchor.constraint(equalTo: dataStackView.bottomAnchor).isActive = true
+            name.isHidden = false
+        } else {
+            username.centerYAnchor.constraint(equalTo: dataStackView.centerYAnchor).isActive = true
         }
+        username.text = profileModel.user.username
+        name.text = profileModel.user.name
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

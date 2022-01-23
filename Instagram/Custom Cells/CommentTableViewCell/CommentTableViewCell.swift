@@ -169,67 +169,71 @@ final class CommentTableViewCell: UITableViewCell {
     weak var replyDelegate: ReplyDelegate?
     weak var usernameDelegate: UsernameDelegate?
     
-    var isLikeButtonPressed: Bool = false
-    var isViewRepliesButtonPressed: Bool = false
-    
     var tokenModel: TokenModel?
     
-    var commentModel: CommentModel? {
-        didSet {
-            guard let commentModel = commentModel else { print("From CommentTableViewCell didSet: commentModel is nil."); return }
-            
-//            getProfileImage(userID: commentModel.commentProjection.authorId)
-            
-            dateOfCommentLabel.text = commentModel.commentProjection.created
-            howManyLikesLabel.text = "\(commentModel.commentProjection.numberOfLikes) Likes"
-            
-            if isLikeButtonPressed {
-                likeImageView.tintColor = .red
-            }
-            
-            if commentModel.commentProjection.repliedToComment != nil {
-                let text = commentModel.commentProjection.author + " @" + commentModel.commentProjection.repliedToComment!.author + " " + commentModel.commentProjection.content
-                commentsContentLabel.text = text
-                
-                let replyAttrString = NSMutableAttributedString(string: text)
-                let range1 = (text as NSString).range(of: commentModel.commentProjection.content)
-                replyAttrString.addAttribute(NSAttributedString.Key.font, value: UIFont.systemFont(ofSize: 12), range: range1)
-                replyAttrString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.black, range: range1)
-                
-                let range2 = (text as NSString).range(of: " @" + commentModel.commentProjection.repliedToComment!.author)
-                replyAttrString.addAttribute(NSAttributedString.Key.font, value: UIFont.systemFont(ofSize: 12), range: range2)
-                replyAttrString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.blue, range: range2)
-                commentsContentLabel.attributedText = replyAttrString
-            } else {
-                let text = commentModel.commentProjection.author + " " + commentModel.commentProjection.content
-                commentsContentLabel.text = text
-                let underlineAttrString = NSMutableAttributedString(string: text)
-                let range1 = (text as NSString).range(of: commentModel.commentProjection.content)
-                underlineAttrString.addAttribute(NSAttributedString.Key.font, value: UIFont.systemFont(ofSize: 12), range: range1)
-                underlineAttrString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.black, range: range1)
-                commentsContentLabel.attributedText = underlineAttrString
-            }
-            
-            if commentModel.commentProjection.parentComment != nil {
-                profileImage.leftAnchor.constraint(equalTo: horizontalStack.leftAnchor, constant: 35).isActive = true
-            } else {
-                profileImage.leftAnchor.constraint(equalTo: horizontalStack.leftAnchor, constant: 10).isActive = true
-            }
-            
-            if commentModel.commentProjection.numberOfChildrenComments == 0 {
-                replyFooterLabel.isHidden = true
-                replyFooterButton.isHidden = true
-                return
-            }
-                        
-            if !isViewRepliesButtonPressed {
-                replyFooterLabel.text = "View \(commentModel.commentProjection.numberOfChildrenComments) replies"
-                replyFooterLabel.isHidden = false
-                replyFooterButton.isHidden = false
-            } else {
-                replyFooterLabel.text = "Hide replies"
-            }
+    private var commentModel: CommentModel?
+    private var commentState: CommentState?
+    
+    func set(_ commentState: CommentState) {
+        if commentState.isLikePressed {
+            likeImageView.tintColor = .red
         }
+        
+        if !commentState.isViewReplyPressed {
+            replyFooterLabel.text = "View \(String(describing: commentModel?.commentProjection.numberOfChildrenComments)) replies"
+            replyFooterLabel.isHidden = false
+            replyFooterButton.isHidden = false
+        } else {
+            replyFooterLabel.text = "Hide replies"
+        }
+    }
+    
+    func set(_ commentModel: CommentModel) {
+        dateOfCommentLabel.text = commentModel.commentProjection.created
+        howManyLikesLabel.text = "\(commentModel.commentProjection.numberOfLikes) Likes"
+        
+        if commentModel.commentProjection.repliedToComment != nil {
+            setReplyLayouts(commentModel)
+        } else {
+            setCommentLayouts(commentModel)
+        }
+        
+        if commentModel.commentProjection.parentComment != nil {
+            profileImage.leftAnchor.constraint(equalTo: horizontalStack.leftAnchor, constant: 35).isActive = true
+        } else {
+            profileImage.leftAnchor.constraint(equalTo: horizontalStack.leftAnchor, constant: 10).isActive = true
+        }
+        
+        if commentModel.commentProjection.numberOfChildrenComments == 0 {
+            replyFooterLabel.isHidden = true
+            replyFooterButton.isHidden = true
+            return
+        }
+    }
+    
+    private func setReplyLayouts(_ commentModel: CommentModel) {
+        let text = commentModel.commentProjection.author + " @" + commentModel.commentProjection.repliedToComment!.author + " " + commentModel.commentProjection.content
+        commentsContentLabel.text = text
+        
+        let replyAttrString = NSMutableAttributedString(string: text)
+        let range1 = (text as NSString).range(of: commentModel.commentProjection.content)
+        replyAttrString.addAttribute(NSAttributedString.Key.font, value: UIFont.systemFont(ofSize: 12), range: range1)
+        replyAttrString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.black, range: range1)
+        
+        let range2 = (text as NSString).range(of: " @" + commentModel.commentProjection.repliedToComment!.author)
+        replyAttrString.addAttribute(NSAttributedString.Key.font, value: UIFont.systemFont(ofSize: 12), range: range2)
+        replyAttrString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.blue, range: range2)
+        commentsContentLabel.attributedText = replyAttrString
+    }
+    
+    private func setCommentLayouts(_ commentModel: CommentModel) {
+        let text = commentModel.commentProjection.author + " " + commentModel.commentProjection.content
+        commentsContentLabel.text = text
+        let underlineAttrString = NSMutableAttributedString(string: text)
+        let range1 = (text as NSString).range(of: commentModel.commentProjection.content)
+        underlineAttrString.addAttribute(NSAttributedString.Key.font, value: UIFont.systemFont(ofSize: 12), range: range1)
+        underlineAttrString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.black, range: range1)
+        commentsContentLabel.attributedText = underlineAttrString
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

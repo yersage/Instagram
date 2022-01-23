@@ -77,8 +77,8 @@ extension FollowersViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: FollowersTableViewCell.identifier, for: indexPath) as? FollowersTableViewCell else { print("From FollowersVC: error dequeuing cell."); return UITableViewCell() }
         
         cell.delegate = self
-        cell.followerState = followersState[indexPath.row]
-        cell.followerModel = followers[indexPath.row]
+        cell.set(followersState[indexPath.row])
+        cell.set(followers[indexPath.row])
         
         return cell
     }

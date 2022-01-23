@@ -64,23 +64,8 @@ extension ProfilePostsViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: PostTableViewCell.identifier) as? PostTableViewCell else { print("FeedVC: Error dequeuing FeedTableViewCell."); return UITableViewCell() }
         
         cell.feedTableViewCellDelegate = self
-        
-        cell.postModel = self.posts[indexPath.row]
-        
-        
-        
-        if postsState[indexPath.row].isMorePressed {
-            cell.postCaptionLabel.numberOfLines = 0
-            cell.captionMoreButton.isHidden = true
-        }
-        
-        if postsState[indexPath.row].isSavePressed {
-            cell.savePostImageView.tintColor = .red
-        }
-        
-        if posts[indexPath.row].postMetaData.isPostLikedByCurrentUser {
-            cell.likePostImageView.tintColor = .red
-        }
+        cell.set(posts[indexPath.row])
+        cell.set(postsState[indexPath.row])
         
         return cell
     }

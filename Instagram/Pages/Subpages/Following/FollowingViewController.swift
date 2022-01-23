@@ -83,7 +83,7 @@ extension FollowingViewController: UITableViewDataSource {
         cell.delegate = self
         
         cell.isFollowing = followings[indexPath.row].userMetaData.isFollowedByCurrentUser
-        cell.followingModel = followings[indexPath.row]
+        cell.set(followings[indexPath.row])
         
         return cell
     }

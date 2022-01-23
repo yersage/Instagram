@@ -29,35 +29,35 @@ final class FollowersTableViewCell: UITableViewCell {
         username.centerYAnchor.constraint(equalTo: dataStackView.centerYAnchor)
     ]
         
-    var followerState: FollowersState?
+    private var followerState: FollowersState?
+    private var followerModel: ProfileModel?
     
-    var followerModel: ProfileModel? {
-        didSet {
-            if ((followerModel?.user.name) != nil) {
-                NSLayoutConstraint.activate(nameIsNotNilConstraints)
-                NSLayoutConstraint.deactivate(nameIsNilConstraints)
-                name.isHidden = false
-            } else {
-                NSLayoutConstraint.activate(nameIsNilConstraints)
-                NSLayoutConstraint.deactivate(nameIsNotNilConstraints)
-            }
-            
-            guard let userID = followerModel?.user.id else { return }
-            profileImageView.loadImagesFromUserID(userID: userID)
-            
-            if followerState?.isRemoved ?? false {
-                removeButton.alpha = 0.5
-                removeButton.isEnabled = false
-                removeButton.setTitle("Removed", for: .normal)
-            }
-            
-            if ((followerModel?.userMetaData.isFollowedByCurrentUser) != nil) {
-                followButton.isHidden = followerModel!.userMetaData.isFollowedByCurrentUser
-            }
-            
-            username.text = followerModel?.user.username
-            name.text = followerModel?.user.name
+    func set(_ followerState: FollowersState) {
+        if followerState.isRemoved {
+            removeButton.alpha = 0.5
+            removeButton.isEnabled = false
+            removeButton.setTitle("Removed", for: .normal)
         }
+    }
+    
+    func set(_ followerModel: ProfileModel) {
+        profileImageView.loadImagesFromUserID(userID: followerModel.user.id)
+
+        if ((followerModel.user.name) != nil) {
+            NSLayoutConstraint.activate(nameIsNotNilConstraints)
+            NSLayoutConstraint.deactivate(nameIsNilConstraints)
+            name.isHidden = false
+        } else {
+            NSLayoutConstraint.activate(nameIsNilConstraints)
+            NSLayoutConstraint.deactivate(nameIsNotNilConstraints)
+        }
+        
+        if (followerModel.userMetaData.isFollowedByCurrentUser) {
+            followButton.isHidden = followerModel.userMetaData.isFollowedByCurrentUser
+        }
+        
+        username.text = followerModel.user.username
+        name.text = followerModel.user.name
     }
     
     // MARK:- Subviews

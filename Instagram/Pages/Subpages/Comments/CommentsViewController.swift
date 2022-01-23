@@ -219,14 +219,15 @@ extension CommentsViewController: UITableViewDataSource {
         cell.usernameDelegate = self
         cell.viewRepliesDelegate = self
         cell.replyDelegate = self
-        
+        /*
         if commentsWithReplies[comments[indexPath.row].commentProjection.id]?.isShowing != nil {
-            cell.isViewRepliesButtonPressed = commentsWithReplies[comments[indexPath.row].commentProjection.id]!.isShowing
+            cell.commentState?.isViewReplyPressed = commentsWithReplies[comments[indexPath.row].commentProjection.id]!.isShowing
         }
         
-        cell.isLikeButtonPressed = comment.commentMetaData.isCommentLikedByCurrentUser
+        cell.commentState?.isLikePressed = comment.commentMetaData.isCommentLikedByCurrentUser
+         */
         cell.tokenModel = tokenModel
-        cell.commentModel = comment
+        cell.set(comment)
         
         return cell
     }
@@ -368,8 +369,10 @@ extension CommentsViewController: ViewRepliesDelegate {
 extension CommentsViewController: ReplyDelegate {
     func replyButtonPressed(_ cell: CommentTableViewCell) {
         let indexPath = commentsTableView.indexPath(for: cell)!
+        /*
         commentTextField.text = "@\(cell.commentModel!.commentProjection.author) "
         clearText = "@\(cell.commentModel!.commentProjection.author) "
+         */
         commentIdOfBeingReplied = comments[indexPath.row].commentProjection.id
         commentsTableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
         commentTextField.becomeFirstResponder()

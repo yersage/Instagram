@@ -86,28 +86,27 @@ final class FollowingTableViewCell: UITableViewCell {
     
     var isFollowing: Bool = false
     
-    var followingModel: ProfileModel? {
-        didSet {
-            guard let userID = followingModel?.user.id else { return }
-            profileImageView.loadImagesFromUserID(userID: userID)
-            
-            if ((followingModel?.user.name) != nil) {
-                username.topAnchor.constraint(equalTo: dataStackView.topAnchor).isActive = true
-                name.bottomAnchor.constraint(equalTo: dataStackView.bottomAnchor).isActive = true
-                name.isHidden = false
-            } else {
-                username.centerYAnchor.constraint(equalTo: dataStackView.centerYAnchor).isActive = true
-            }
-            
-            if !isFollowing {
-                followingButton.setTitle("Follow", for: .normal)
-                followingButton.backgroundColor = .blue
-                followingButton.tintColor = .white
-            }
-            
-            username.text = followingModel?.user.username
-            name.text = followingModel?.user.name
+    private var followingModel: ProfileModel?
+    
+    func set(_ followingModel: ProfileModel) {
+        profileImageView.loadImagesFromUserID(userID: followingModel.user.id)
+        
+        if followingModel.user.name != nil {
+            username.topAnchor.constraint(equalTo: dataStackView.topAnchor).isActive = true
+            name.bottomAnchor.constraint(equalTo: dataStackView.bottomAnchor).isActive = true
+            name.isHidden = false
+        } else {
+            username.centerYAnchor.constraint(equalTo: dataStackView.centerYAnchor).isActive = true
         }
+        
+        if !isFollowing {
+            followingButton.setTitle("Follow", for: .normal)
+            followingButton.backgroundColor = .blue
+            followingButton.tintColor = .white
+        }
+        
+        username.text = followingModel.user.username
+        name.text = followingModel.user.name
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

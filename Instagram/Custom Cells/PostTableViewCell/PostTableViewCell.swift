@@ -19,10 +19,8 @@ final class PostTableViewCell: UITableViewCell {
     
     weak var feedTableViewCellDelegate: PostTableViewCellDelegate?
     
-    var postState: PostState?
-    
-    // MARK:- didSet
-    var postModel: PostModel?
+    private var postState: PostState?
+    private var postModel: PostModel?
     
     func set(_ postState: PostState) {
         if postState.isMorePressed {
