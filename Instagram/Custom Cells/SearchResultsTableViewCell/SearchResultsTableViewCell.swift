@@ -97,7 +97,16 @@ final class SearchResultsTableViewCell: UITableViewCell {
             searchResultStackView.topAnchor.constraint(equalTo: contentView.topAnchor),
             searchResultStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             searchResultStackView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
-            searchResultStackView.rightAnchor.constraint(equalTo: contentView.rightAnchor),
+            searchResultStackView.rightAnchor.constraint(equalTo: contentView.rightAnchor)
+        ])
+        
+        dataStackView.addSubview(username)
+        dataStackView.addSubview(name)
+        
+        searchResultStackView.addSubview(profileImageView)
+        searchResultStackView.addSubview(dataStackView)
+        
+        NSLayoutConstraint.activate([
             profileImageView.topAnchor.constraint(equalTo: searchResultStackView.topAnchor, constant: 10),
             profileImageView.bottomAnchor.constraint(equalTo: searchResultStackView.bottomAnchor, constant: -10),
             profileImageView.leftAnchor.constraint(equalTo: searchResultStackView.leftAnchor, constant: 10),
@@ -107,12 +116,6 @@ final class SearchResultsTableViewCell: UITableViewCell {
             dataStackView.bottomAnchor.constraint(equalTo: profileImageView.bottomAnchor),
             dataStackView.leftAnchor.constraint(equalTo: profileImageView.rightAnchor, constant: 10)
         ])
-        
-        dataStackView.addSubview(username)
-        dataStackView.addSubview(name)
-        
-        searchResultStackView.addSubview(profileImageView)
-        searchResultStackView.addSubview(dataStackView)
 
         username.addGestureRecognizer(UITapGestureRecognizer(target:self, action: #selector(usernameButtonPressed)))
     }
