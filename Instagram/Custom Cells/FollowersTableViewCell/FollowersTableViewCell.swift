@@ -151,11 +151,12 @@ final class FollowersTableViewCell: UITableViewCell {
     
     private func layout() {
         contentView.addSubview(followerStackView)
-        
-        followerStackView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        followerStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
-        followerStackView.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
-        followerStackView.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
+        NSLayoutConstraint.activate([
+            followerStackView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            followerStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            followerStackView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
+            followerStackView.rightAnchor.constraint(equalTo: contentView.rightAnchor)
+        ])
         
         dataStackView.addSubview(username)
         dataStackView.addSubview(name)
@@ -165,23 +166,22 @@ final class FollowersTableViewCell: UITableViewCell {
         followerStackView.addSubview(followButton)
         followerStackView.addSubview(removeButton)
         
-        profileImageView.topAnchor.constraint(equalTo: followerStackView.topAnchor, constant: 10).isActive = true
-        profileImageView.bottomAnchor.constraint(equalTo: followerStackView.bottomAnchor, constant: -10).isActive = true
-        profileImageView.leftAnchor.constraint(equalTo: followerStackView.leftAnchor, constant: 10).isActive = true
-        profileImageView.widthAnchor.constraint(equalToConstant: 30).isActive = true
-        profileImageView.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        
-        dataStackView.topAnchor.constraint(equalTo: profileImageView.topAnchor).isActive = true
-        dataStackView.bottomAnchor.constraint(equalTo: profileImageView.bottomAnchor).isActive = true
-        dataStackView.leftAnchor.constraint(equalTo: profileImageView.rightAnchor, constant: 10).isActive = true
-        username.widthAnchor.constraint(equalToConstant: 80).isActive = true
-        
-        followButton.centerYAnchor.constraint(equalTo: username.centerYAnchor).isActive = true
-        followButton.leftAnchor.constraint(equalTo: dataStackView.rightAnchor, constant: 80).isActive = true
-        
-        removeButton.centerYAnchor.constraint(equalTo: followerStackView.centerYAnchor).isActive = true
-        removeButton.rightAnchor.constraint(equalTo: followerStackView.rightAnchor, constant: -10).isActive = true
-        removeButton.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        NSLayoutConstraint.activate([
+            profileImageView.topAnchor.constraint(equalTo: followerStackView.topAnchor, constant: 10),
+            profileImageView.bottomAnchor.constraint(equalTo: followerStackView.bottomAnchor, constant: -10),
+            profileImageView.leftAnchor.constraint(equalTo: followerStackView.leftAnchor, constant: 10),
+            profileImageView.widthAnchor.constraint(equalToConstant: 30),
+            profileImageView.heightAnchor.constraint(equalToConstant: 30),
+            dataStackView.topAnchor.constraint(equalTo: profileImageView.topAnchor),
+            dataStackView.bottomAnchor.constraint(equalTo: profileImageView.bottomAnchor),
+            dataStackView.leftAnchor.constraint(equalTo: profileImageView.rightAnchor, constant: 10),
+            username.widthAnchor.constraint(equalToConstant: 80),
+            followButton.centerYAnchor.constraint(equalTo: username.centerYAnchor),
+            followButton.leftAnchor.constraint(equalTo: dataStackView.rightAnchor, constant: 80),
+            removeButton.centerYAnchor.constraint(equalTo: followerStackView.centerYAnchor),
+            removeButton.rightAnchor.constraint(equalTo: followerStackView.rightAnchor, constant: -10),
+            removeButton.widthAnchor.constraint(equalToConstant: 80)
+        ])
         
         username.addGestureRecognizer(UITapGestureRecognizer(target:self, action: #selector(usernameButtonPressed)))
         followButton.addTarget(self, action: #selector(followButtonPressed), for: .touchUpInside)
