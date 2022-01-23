@@ -12,52 +12,6 @@ struct PostState {
     var isSavePressed: Bool
 }
 
-// MARK:- addTarget functions
-extension PostTableViewCell {
-    
-    @objc private func moreButtonPressed(sender: UIButton) {
-        DispatchQueue.main.async { [self] in
-            postCaptionLabel.numberOfLines = 0
-            captionMoreButton.isHidden = false
-        }
-        feedTableViewCellDelegate?.morePressed(self)
-    }
-    
-    @objc private func likeButtonPressed(sender: UIButton) {
-        guard let postModel = postModel else { return }
-        DispatchQueue.main.async { [self] in
-            if likePostImageView.tintColor == .red {
-                howManyLikesLabel.text = "\(postModel.post.numberOfLikes == 0 ? 0 : postModel.post.numberOfLikes - 1) Likes"
-                likePostImageView.tintColor = .black
-                feedTableViewCellDelegate?.unlikePressed(self, postID: postModel.post.id)
-            } else {
-                howManyLikesLabel.text = "\(postModel.post.numberOfLikes + 1) Likes"
-                likePostImageView.tintColor = .red
-                feedTableViewCellDelegate?.likePressed(self, postID: postModel.post.id)
-            }
-        }
-    }
-    
-    @objc private func saveButtonPressed(sender: UIButton) {
-        DispatchQueue.main.async { [self] in
-            if savePostImageView.tintColor == .red {
-                savePostImageView.tintColor = .black
-            } else {
-                savePostImageView.tintColor = .red
-            }
-        }
-        feedTableViewCellDelegate?.savePressed(self)
-    }
-    
-    @objc private func usernameButtonPressed(sender: UIButton) {
-        feedTableViewCellDelegate?.usernamePressed(self)
-    }
-    
-    @objc private func commentButtonPressed(sender: UIButton) {
-        feedTableViewCellDelegate?.commentPressed(self, postID: postModel?.post.id ?? 0)
-    }
-}
-
 final class PostTableViewCell: UITableViewCell {
     
     // MARK:- Initalization
@@ -380,28 +334,26 @@ final class PostTableViewCell: UITableViewCell {
         
         contentView.addSubview(headerStackView)
         
-        headerStackView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        headerStackView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 20).isActive = true
-        headerStackView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -20).isActive = true
-        headerStackView.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        
-        profileImageView.centerYAnchor.constraint(equalTo: headerStackView.centerYAnchor).isActive = true
-        profileImageView.leftAnchor.constraint(equalTo: headerStackView.leftAnchor).isActive = true
-        profileImageView.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        profileImageView.widthAnchor.constraint(equalToConstant: 30).isActive = true
-        
-        profileImageButton.topAnchor.constraint(equalTo: profileImageView.topAnchor).isActive = true
-        profileImageButton.leftAnchor.constraint(equalTo: profileImageView.leftAnchor).isActive = true
-        profileImageButton.rightAnchor.constraint(equalTo: profileImageView.rightAnchor).isActive = true
-        profileImageButton.bottomAnchor.constraint(equalTo: profileImageView.bottomAnchor).isActive = true
-        
-        usernameLabel.centerYAnchor.constraint(equalTo: headerStackView.centerYAnchor).isActive = true
-        usernameLabel.leftAnchor.constraint(equalTo: profileImageView.rightAnchor, constant: 5).isActive = true
-        
-        usernameButton.centerYAnchor.constraint(equalTo: usernameLabel.centerYAnchor).isActive = true
-        usernameButton.heightAnchor.constraint(equalToConstant: 12).isActive = true
-        usernameButton.rightAnchor.constraint(equalTo: usernameLabel.rightAnchor).isActive = true
-        usernameButton.leftAnchor.constraint(equalTo: usernameLabel.leftAnchor).isActive = true
+        NSLayoutConstraint.activate([
+            headerStackView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            headerStackView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 20),
+            headerStackView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -20),
+            headerStackView.heightAnchor.constraint(equalToConstant: 40),
+            profileImageView.centerYAnchor.constraint(equalTo: headerStackView.centerYAnchor),
+            profileImageView.leftAnchor.constraint(equalTo: headerStackView.leftAnchor),
+            profileImageView.heightAnchor.constraint(equalToConstant: 30),
+            profileImageView.widthAnchor.constraint(equalToConstant: 30),
+            profileImageButton.topAnchor.constraint(equalTo: profileImageView.topAnchor),
+            profileImageButton.leftAnchor.constraint(equalTo: profileImageView.leftAnchor),
+            profileImageButton.rightAnchor.constraint(equalTo: profileImageView.rightAnchor),
+            profileImageButton.bottomAnchor.constraint(equalTo: profileImageView.bottomAnchor),
+            usernameLabel.centerYAnchor.constraint(equalTo: headerStackView.centerYAnchor),
+            usernameLabel.leftAnchor.constraint(equalTo: profileImageView.rightAnchor, constant: 5),
+            usernameButton.centerYAnchor.constraint(equalTo: usernameLabel.centerYAnchor),
+            usernameButton.heightAnchor.constraint(equalToConstant: 12),
+            usernameButton.rightAnchor.constraint(equalTo: usernameLabel.rightAnchor),
+            usernameButton.leftAnchor.constraint(equalTo: usernameLabel.leftAnchor)
+        ])
     }
     
     func layoutBody() {
@@ -416,11 +368,12 @@ final class PostTableViewCell: UITableViewCell {
     
     func setupImage() {
         contentView.addSubview(postImageView)
-        
-        postImageView.topAnchor.constraint(equalTo: headerStackView.bottomAnchor).isActive = true
-        postImageView.leftAnchor.constraint(equalTo: headerStackView.leftAnchor).isActive = true
-        postImageView.rightAnchor.constraint(equalTo: headerStackView.rightAnchor).isActive = true
-        postImageView.heightAnchor.constraint(equalToConstant: 250).isActive = true
+        NSLayoutConstraint.activate([
+            postImageView.topAnchor.constraint(equalTo: headerStackView.bottomAnchor),
+            postImageView.leftAnchor.constraint(equalTo: headerStackView.leftAnchor),
+            postImageView.rightAnchor.constraint(equalTo: headerStackView.rightAnchor),
+            postImageView.heightAnchor.constraint(equalToConstant: 250)
+        ])
     }
     
     func setupButtons() {
@@ -433,80 +386,81 @@ final class PostTableViewCell: UITableViewCell {
         
         contentView.addSubview(postButtonsStackView)
         
-        postButtonsStackView.topAnchor.constraint(equalTo: postImageView.bottomAnchor).isActive = true
-        postButtonsStackView.leftAnchor.constraint(equalTo: postImageView.leftAnchor).isActive = true
-        postButtonsStackView.rightAnchor.constraint(equalTo: postImageView.rightAnchor).isActive = true
-        postButtonsStackView.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        
-        likePostImageView.centerYAnchor.constraint(equalTo: postButtonsStackView.centerYAnchor).isActive = true
-        likePostImageView.leftAnchor.constraint(equalTo: postButtonsStackView.leftAnchor).isActive = true
-        likePostImageView.heightAnchor.constraint(equalToConstant: 25).isActive = true
-        likePostImageView.widthAnchor.constraint(equalToConstant: 25).isActive = true
-        
-        likePostButton.topAnchor.constraint(equalTo: likePostImageView.topAnchor).isActive = true
-        likePostButton.leftAnchor.constraint(equalTo: likePostImageView.leftAnchor).isActive = true
-        likePostButton.rightAnchor.constraint(equalTo: likePostImageView.rightAnchor).isActive = true
-        likePostButton.bottomAnchor.constraint(equalTo: likePostImageView.bottomAnchor).isActive = true
-        
-        commentPostImageView.centerYAnchor.constraint(equalTo: postButtonsStackView.centerYAnchor).isActive = true
-        commentPostImageView.leftAnchor.constraint(equalTo: likePostButton.rightAnchor, constant: 5).isActive = true
-        commentPostImageView.heightAnchor.constraint(equalToConstant: 25).isActive = true
-        commentPostImageView.widthAnchor.constraint(equalToConstant: 25).isActive = true
-        
-        commentPostButton.topAnchor.constraint(equalTo: commentPostImageView.topAnchor).isActive = true
-        commentPostButton.leftAnchor.constraint(equalTo: commentPostImageView.leftAnchor).isActive = true
-        commentPostButton.rightAnchor.constraint(equalTo: commentPostImageView.rightAnchor).isActive = true
-        commentPostButton.bottomAnchor.constraint(equalTo: commentPostImageView.bottomAnchor).isActive = true
-        
-        savePostImageView.centerYAnchor.constraint(equalTo: postButtonsStackView.centerYAnchor).isActive = true
-        savePostImageView.rightAnchor.constraint(equalTo: postButtonsStackView.rightAnchor).isActive = true
-        savePostImageView.heightAnchor.constraint(equalToConstant: 25).isActive = true
-        savePostImageView.widthAnchor.constraint(equalToConstant: 25).isActive = true
-        
-        savePostButton.topAnchor.constraint(equalTo: savePostImageView.topAnchor).isActive = true
-        savePostButton.leftAnchor.constraint(equalTo: savePostImageView.leftAnchor).isActive = true
-        savePostButton.rightAnchor.constraint(equalTo: savePostImageView.rightAnchor).isActive = true
-        savePostButton.bottomAnchor.constraint(equalTo: savePostImageView.bottomAnchor).isActive = true
+        NSLayoutConstraint.activate([
+            postButtonsStackView.topAnchor.constraint(equalTo: postImageView.bottomAnchor),
+            postButtonsStackView.leftAnchor.constraint(equalTo: postImageView.leftAnchor),
+            postButtonsStackView.rightAnchor.constraint(equalTo: postImageView.rightAnchor),
+            postButtonsStackView.heightAnchor.constraint(equalToConstant: 30),
+            likePostImageView.centerYAnchor.constraint(equalTo: postButtonsStackView.centerYAnchor),
+            likePostImageView.leftAnchor.constraint(equalTo: postButtonsStackView.leftAnchor),
+            likePostImageView.heightAnchor.constraint(equalToConstant: 25),
+            likePostImageView.widthAnchor.constraint(equalToConstant: 25),
+            likePostButton.topAnchor.constraint(equalTo: likePostImageView.topAnchor),
+            likePostButton.leftAnchor.constraint(equalTo: likePostImageView.leftAnchor),
+            likePostButton.rightAnchor.constraint(equalTo: likePostImageView.rightAnchor),
+            likePostButton.bottomAnchor.constraint(equalTo: likePostImageView.bottomAnchor),
+            commentPostImageView.centerYAnchor.constraint(equalTo: postButtonsStackView.centerYAnchor),
+            commentPostImageView.leftAnchor.constraint(equalTo: likePostButton.rightAnchor, constant: 5),
+            commentPostImageView.heightAnchor.constraint(equalToConstant: 25),
+            commentPostImageView.widthAnchor.constraint(equalToConstant: 25),
+            commentPostButton.topAnchor.constraint(equalTo: commentPostImageView.topAnchor),
+            commentPostButton.leftAnchor.constraint(equalTo: commentPostImageView.leftAnchor),
+            commentPostButton.rightAnchor.constraint(equalTo: commentPostImageView.rightAnchor),
+            commentPostButton.bottomAnchor.constraint(equalTo: commentPostImageView.bottomAnchor),
+            savePostImageView.centerYAnchor.constraint(equalTo: postButtonsStackView.centerYAnchor),
+            savePostImageView.rightAnchor.constraint(equalTo: postButtonsStackView.rightAnchor),
+            savePostImageView.heightAnchor.constraint(equalToConstant: 25),
+            savePostImageView.widthAnchor.constraint(equalToConstant: 25),
+            savePostButton.topAnchor.constraint(equalTo: savePostImageView.topAnchor),
+            savePostButton.leftAnchor.constraint(equalTo: savePostImageView.leftAnchor),
+            savePostButton.rightAnchor.constraint(equalTo: savePostImageView.rightAnchor),
+            savePostButton.bottomAnchor.constraint(equalTo: savePostImageView.bottomAnchor)
+        ])
     }
     
     func setupLikesCount() {
         contentView.addSubview(howManyLikesLabel)
         
-        howManyLikesLabel.topAnchor.constraint(equalTo: postButtonsStackView.bottomAnchor).isActive = true
-        howManyLikesLabel.leftAnchor.constraint(equalTo: postButtonsStackView.leftAnchor).isActive = true
-        howManyLikesLabel.rightAnchor.constraint(equalTo: postButtonsStackView.rightAnchor).isActive = true
-        howManyLikesLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        NSLayoutConstraint.activate([
+            howManyLikesLabel.topAnchor.constraint(equalTo: postButtonsStackView.bottomAnchor),
+            howManyLikesLabel.leftAnchor.constraint(equalTo: postButtonsStackView.leftAnchor),
+            howManyLikesLabel.rightAnchor.constraint(equalTo: postButtonsStackView.rightAnchor),
+            howManyLikesLabel.heightAnchor.constraint(equalToConstant: 20)
+        ])
     }
     
     func setupCaption() {
         contentView.addSubview(postCaptionLabel)
         contentView.addSubview(captionMoreButton)
         
-        postCaptionLabel.topAnchor.constraint(equalTo: howManyLikesLabel.bottomAnchor).isActive = true
-        postCaptionLabel.leftAnchor.constraint(equalTo: howManyLikesLabel.leftAnchor).isActive = true
-        postCaptionLabel.rightAnchor.constraint(equalTo: howManyLikesLabel.rightAnchor, constant: -30).isActive = true
-        
-        captionMoreButton.rightAnchor.constraint(equalTo: howManyLikesLabel.rightAnchor).isActive = true
-        captionMoreButton.bottomAnchor.constraint(equalTo: postCaptionLabel.bottomAnchor, constant: 1).isActive = true
-        captionMoreButton.heightAnchor.constraint(equalToConstant: 17).isActive = true
+        NSLayoutConstraint.activate([
+            postCaptionLabel.topAnchor.constraint(equalTo: howManyLikesLabel.bottomAnchor),
+            postCaptionLabel.leftAnchor.constraint(equalTo: howManyLikesLabel.leftAnchor),
+            postCaptionLabel.rightAnchor.constraint(equalTo: howManyLikesLabel.rightAnchor, constant: -30),
+            captionMoreButton.rightAnchor.constraint(equalTo: howManyLikesLabel.rightAnchor),
+            captionMoreButton.bottomAnchor.constraint(equalTo: postCaptionLabel.bottomAnchor, constant: 1),
+            captionMoreButton.heightAnchor.constraint(equalToConstant: 17)
+        ])
     }
     
     func setupComments() {
         contentView.addSubview(howManyCommentsLabel)
-        
-        howManyCommentsLabel.topAnchor.constraint(equalTo: postCaptionLabel.bottomAnchor).isActive = true
-        howManyCommentsLabel.leftAnchor.constraint(equalTo: postCaptionLabel.leftAnchor).isActive = true
-        howManyCommentsLabel.rightAnchor.constraint(equalTo: postCaptionLabel.rightAnchor).isActive = true
-        howManyCommentsLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        NSLayoutConstraint.activate([
+            howManyCommentsLabel.topAnchor.constraint(equalTo: postCaptionLabel.bottomAnchor),
+            howManyCommentsLabel.leftAnchor.constraint(equalTo: postCaptionLabel.leftAnchor),
+            howManyCommentsLabel.rightAnchor.constraint(equalTo: postCaptionLabel.rightAnchor),
+            howManyCommentsLabel.heightAnchor.constraint(equalToConstant: 20)
+        ])
     }
     
     func setupDateOfPostsCreation() {
         contentView.addSubview(dateOfCreationLabel)
-        
-        dateOfCreationLabel.topAnchor.constraint(equalTo: howManyCommentsLabel.bottomAnchor).isActive = true
-        dateOfCreationLabel.leftAnchor.constraint(equalTo: howManyCommentsLabel.leftAnchor).isActive = true
-        dateOfCreationLabel.rightAnchor.constraint(equalTo: howManyCommentsLabel.rightAnchor).isActive = true
-        dateOfCreationLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        NSLayoutConstraint.activate([
+            dateOfCreationLabel.topAnchor.constraint(equalTo: howManyCommentsLabel.bottomAnchor),
+            dateOfCreationLabel.leftAnchor.constraint(equalTo: howManyCommentsLabel.leftAnchor),
+            dateOfCreationLabel.rightAnchor.constraint(equalTo: howManyCommentsLabel.rightAnchor),
+            dateOfCreationLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+        ])
     }
     
     func setupButtonFunctionalities() {
@@ -516,5 +470,51 @@ final class PostTableViewCell: UITableViewCell {
         profileImageButton.addTarget(self, action: #selector(usernameButtonPressed), for: .touchUpInside)
         usernameButton.addTarget(self, action: #selector(usernameButtonPressed), for: .touchUpInside)
         commentPostButton.addTarget(self, action: #selector(commentButtonPressed), for: .touchUpInside)
+    }
+}
+
+// MARK:- addTarget functions
+extension PostTableViewCell {
+    
+    @objc private func moreButtonPressed(sender: UIButton) {
+        DispatchQueue.main.async { [self] in
+            postCaptionLabel.numberOfLines = 0
+            captionMoreButton.isHidden = false
+        }
+        feedTableViewCellDelegate?.morePressed(self)
+    }
+    
+    @objc private func likeButtonPressed(sender: UIButton) {
+        guard let postModel = postModel else { return }
+        DispatchQueue.main.async { [self] in
+            if likePostImageView.tintColor == .red {
+                howManyLikesLabel.text = "\(postModel.post.numberOfLikes == 0 ? 0 : postModel.post.numberOfLikes - 1) Likes"
+                likePostImageView.tintColor = .black
+                feedTableViewCellDelegate?.unlikePressed(self, postID: postModel.post.id)
+            } else {
+                howManyLikesLabel.text = "\(postModel.post.numberOfLikes + 1) Likes"
+                likePostImageView.tintColor = .red
+                feedTableViewCellDelegate?.likePressed(self, postID: postModel.post.id)
+            }
+        }
+    }
+    
+    @objc private func saveButtonPressed(sender: UIButton) {
+        DispatchQueue.main.async { [self] in
+            if savePostImageView.tintColor == .red {
+                savePostImageView.tintColor = .black
+            } else {
+                savePostImageView.tintColor = .red
+            }
+        }
+        feedTableViewCellDelegate?.savePressed(self)
+    }
+    
+    @objc private func usernameButtonPressed(sender: UIButton) {
+        feedTableViewCellDelegate?.usernamePressed(self)
+    }
+    
+    @objc private func commentButtonPressed(sender: UIButton) {
+        feedTableViewCellDelegate?.commentPressed(self, postID: postModel?.post.id ?? 0)
     }
 }
