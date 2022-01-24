@@ -518,6 +518,7 @@
 			children = (
 				FCCC5EB12794258A00E07F1A /* NetworkRouter.swift */,
 				FC768BD6272921CE003F0EBB /* NetworkRouterDelegate.swift */,
+				FC3B27F4279E99C50019DBBF /* AlamofireInterceptorDelegate.swift */,
 			);
 			path = NetworkRouter;
 			sourceTree = "<group>";
@@ -665,7 +666,6 @@
 			isa = PBXGroup;
 			children = (
 				FCF1A1802727C4B5001846ED /* KeychainSwiftInterceptor.swift */,
-				FC3B27F4279E99C50019DBBF /* AlamofireInterceptorDelegate.swift */,
 			);
 			path = Interceptor;
 			sourceTree = "<group>";

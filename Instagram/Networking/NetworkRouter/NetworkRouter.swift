@@ -11,9 +11,9 @@ import Alamofire
 public typealias NetworkRouterCompletion = (_ data: Data?,_ response: URLResponse?,_ error: Error?)->()
 
 class NetworkRouter: NetworkRouterDelegate {
-    private let interceptor: AlamofireInterceptorDelegate
+    private let interceptor: RequestInterceptorDelegate
     
-    init(interceptor: AlamofireInterceptorDelegate) {
+    init(interceptor: RequestInterceptorDelegate) {
         self.interceptor = interceptor
     }
     
