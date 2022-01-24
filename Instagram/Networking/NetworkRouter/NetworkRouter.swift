@@ -10,8 +10,12 @@ import Alamofire
 
 public typealias NetworkRouterCompletion = (_ data: Data?,_ response: URLResponse?,_ error: Error?)->()
 
-class NetworkRouter<EndPoint: EndPointType>: NetworkRouterDelegate {
-    private let interceptor = Interceptor() // нужно ли интерсептор сделать параметром инициализации?
+class NetworkRouter: NetworkRouterDelegate {
+    private let interceptor: AlamofireInterceptorDelegate
+    
+    init(interceptor: AlamofireInterceptorDelegate) {
+        self.interceptor = interceptor
+    }
     
     func noInterceptorRequest(_ route: EndPointType, completion: @escaping NetworkRouterCompletion) {
         guard let url = route.url else {

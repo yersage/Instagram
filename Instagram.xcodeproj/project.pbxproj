@@ -27,7 +27,7 @@
 		FC3165762771BA7700306012 /* LoaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3165752771BA7700306012 /* LoaderCell.swift */; };
 		FC32333827846D2F00F6A640 /* SearchResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC32333727846D2F00F6A640 /* SearchResultsTableViewCell.swift */; };
 		FC32333A27846D7A00F6A640 /* SearchResultsTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC32333927846D7A00F6A640 /* SearchResultsTableViewCellDelegate.swift */; };
-		FC3B27F5279E99C50019DBBF /* AlamofireInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3B27F4279E99C50019DBBF /* AlamofireInterceptor.swift */; };
+		FC3B27F5279E99C50019DBBF /* AlamofireInterceptorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3B27F4279E99C50019DBBF /* AlamofireInterceptorDelegate.swift */; };
 		FC3FD5892796FACF0071E78E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3FD5882796FACF0071E78E /* NetworkManager.swift */; };
 		FC423FC726F1D84F00F1BE5E /* FollowersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC423FC626F1D84F00F1BE5E /* FollowersTableViewCell.swift */; };
 		FC423FC926F1D89300F1BE5E /* FollowersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC423FC826F1D89300F1BE5E /* FollowersViewController.swift */; };
@@ -141,7 +141,7 @@
 		FC3165752771BA7700306012 /* LoaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderCell.swift; sourceTree = "<group>"; };
 		FC32333727846D2F00F6A640 /* SearchResultsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsTableViewCell.swift; sourceTree = "<group>"; };
 		FC32333927846D7A00F6A640 /* SearchResultsTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsTableViewCellDelegate.swift; sourceTree = "<group>"; };
-		FC3B27F4279E99C50019DBBF /* AlamofireInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireInterceptor.swift; sourceTree = "<group>"; };
+		FC3B27F4279E99C50019DBBF /* AlamofireInterceptorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireInterceptorDelegate.swift; sourceTree = "<group>"; };
 		FC3FD5882796FACF0071E78E /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		FC423FC626F1D84F00F1BE5E /* FollowersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersTableViewCell.swift; sourceTree = "<group>"; };
 		FC423FC826F1D89300F1BE5E /* FollowersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersViewController.swift; sourceTree = "<group>"; };
@@ -665,7 +665,7 @@
 			isa = PBXGroup;
 			children = (
 				FCF1A1802727C4B5001846ED /* Interceptor.swift */,
-				FC3B27F4279E99C50019DBBF /* AlamofireInterceptor.swift */,
+				FC3B27F4279E99C50019DBBF /* AlamofireInterceptorDelegate.swift */,
 			);
 			path = Interceptor;
 			sourceTree = "<group>";
@@ -944,7 +944,7 @@
 				FCF2EC5B27987C0100250B57 /* FeedRouter.swift in Sources */,
 				FC7188CD275CAF7D00A6F2CA /* WelcomePresenterDelegate.swift in Sources */,
 				FC3165762771BA7700306012 /* LoaderCell.swift in Sources */,
-				FC3B27F5279E99C50019DBBF /* AlamofireInterceptor.swift in Sources */,
+				FC3B27F5279E99C50019DBBF /* AlamofireInterceptorDelegate.swift in Sources */,
 				FCDE7E0C277197DD00A895CC /* SelfProfileViewController.swift in Sources */,
 				FCCC5EB62794667E00E07F1A /* Constants.swift in Sources */,
 				FC7188AD275CA4B000A6F2CA /* SignInPresenter.swift in Sources */,
