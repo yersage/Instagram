@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 import KeychainSwift
 
-class Interceptor: AlamofireInterceptorDelegate {
+class KeychainSwiftInterceptor: AlamofireInterceptorDelegate {
     
     private let keychain = KeychainSwift()
     

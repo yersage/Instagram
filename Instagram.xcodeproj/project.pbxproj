@@ -98,7 +98,7 @@
 		FCDE7E1227719A5600A895CC /* SelfProfilePresenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDE7E1127719A5600A895CC /* SelfProfilePresenterDelegate.swift */; };
 		FCE7CEFD270DF52200A57919 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE7CEFC270DF52200A57919 /* EditProfileViewController.swift */; };
 		FCEBB75D273BB7B2004FBB68 /* FollowersTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEBB75C273BB7B2004FBB68 /* FollowersTableViewCellDelegate.swift */; };
-		FCF1A1812727C4B5001846ED /* Interceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF1A1802727C4B5001846ED /* Interceptor.swift */; };
+		FCF1A1812727C4B5001846ED /* KeychainSwiftInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF1A1802727C4B5001846ED /* KeychainSwiftInterceptor.swift */; };
 		FCF1A1832727C515001846ED /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF1A1822727C515001846ED /* UserDefaultsManager.swift */; };
 		FCF1AF2F26F48A5F00E4BEF5 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF1AF2E26F48A5F00E4BEF5 /* CommentTableViewCell.swift */; };
 		FCF2EC592798750700250B57 /* PostsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF2EC582798750700250B57 /* PostsService.swift */; };
@@ -214,7 +214,7 @@
 		FCDE7E1127719A5600A895CC /* SelfProfilePresenterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfProfilePresenterDelegate.swift; sourceTree = "<group>"; };
 		FCE7CEFC270DF52200A57919 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		FCEBB75C273BB7B2004FBB68 /* FollowersTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersTableViewCellDelegate.swift; sourceTree = "<group>"; };
-		FCF1A1802727C4B5001846ED /* Interceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interceptor.swift; sourceTree = "<group>"; };
+		FCF1A1802727C4B5001846ED /* KeychainSwiftInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainSwiftInterceptor.swift; sourceTree = "<group>"; };
 		FCF1A1822727C515001846ED /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		FCF1AF2E26F48A5F00E4BEF5 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		FCF2EC582798750700250B57 /* PostsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsService.swift; sourceTree = "<group>"; };
@@ -664,7 +664,7 @@
 		FCC8C62B2760F6DF0093B6B3 /* Interceptor */ = {
 			isa = PBXGroup;
 			children = (
-				FCF1A1802727C4B5001846ED /* Interceptor.swift */,
+				FCF1A1802727C4B5001846ED /* KeychainSwiftInterceptor.swift */,
 				FC3B27F4279E99C50019DBBF /* AlamofireInterceptorDelegate.swift */,
 			);
 			path = Interceptor;
@@ -952,7 +952,7 @@
 				FC5AC37726F3891100114152 /* CommentModel.swift in Sources */,
 				FC84EAD126F0F5DB0096BCC8 /* ProfileModel.swift in Sources */,
 				FCFA603D27006E11005F1B4A /* EmailViewController.swift in Sources */,
-				FCF1A1812727C4B5001846ED /* Interceptor.swift in Sources */,
+				FCF1A1812727C4B5001846ED /* KeychainSwiftInterceptor.swift in Sources */,
 				FC043495273CFCA800DFE63D /* FollowingPresenterDelegate.swift in Sources */,
 				FC7188C7275CADC100A6F2CA /* ConfirmationPresenterDelegate.swift in Sources */,
 				FC7188C9275CAF4800A6F2CA /* WelcomeViewDelegate.swift in Sources */,

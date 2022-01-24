@@ -8,7 +8,7 @@
 import Foundation
 
 class NetworkManager {
-    private let interceptor = Interceptor()
+    private let interceptor = KeychainSwiftInterceptor()
     lazy var networkRouter: NetworkRouterDelegate = NetworkRouter(interceptor: interceptor)
 
     func upload<T: Decodable>(_ route: EndPointType, completion: @escaping (Result<T, Error>) -> Void) {
