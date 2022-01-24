@@ -50,17 +50,13 @@ final class ChangePropertyViewController: UIViewController, ChangePropertyViewDe
     // MARK:- ChangePropertyViewDelegate funcs
     func hideValidationLabel() {
         isUsernameValid = true
-        DispatchQueue.main.async {
-            self.validationLabel?.isHidden = true
-        }
+        self.validationLabel?.isHidden = true
     }
     
     func showValidationLabel(_ text: String) {
         isUsernameValid = false
-        DispatchQueue.main.async {
-            self.validationLabel?.text = text
-            self.validationLabel?.isHidden = false
-        }
+        self.validationLabel?.text = text
+        self.validationLabel?.isHidden = false
     }
     
     func show(error: String) {

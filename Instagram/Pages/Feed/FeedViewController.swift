@@ -45,14 +45,12 @@ final class FeedViewController: UIViewController, FeedViewDelegate {
     
     // MARK:- FeedViewDelegate funcs
     func showError(error: String) {
-        let alert = UIAlertController(title: "Title", message: error, preferredStyle: .alert)
+        let alert = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
     
     func setPost(post: PostModel, index: Int) {
-        print(posts[index])
-        print(post)
         posts[index] = post
     }
     
@@ -63,19 +61,15 @@ final class FeedViewController: UIViewController, FeedViewDelegate {
     }
     
     func reload() {
-        DispatchQueue.main.async {
-            self.feedTableView.reloadData()
-        }
+        self.feedTableView.reloadData()
     }
     
     func removeSpinners() {
-        DispatchQueue.main.async { [self] in
-            if (feedTableView.tableHeaderView != nil) {
-                feedTableView.tableHeaderView = nil
-            }
-            if feedTableView.tableFooterView != nil {
-                feedTableView.tableFooterView = nil
-            }
+        if (feedTableView.tableHeaderView != nil) {
+            feedTableView.tableHeaderView = nil
+        }
+        if feedTableView.tableFooterView != nil {
+            feedTableView.tableFooterView = nil
         }
     }
 }
@@ -94,8 +88,6 @@ extension FeedViewController: UITableViewDataSource {
         cell.feedTableViewCellDelegate = self
         cell.set(posts[indexPath.row])
         cell.set(postsState[indexPath.row])
-//        cell.postModel = posts[indexPath.row]
-//        cell.postState = postsState[indexPath.row]
         
         return cell
     }

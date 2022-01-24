@@ -46,15 +46,11 @@ final class ConfirmationViewController: UIViewController, ConfirmationViewDelega
     }
     
     func showLabel() {
-        DispatchQueue.main.async {
-            self.validationLabel.isHidden = false
-        }
+        self.validationLabel.isHidden = false
     }
     
     func hideLabel() {
-        DispatchQueue.main.async {
-            self.validationLabel.isHidden = true
-        }
+        self.validationLabel.isHidden = true
     }
     
     func goToWelcomeVC() {

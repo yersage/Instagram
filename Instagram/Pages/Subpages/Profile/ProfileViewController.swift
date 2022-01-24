@@ -98,25 +98,22 @@ final class ProfileViewController: UIViewController, ProfileViewDelegate {
     }
     
     func setupProfileData() {
-        DispatchQueue.main.async { [self] in
-            
-            followersLabel.text = "\(profileModel?.user.numberOfFollowers ?? 0) Followers"
-            followingLabel.text = "\(profileModel?.user.numberOfFollowings ?? 0) Following"
-            postsLabel.text = "\(profileModel?.user.numberOfPosts ?? 0) Posts"
-            
-            usernameLabel.text = profileModel?.user.username
-            nameLabel.text = profileModel?.user.name
-            bioLabel.text = profileModel?.user.bio
-            websiteLabel.text = profileModel?.user.website
-            
-            followButton.layer.cornerRadius = 10
-            followButton.layer.borderWidth = 0.5
-            
-            if profileModel?.userMetaData.isFollowedByCurrentUser == true {
-                followButton.setTitleColor(.black, for: .normal)
-                followButton.setTitle("Following", for: .normal)
-                followButton.backgroundColor = .none
-            }
+        followersLabel.text = "\(profileModel?.user.numberOfFollowers ?? 0) Followers"
+        followingLabel.text = "\(profileModel?.user.numberOfFollowings ?? 0) Following"
+        postsLabel.text = "\(profileModel?.user.numberOfPosts ?? 0) Posts"
+        
+        usernameLabel.text = profileModel?.user.username
+        nameLabel.text = profileModel?.user.name
+        bioLabel.text = profileModel?.user.bio
+        websiteLabel.text = profileModel?.user.website
+        
+        followButton.layer.cornerRadius = 10
+        followButton.layer.borderWidth = 0.5
+        
+        if profileModel?.userMetaData.isFollowedByCurrentUser == true {
+            followButton.setTitleColor(.black, for: .normal)
+            followButton.setTitle("Following", for: .normal)
+            followButton.backgroundColor = .none
         }
     }
     
@@ -125,7 +122,9 @@ final class ProfileViewController: UIViewController, ProfileViewDelegate {
     }
     
     func show(error: String) {
-        print(error)
+        let alert = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
     func reload() {

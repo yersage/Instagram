@@ -50,7 +50,7 @@ final class FollowersViewController: UIViewController, FollowersViewDelegate {
     }
     
     func show(error: String) {
-        let alert = UIAlertController(title: "Title", message: error, preferredStyle: .alert)
+        let alert = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
