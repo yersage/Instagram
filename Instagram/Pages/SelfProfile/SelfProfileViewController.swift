@@ -27,7 +27,7 @@ final class SelfProfileViewController: UIViewController, SelfProfileViewDelegate
     var postState: [PostState] = []
     
     var profileModel: ProfileModel?
-    var userID: Int = UserDefaultsManager.shared.getUserID()
+//    var userID: Int = UserDefaultsManager.shared.getUserID()
 
     // MARK:- Lifecycle functions
     override func viewDidAppear(_ animated: Bool) {
@@ -38,9 +38,9 @@ final class SelfProfileViewController: UIViewController, SelfProfileViewDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         layout()
-        presenter?.getProfileData(userID: userID)
-        presenter?.getPosts(firstPage: true, userID: "\(userID)")
-        profileImageView.loadImagesFromUserID(userID: userID)
+//        presenter?.getProfileData(userID: userID)
+//        presenter?.getPosts(firstPage: true, userID: "\(userID)")
+//        profileImageView.loadImagesFromUserID(userID: userID)
     }
     
     func layout() {
@@ -109,18 +109,14 @@ extension SelfProfileViewController {
     
     @IBAction func followersButtonPressed(_ sender: UIButton) {
         let followersVC = self.storyboard!.instantiateViewController(withIdentifier: "FollowersViewController") as! FollowersViewController
-        followersVC.userID = userID
-        DispatchQueue.main.async { [self] in
-            self.navigationController!.pushViewController(followersVC, animated: true)
-        }
+//        followersVC.userID = userID
+        self.navigationController!.pushViewController(followersVC, animated: true)
     }
     
     @IBAction func followingButtonPressed(_ sender: UIButton) {
         let followingVC = self.storyboard!.instantiateViewController(withIdentifier: "FollowingViewController") as! FollowingViewController
-        followingVC.userID = userID
-        DispatchQueue.main.async { [self] in
-            self.navigationController!.pushViewController(followingVC, animated: true)
-        }
+//        followingVC.userID = userID
+        self.navigationController!.pushViewController(followingVC, animated: true)
     }
     
     @IBAction func editProfilePressed(_ sender: UIButton) {

@@ -7,12 +7,15 @@
 
 import Foundation
 import Alamofire
+import KeychainSwift
 
 class Interceptor: RequestInterceptor {
     
+    private let keychain = KeychainSwift()
+    
     func adapt(_ urlRequest: URLRequest, for session: Session, completion: @escaping (Result<URLRequest, Error>) -> Void) {
         var request = urlRequest
-        guard let accessToken = UserDefaultsManager.shared.getAccessToken() else {
+        guard let accessToken = keychain.get(K.keychainAccessTokenKey) else {
             completion(.success(urlRequest))
             return
         }
@@ -32,18 +35,18 @@ class Interceptor: RequestInterceptor {
     }
     
     func refreshToken(completion: @escaping (_ isSuccess: Bool) -> Void) {
-        guard let refreshToken = UserDefaultsManager.shared.getRefreshToken() else { completion(false); return }
+        guard let refreshToken = self.keychain.get(K.keychainRefreshTokenKey) else { completion(false); return }
         
         guard let url = InstagramEndPoint.refreshToken(refreshToken: refreshToken).url else {
             completion(false); return
         }
         
-        AF.request(url, method: .post).responseJSON { response in
+        AF.request(url, method: .post).responseJSON { [self] response in
             
             if let safeData = response.data {
                 if let decodedData = try? JSONDecoder().decode(TokenModel.self, from: safeData) {
-                    UserDefaultsManager.shared.setAccessToken(token: decodedData.accessToken)
-                    UserDefaultsManager.shared.setRefreshToken(token: decodedData.refreshToken)
+                    keychain.set(decodedData.accessToken, forKey: K.keychainAccessTokenKey)
+                    keychain.set(decodedData.refreshToken, forKey: K.keychainRefreshTokenKey)
                     completion(true)
                 } else {
                     completion(false)

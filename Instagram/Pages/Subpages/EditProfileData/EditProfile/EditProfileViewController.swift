@@ -43,7 +43,7 @@ final class EditProfileViewController: UIViewController, EditProfileViewDelegate
     }
     
     private func setupSubviews() {
-        profileImageView.loadImagesFromUserID(userID: UserDefaultsManager.shared.getUserID())
+//        profileImageView.loadImagesFromUserID(userID: UserDefaultsManager.shared.getUserID())
         bioButton.setTitle(bio ?? "Bio", for: .normal)
         nameButon.setTitle(name ?? "Name", for: .normal)
         usernameButton.setTitle(username, for: .normal)

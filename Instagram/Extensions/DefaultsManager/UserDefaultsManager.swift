@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+/*
 class UserDefaultsManager {
     
     enum Key: String {
@@ -108,3 +108,4 @@ class UserDefaultsManager {
         signInUser()
     }
 }
+*/
