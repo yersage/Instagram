@@ -25,11 +25,11 @@ class CachedImageView: UIImageView {
             return
         }
         
-        networkManager.request(InstagramEndPoint.postImage(postID: postID)) { (result: Result<PostImageModel, Error>) -> Void in
+        networkManager.imageRequest(InstagramEndPoint.postImage(postID: postID)) { result in
             switch result {
-            case .success(let postImageModel):
+            case .success(let postImageData):
                 let path = InstagramEndPoint.postImage(postID: postID).baseURL + InstagramEndPoint.postImage(postID: postID).path
-                guard let image = UIImage(data: postImageModel.image) else { return }
+                guard let image = UIImage(data: postImageData) else { self.defaultCompletion(result: .success(nil)); return }
                 CachedImageView.imageCache.setObject(image, forKey: path as NSString)
                 self.defaultCompletion(result: .success(image))
                 let imageToCache = image
@@ -74,28 +74,6 @@ class CachedImageView: UIImageView {
                 self.defaultCompletion(result: .success(nil))
             }
         }
-        
-            /*
-        networkManager.request(InstagramEndPoint.profileImage(userID: userID)) { (result: Result<ProfileImageModel, Error>) -> Void in
-            switch result {
-            case .success(let profileImageModel):
-                let urlString = InstagramEndPoint.profileImage(userID: userID).baseURL + InstagramEndPoint.profileImage(userID: userID).path
-                guard let imageData = profileImageModel.image else { return }
-                guard let image = UIImage(data: imageData) else { return }
-                CachedImageView.imageCache.setObject(image, forKey: urlString as NSString)
-                self.defaultCompletion(result: .success(image))
-                let imageToCache = image
-                DispatchQueue.main.async {
-                    if self.imageURLString == urlString {
-                        self.image = imageToCache
-                    }
-                }
-                CachedImageView.imageCache.setObject(image, forKey: urlString as NSString)
-            case .failure(_):
-                self.defaultCompletion(result: .success(nil))
-            }
-        }
-        */
     }
     
     func defaultCompletion(result: Result<UIImage?, Error>) {
