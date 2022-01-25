@@ -57,7 +57,6 @@ final class FeedViewController: UIViewController, FeedViewDelegate {
     func set(newPosts: [PostModel]) {
         postsState += Array(repeating: PostState(isMorePressed: false, isSavePressed: false), count: newPosts.count)
         posts += newPosts
-        feedTableView.reloadData()
     }
     
     func reload() {

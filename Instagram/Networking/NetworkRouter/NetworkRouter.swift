@@ -11,36 +11,10 @@ import Alamofire
 public typealias NetworkRouterCompletion = (_ data: Data?,_ response: URLResponse?,_ error: Error?)->()
 
 class NetworkRouter: NetworkRouterDelegate {
-    private let interceptor: RequestInterceptorDelegate
     
-    init(interceptor: RequestInterceptorDelegate) {
-        self.interceptor = interceptor
-    }
-    
-    func noInterceptorRequest(_ route: EndPointType, completion: @escaping NetworkRouterCompletion) {
-        guard let url = route.url else {
-            completion(nil, nil, NetworkError.urlValid)
-            return
-        }
-        
+    func requestJSONResponse(_ route: EndPointType, interceptor: RequestInterceptorDelegate?, completion: @escaping NetworkRouterCompletion) {
         AF.request(
-            url,
-            method: route.method,
-            parameters: route.parameters,
-            encoding: route.encoding
-        ).responseJSON { response in
-            completion(response.data, response.response, response.error)
-        }
-    }
-    
-    func request(_ route: EndPointType, completion: @escaping NetworkRouterCompletion) {
-        guard let url = route.url else {
-            completion(nil, nil, NetworkError.urlValid)
-            return
-        }
-        
-        AF.request(
-            url,
+            route.url!,
             method: route.method,
             parameters: route.parameters,
             encoding: route.encoding,
@@ -50,22 +24,24 @@ class NetworkRouter: NetworkRouterDelegate {
         }
     }
     
-    func upload(_ route: EndPointType, completion: @escaping NetworkRouterCompletion) {
-        guard let url = route.url else {
-            completion(nil, nil, NetworkError.urlValid)
-            return
+    func requestDataResponse(_ route: EndPointType, interceptor: RequestInterceptorDelegate?, completion: @escaping NetworkRouterCompletion) {
+        AF.request(
+            route.url!,
+            method: route.method,
+            parameters: route.parameters,
+            encoding: route.encoding,
+            interceptor: interceptor
+        ).responseData { response in
+            completion(response.data, response.response, response.error)
         }
-        
-        guard let formDataParts = route.formDataParts else {
-            completion(nil, nil, NetworkError.invalidParameters)
-            return
-        }
-        
+    }
+    
+    func upload(_ route: EndPointType, interceptor: RequestInterceptorDelegate?, completion: @escaping NetworkRouterCompletion) {
         AF.upload(multipartFormData: { multipartFormData in
-            for formData in formDataParts {
+            for formData in route.formDataParts! {
                 multipartFormData.append(formData.data, withName: formData.withName, fileName: formData.fileName, mimeType: formData.mimeType)
             }
-        }, to: url, method: route.method, interceptor: interceptor).responseData { response in
+        }, to: route.url!, method: route.method, interceptor: interceptor).responseData { response in
             completion(response.data, response.response, response.error)
         }
     }

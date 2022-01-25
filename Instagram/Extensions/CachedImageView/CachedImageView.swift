@@ -56,6 +56,26 @@ class CachedImageView: UIImageView {
             return
         }
         
+        networkManager.imageRequest(InstagramEndPoint.profileImage(userID: userID)) { result in
+            switch result {
+            case .success(let profileImageData):
+                let urlString = InstagramEndPoint.profileImage(userID: userID).baseURL + InstagramEndPoint.profileImage(userID: userID).path
+                guard let image = UIImage(data: profileImageData) else { return }
+                CachedImageView.imageCache.setObject(image, forKey: urlString as NSString)
+                self.defaultCompletion(result: .success(image))
+                let imageToCache = image
+                DispatchQueue.main.async {
+                    if self.imageURLString == urlString {
+                        self.image = imageToCache
+                    }
+                }
+                CachedImageView.imageCache.setObject(image, forKey: urlString as NSString)
+            case .failure(_):
+                self.defaultCompletion(result: .success(nil))
+            }
+        }
+        
+            /*
         networkManager.request(InstagramEndPoint.profileImage(userID: userID)) { (result: Result<ProfileImageModel, Error>) -> Void in
             switch result {
             case .success(let profileImageModel):
@@ -75,6 +95,7 @@ class CachedImageView: UIImageView {
                 self.defaultCompletion(result: .success(nil))
             }
         }
+        */
     }
     
     func defaultCompletion(result: Result<UIImage?, Error>) {

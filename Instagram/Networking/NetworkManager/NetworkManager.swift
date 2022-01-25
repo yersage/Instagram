@@ -9,11 +9,11 @@ import Foundation
 
 class NetworkManager {
     private let interceptor = KeychainSwiftInterceptor()
-    lazy var networkRouter: NetworkRouterDelegate = NetworkRouter(interceptor: interceptor)
+    private let networkRouter = NetworkRouter()
 
     func upload<T: Decodable>(_ route: EndPointType, completion: @escaping (Result<T, Error>) -> Void) {
         
-        networkRouter.upload(route) { data, response, error in
+        networkRouter.upload(route, interceptor: interceptor) { data, response, error in
             if let error = error {
                 completion(.failure(error))
                 return
@@ -31,8 +31,7 @@ class NetworkManager {
     }
     
     func request<T: Decodable>(_ route: EndPointType, completion: @escaping (Result<T, Error>) -> Void) {
-        
-        networkRouter.request(route) { data, response, error in
+        networkRouter.requestJSONResponse(route, interceptor: interceptor) { data, response, error in
             if let error = error {
                 completion(.failure(error))
                 return
@@ -49,9 +48,22 @@ class NetworkManager {
         }
     }
     
+    func imageRequest(_ route: EndPointType, completion: @escaping (Result<Data, Error>) -> Void) {
+        networkRouter.requestDataResponse(route, interceptor: interceptor) { data, response, error in
+            if let error = error {
+                print(error)
+                completion(.failure(error))
+                return
+            }
+            
+            guard let data = data else { completion(.failure(NetworkError.noData)); return }
+            completion(.success(data))
+        }
+    }
+    
     func noInterceptorRequest<T: Decodable>(_ route: EndPointType, completion: @escaping (Result<T, Error>) -> Void) {
         
-        networkRouter.noInterceptorRequest(route) { data, response, error in
+        networkRouter.requestJSONResponse(route, interceptor: nil) { data, response, error in
             if let error = error {
                 completion(.failure(error))
                 return
@@ -69,8 +81,7 @@ class NetworkManager {
     }
     
     func request(_ route: EndPointType, completion: @escaping (Result<Int, Error>) -> Void) {
-        
-        networkRouter.request(route) { _, response, error in
+        networkRouter.requestJSONResponse(route, interceptor: interceptor) { _, response, error in
             if let error = error {
                 completion(.failure(error))
                 return

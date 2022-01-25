@@ -9,7 +9,7 @@ import UIKit
 import Alamofire
 
 protocol NetworkRouterDelegate {
-    func noInterceptorRequest(_ route: EndPointType, completion: @escaping NetworkRouterCompletion)
-    func request(_ route: EndPointType, completion: @escaping NetworkRouterCompletion)
-    func upload(_ route: EndPointType, completion: @escaping NetworkRouterCompletion)
+    func requestJSONResponse(_ route: EndPointType, interceptor: RequestInterceptorDelegate?, completion: @escaping NetworkRouterCompletion)
+    func requestDataResponse(_ route: EndPointType, interceptor: RequestInterceptorDelegate?, completion: @escaping NetworkRouterCompletion)
+    func upload(_ route: EndPointType, interceptor: RequestInterceptorDelegate?, completion: @escaping NetworkRouterCompletion)
 }
