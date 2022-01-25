@@ -104,7 +104,7 @@ extension InstagramEndPoint: EndPointType {
         case .profileImage(let userID):
             return "user/image?userId=\(userID)"
         case .postImage(let postID):
-            return "post/image?postId=\(postID)&imageId=1"
+            return "post/image?postId=\(postID)&imageId=0"
         }
     }
     
