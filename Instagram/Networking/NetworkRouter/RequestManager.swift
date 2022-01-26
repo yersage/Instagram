@@ -26,9 +26,9 @@ class RequestManager {
         
         switch serializationType {
         case .JSON:
-        request.responseJSON { response in
-            completion(response.data, response.response, response.error)
-        }
+            request.responseJSON { response in
+                completion(response.data, response.response, response.error)
+            }
         case .Data:
             request.responseData { response in
                 completion(response.data, response.response, response.error)
