@@ -96,6 +96,8 @@
 		FCDE7E0E27719A4700A895CC /* SelfProfileViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDE7E0D27719A4700A895CC /* SelfProfileViewDelegate.swift */; };
 		FCDE7E1027719A4E00A895CC /* SelfProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDE7E0F27719A4E00A895CC /* SelfProfilePresenter.swift */; };
 		FCDE7E1227719A5600A895CC /* SelfProfilePresenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDE7E1127719A5600A895CC /* SelfProfilePresenterDelegate.swift */; };
+		FCDE917527A1338F00725EBC /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDE917427A1338F00725EBC /* RequestManager.swift */; };
+		FCDE917727A1348900725EBC /* UploadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDE917627A1348900725EBC /* UploadManager.swift */; };
 		FCE7CEFD270DF52200A57919 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE7CEFC270DF52200A57919 /* EditProfileViewController.swift */; };
 		FCEBB75D273BB7B2004FBB68 /* FollowersTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEBB75C273BB7B2004FBB68 /* FollowersTableViewCellDelegate.swift */; };
 		FCF1A1812727C4B5001846ED /* KeychainSwiftInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF1A1802727C4B5001846ED /* KeychainSwiftInterceptor.swift */; };
@@ -212,6 +214,8 @@
 		FCDE7E0D27719A4700A895CC /* SelfProfileViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfProfileViewDelegate.swift; sourceTree = "<group>"; };
 		FCDE7E0F27719A4E00A895CC /* SelfProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfProfilePresenter.swift; sourceTree = "<group>"; };
 		FCDE7E1127719A5600A895CC /* SelfProfilePresenterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfProfilePresenterDelegate.swift; sourceTree = "<group>"; };
+		FCDE917427A1338F00725EBC /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
+		FCDE917627A1348900725EBC /* UploadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadManager.swift; sourceTree = "<group>"; };
 		FCE7CEFC270DF52200A57919 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		FCEBB75C273BB7B2004FBB68 /* FollowersTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersTableViewCellDelegate.swift; sourceTree = "<group>"; };
 		FCF1A1802727C4B5001846ED /* KeychainSwiftInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainSwiftInterceptor.swift; sourceTree = "<group>"; };
@@ -516,6 +520,8 @@
 		FCA4DB97272644050099E9C3 /* NetworkRouter */ = {
 			isa = PBXGroup;
 			children = (
+				FCDE917427A1338F00725EBC /* RequestManager.swift */,
+				FCDE917627A1348900725EBC /* UploadManager.swift */,
 				FCCC5EB12794258A00E07F1A /* NetworkRouter.swift */,
 				FC768BD6272921CE003F0EBB /* NetworkRouterDelegate.swift */,
 				FC3B27F4279E99C50019DBBF /* RequestInterceptorDelegate.swift */,
@@ -940,6 +946,7 @@
 				FC0322DD272011FC00DBDE82 /* FollowersPresenter.swift in Sources */,
 				FCEBB75D273BB7B2004FBB68 /* FollowersTableViewCellDelegate.swift in Sources */,
 				FCDE7E1027719A4E00A895CC /* SelfProfilePresenter.swift in Sources */,
+				FCDE917727A1348900725EBC /* UploadManager.swift in Sources */,
 				FC7188B3275CA62000A6F2CA /* EmailPresenter.swift in Sources */,
 				FCF2EC5B27987C0100250B57 /* FeedRouter.swift in Sources */,
 				FC7188CD275CAF7D00A6F2CA /* WelcomePresenterDelegate.swift in Sources */,
@@ -949,6 +956,7 @@
 				FCCC5EB62794667E00E07F1A /* Constants.swift in Sources */,
 				FC7188AD275CA4B000A6F2CA /* SignInPresenter.swift in Sources */,
 				FCFA350227035A8600B8E1AC /* FollowerModel.swift in Sources */,
+				FCDE917527A1338F00725EBC /* RequestManager.swift in Sources */,
 				FC5AC37726F3891100114152 /* CommentModel.swift in Sources */,
 				FC84EAD126F0F5DB0096BCC8 /* ProfileModel.swift in Sources */,
 				FCFA603D27006E11005F1B4A /* EmailViewController.swift in Sources */,
