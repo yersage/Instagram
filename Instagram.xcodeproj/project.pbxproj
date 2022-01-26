@@ -99,6 +99,7 @@
 		FCDE917527A1338F00725EBC /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDE917427A1338F00725EBC /* RequestManager.swift */; };
 		FCDE917727A1348900725EBC /* UploadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDE917627A1348900725EBC /* UploadManager.swift */; };
 		FCDE917927A1369200725EBC /* RegistrationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDE917827A1369200725EBC /* RegistrationService.swift */; };
+		FCDE917B27A1396400725EBC /* SignInRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDE917A27A1396400725EBC /* SignInRouter.swift */; };
 		FCE7CEFD270DF52200A57919 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE7CEFC270DF52200A57919 /* EditProfileViewController.swift */; };
 		FCEBB75D273BB7B2004FBB68 /* FollowersTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEBB75C273BB7B2004FBB68 /* FollowersTableViewCellDelegate.swift */; };
 		FCF1A1812727C4B5001846ED /* KeychainSwiftInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF1A1802727C4B5001846ED /* KeychainSwiftInterceptor.swift */; };
@@ -218,6 +219,7 @@
 		FCDE917427A1338F00725EBC /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
 		FCDE917627A1348900725EBC /* UploadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadManager.swift; sourceTree = "<group>"; };
 		FCDE917827A1369200725EBC /* RegistrationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationService.swift; sourceTree = "<group>"; };
+		FCDE917A27A1396400725EBC /* SignInRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRouter.swift; sourceTree = "<group>"; };
 		FCE7CEFC270DF52200A57919 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		FCEBB75C273BB7B2004FBB68 /* FollowersTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersTableViewCellDelegate.swift; sourceTree = "<group>"; };
 		FCF1A1802727C4B5001846ED /* KeychainSwiftInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainSwiftInterceptor.swift; sourceTree = "<group>"; };
@@ -435,6 +437,7 @@
 				FC7188AA275CA49900A6F2CA /* SignInViewDelegate.swift */,
 				FC7188AC275CA4B000A6F2CA /* SignInPresenter.swift */,
 				FC7188AE275CA4E300A6F2CA /* SignInPresenterDelegate.swift */,
+				FCDE917A27A1396400725EBC /* SignInRouter.swift */,
 			);
 			path = "Sign In";
 			sourceTree = "<group>";
@@ -909,6 +912,7 @@
 				FC768BCF272920CE003F0EBB /* AppError.swift in Sources */,
 				FC7188BD275CAB2200A6F2CA /* PasswordViewDelegate.swift in Sources */,
 				FCAE0BCB26EB48B0007DB573 /* AppDelegate.swift in Sources */,
+				FCDE917B27A1396400725EBC /* SignInRouter.swift in Sources */,
 				FC7188AF275CA4E300A6F2CA /* SignInPresenterDelegate.swift in Sources */,
 				FC7188AB275CA49900A6F2CA /* SignInViewDelegate.swift in Sources */,
 				FC7188CB275CAF5E00A6F2CA /* WelcomePresenter.swift in Sources */,

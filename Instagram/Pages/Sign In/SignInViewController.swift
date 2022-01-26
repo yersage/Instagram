@@ -16,6 +16,7 @@ final class SignInViewController: UIViewController, SignInViewDelegate {
     @IBOutlet weak var loginButton: UIButton!
     
     private var presenter: SignInPresenter?
+    // как отдать навКонтроллер пресентеру?
     
     // MARK:- Lifecycle functions
     override func viewDidLoad() {
@@ -113,7 +114,7 @@ final class SignInViewController: UIViewController, SignInViewDelegate {
                                     animated: false)
         
         tabBarVC.modalPresentationStyle = .fullScreen
-        present(tabBarVC, animated: false)
+        navigationController?.pushViewController(tabBarVC, animated: false)
     }
 }
 
