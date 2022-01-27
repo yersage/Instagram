@@ -11,6 +11,7 @@ struct K {
     static let refreshTokenRetryLimit = 3
     static let keychainUsernameKey = "username"
     static let keychainPasswordKey = "password"
+    static let keychainUserIDKey = "userID"
     static let keychainAccessTokenKey = "AccessToken"
     static let keychainRefreshTokenKey = "RefreshToken"
 }
