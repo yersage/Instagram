@@ -11,9 +11,8 @@ import KeychainSwift
 class KeychainSwiftService: KeychainServiceDelegate {
     private let keychain = KeychainSwift()
     
-    func set(token: TokenModel) {
-        keychain.set(token.accessToken, forKey: K.keychainAccessTokenKey)
-        keychain.set(token.refreshToken, forKey: K.keychainRefreshTokenKey)
+    func set(_ value: String, forKey key: String) {
+        keychain.set(value, forKey: key)
     }
     
     func get(_ key: String) -> String? {

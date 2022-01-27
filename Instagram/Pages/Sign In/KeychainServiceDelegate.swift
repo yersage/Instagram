@@ -8,7 +8,7 @@
 import Foundation
 
 protocol KeychainServiceDelegate: UserIDFetchable {
-    func set(token: TokenModel)
+    func set(_ value: String, forKey key: String)
     func get(_ key: String) -> String?
 }
 
