@@ -13,5 +13,5 @@ protocol KeychainServiceDelegate: UserIDFetchable {
 }
 
 protocol UserIDFetchable {
-    func fetchUserID(from accessToken: String) -> Int?
+    func fetchUserID(from token: String) -> String?
 }

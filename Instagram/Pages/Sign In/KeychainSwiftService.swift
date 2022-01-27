@@ -8,8 +8,9 @@
 import Foundation
 import KeychainSwift
 
-class KeychainSwiftService: KeychainServiceDelegate {
+class KeychainSwiftService: KeychainServiceDelegate {    
     private let keychain = KeychainSwift()
+    private let jwtDecoder = JWTDecoder()
     
     func set(_ value: String, forKey key: String) {
         keychain.set(value, forKey: key)
@@ -19,8 +20,8 @@ class KeychainSwiftService: KeychainServiceDelegate {
         return keychain.get(key)
     }
     
-    func fetchUserID(from accessToken: String) -> Int? {
-        //
-        return -1
+    func fetchUserID(from token: String) -> String? {
+        let userID = jwtDecoder.fetchUserID(from: token)
+        return userID
     }
 }
