@@ -12,6 +12,7 @@ final class SignInPresenter: SignInPresenterDelegate {
     weak var view: SignInViewDelegate?
     private let networkManager: NetworkManager = NetworkManager()
     private let keychain = KeychainSwift()
+    private let authService = AuthService()
     
     func login(username: String, password: String) {
         
@@ -19,6 +20,20 @@ final class SignInPresenter: SignInPresenterDelegate {
             self.view?.show(error: "Username or password is not provided.")
         }
         
+        authService.login(username: username, password: password) { [weak self] result in
+            switch result {
+            case .success(let tokenModel):
+                self?.keychain.set(tokenModel.accessToken, forKey: K.keychainAccessTokenKey)
+                self?.keychain.set(tokenModel.refreshToken, forKey: K.keychainRefreshTokenKey)
+                self?.keychain.set(username, forKey: K.keychainUsernameKey)
+                self?.keychain.set(password, forKey: K.keychainPasswordKey)
+                self?.view?.goToFeedVC()
+            case .failure(let error):
+                self?.view?.show(error: error.localizedDescription)
+            }
+        }
+        
+        /*
         networkManager.noInterceptorRequest(InstagramEndPoint.login(username: username, password: password)) { [self] (result: Result<TokenModel, Error>) -> Void in
             switch result {
             case .success(let tokenModel):
@@ -31,5 +46,6 @@ final class SignInPresenter: SignInPresenterDelegate {
                 self.view?.show(error: error.localizedDescription)
             }
         }
+         */
     }
 }
