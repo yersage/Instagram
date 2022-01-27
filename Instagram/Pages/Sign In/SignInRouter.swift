@@ -8,18 +8,18 @@
 import UIKit
 
 enum SignInRouterPath {
-    case toEmailVC
-    case toFeedVC
+    case signUp
+    case feed
 }
 
 class SignInRouter {
     weak var viewController: SignInViewController!
     
-    func navigate(_ path: SignInRouterPath) {
+    func navigate(to path: SignInRouterPath) {
         switch path {
-        case .toEmailVC:
+        case .signUp:
             goToEmailVC()
-        case .toFeedVC:
+        case .feed:
             goToFeedVC()
         }
     }

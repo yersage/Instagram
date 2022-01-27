@@ -17,7 +17,6 @@ final class SignInViewController: UIViewController, SignInViewDelegate {
     
     private var presenter: SignInPresenter?
     private var router = SignInRouter()
-    // как отдать навКонтроллер пресентеру?
     
     // MARK:- Lifecycle functions
     override func viewDidLoad() {
@@ -58,7 +57,7 @@ final class SignInViewController: UIViewController, SignInViewDelegate {
     }
     
     @IBAction func signUpButtonPressed(_ sender: UIButton) {
-        router.navigate(.toEmailVC)
+        router.navigate(to: .signUp)
     }
     
     // MARK:- SignInViewDelegate funcs
@@ -69,7 +68,7 @@ final class SignInViewController: UIViewController, SignInViewDelegate {
     }
     
     func goToFeedVC() {
-        router.navigate(.toFeedVC)
+        router.navigate(to: .feed)
     }
 }
 
