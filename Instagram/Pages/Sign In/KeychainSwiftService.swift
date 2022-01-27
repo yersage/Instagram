@@ -10,7 +10,11 @@ import KeychainSwift
 
 class KeychainSwiftService: KeychainServiceDelegate {    
     private let keychain = KeychainSwift()
-    private let jwtDecoder = JWTDecoder()
+    private let decoder: UserIDFetchable!
+    
+    init(decoder: UserIDFetchable) {
+        self.decoder = decoder
+    }
     
     func set(_ value: String, forKey key: String) {
         keychain.set(value, forKey: key)
@@ -21,7 +25,7 @@ class KeychainSwiftService: KeychainServiceDelegate {
     }
     
     func fetchUserID(from token: String) -> String? {
-        let userID = jwtDecoder.fetchUserID(from: token)
+        let userID = decoder.fetchUserID(from: token)
         return userID
     }
 }
