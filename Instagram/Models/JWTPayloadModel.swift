@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PayloadModel: Decodable {
+struct JWTPayloadModel: Decodable {
     let userId: String
     let authorities: [String]
     let tokenId: String

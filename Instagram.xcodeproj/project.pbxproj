@@ -71,6 +71,7 @@
 		FC78520B27A2DF0B0013DD9F /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC78520A27A2DF0B0013DD9F /* AuthService.swift */; };
 		FC78520D27A2E19C0013DD9F /* KeychainServiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC78520C27A2E19C0013DD9F /* KeychainServiceDelegate.swift */; };
 		FC78520F27A2E29C0013DD9F /* KeychainSwiftService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC78520E27A2E29C0013DD9F /* KeychainSwiftService.swift */; };
+		FC78521127A2E7FC0013DD9F /* JWTDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC78521027A2E7FC0013DD9F /* JWTDecoder.swift */; };
 		FC79B3EC272F77CD00D4AFBD /* CachedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC79B3EB272F77CD00D4AFBD /* CachedImageView.swift */; };
 		FC84EAD126F0F5DB0096BCC8 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC84EAD026F0F5DB0096BCC8 /* ProfileModel.swift */; };
 		FC84EAD426F0F7410096BCC8 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC84EAD326F0F7410096BCC8 /* ProfileViewController.swift */; };
@@ -88,7 +89,7 @@
 		FCB6AB7E2789F5560018DCA7 /* ChangePropertyPresenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB6AB7D2789F5560018DCA7 /* ChangePropertyPresenterDelegate.swift */; };
 		FCB7E5EF26FC196E009DC8B0 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB7E5EE26FC196E009DC8B0 /* NotificationsViewController.swift */; };
 		FCB7E5F226FC19E7009DC8B0 /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB7E5F126FC19E7009DC8B0 /* CreatePostViewController.swift */; };
-		FCC69E9E2772169400FE8AE9 /* PayloadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC69E9D2772169400FE8AE9 /* PayloadModel.swift */; };
+		FCC69E9E2772169400FE8AE9 /* JWTPayloadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC69E9D2772169400FE8AE9 /* JWTPayloadModel.swift */; };
 		FCCC5EB22794258A00E07F1A /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCC5EB12794258A00E07F1A /* NetworkRouter.swift */; };
 		FCCC5EB62794667E00E07F1A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCC5EB52794667E00E07F1A /* Constants.swift */; };
 		FCCEFEF52736AD9B00C04D4D /* FeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCEFEF42736AD9B00C04D4D /* FeedService.swift */; };
@@ -192,6 +193,7 @@
 		FC78520A27A2DF0B0013DD9F /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		FC78520C27A2E19C0013DD9F /* KeychainServiceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainServiceDelegate.swift; sourceTree = "<group>"; };
 		FC78520E27A2E29C0013DD9F /* KeychainSwiftService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainSwiftService.swift; sourceTree = "<group>"; };
+		FC78521027A2E7FC0013DD9F /* JWTDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWTDecoder.swift; sourceTree = "<group>"; };
 		FC79B3EB272F77CD00D4AFBD /* CachedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedImageView.swift; sourceTree = "<group>"; };
 		FC84EAD026F0F5DB0096BCC8 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		FC84EAD326F0F7410096BCC8 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -211,7 +213,7 @@
 		FCB6AB7D2789F5560018DCA7 /* ChangePropertyPresenterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePropertyPresenterDelegate.swift; sourceTree = "<group>"; };
 		FCB7E5EE26FC196E009DC8B0 /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		FCB7E5F126FC19E7009DC8B0 /* CreatePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
-		FCC69E9D2772169400FE8AE9 /* PayloadModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayloadModel.swift; sourceTree = "<group>"; };
+		FCC69E9D2772169400FE8AE9 /* JWTPayloadModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWTPayloadModel.swift; sourceTree = "<group>"; };
 		FCCC5EB12794258A00E07F1A /* NetworkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
 		FCCC5EB52794667E00E07F1A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FCCEFEF42736AD9B00C04D4D /* FeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedService.swift; sourceTree = "<group>"; };
@@ -447,6 +449,7 @@
 				FC78520A27A2DF0B0013DD9F /* AuthService.swift */,
 				FC78520E27A2E29C0013DD9F /* KeychainSwiftService.swift */,
 				FC78520C27A2E19C0013DD9F /* KeychainServiceDelegate.swift */,
+				FC78521027A2E7FC0013DD9F /* JWTDecoder.swift */,
 			);
 			path = "Sign In";
 			sourceTree = "<group>";
@@ -700,7 +703,7 @@
 				FCFA350327035BD600B8E1AC /* FollowingModel.swift */,
 				FC5AC37626F3891100114152 /* CommentModel.swift */,
 				FCAE0BE026EB4A76007DB573 /* TokenModel.swift */,
-				FCC69E9D2772169400FE8AE9 /* PayloadModel.swift */,
+				FCC69E9D2772169400FE8AE9 /* JWTPayloadModel.swift */,
 				FC2FFBAE278C2C1C00E30AB9 /* ProfileDataModel.swift */,
 				FC27BC6E279958F100BFCA98 /* ImageModel.swift */,
 			);
@@ -899,7 +902,7 @@
 				FC7188C3275CAD8800A6F2CA /* ConfirmationViewDelegate.swift in Sources */,
 				FC7188C1275CACA900A6F2CA /* PasswordPresenterDelegate.swift in Sources */,
 				FC03365926EBAF1B00985244 /* PostModel.swift in Sources */,
-				FCC69E9E2772169400FE8AE9 /* PayloadModel.swift in Sources */,
+				FCC69E9E2772169400FE8AE9 /* JWTPayloadModel.swift in Sources */,
 				FC73D2F42761E97500BA5B35 /* CreatePostPresenterDelegate.swift in Sources */,
 				FC0322DB272011EB00DBDE82 /* FollowersService.swift in Sources */,
 				FC16D96A278459B200A84488 /* SearchViewDelegate.swift in Sources */,
@@ -959,6 +962,7 @@
 				FC3FD5892796FACF0071E78E /* NetworkManager.swift in Sources */,
 				FC84EAD426F0F7410096BCC8 /* ProfileViewController.swift in Sources */,
 				FC768BD7272921CE003F0EBB /* NetworkRouterDelegate.swift in Sources */,
+				FC78521127A2E7FC0013DD9F /* JWTDecoder.swift in Sources */,
 				FCAE0BCD26EB48B0007DB573 /* SceneDelegate.swift in Sources */,
 				FC04349B273D002200DFE63D /* FollowingService.swift in Sources */,
 				FCDE7E1227719A5600A895CC /* SelfProfilePresenterDelegate.swift in Sources */,
