@@ -7,9 +7,34 @@
 
 import UIKit
 
+enum SignInRouterPath {
+    case toEmailVC
+    case toFeedVC
+}
+
 class SignInRouter {
-    func goToFeedVC(navigationController: UINavigationController?) {
-        let storyboard = navigationController?.storyboard
+    weak var viewController: SignInViewController!
+    
+    func navigate(_ path: SignInRouterPath) {
+        switch path {
+        case .toEmailVC:
+            goToEmailVC()
+        case .toFeedVC:
+            goToFeedVC()
+        }
+    }
+    
+    private func goToEmailVC() {
+        guard let emailVC = viewController.storyboard?.instantiateViewController(withIdentifier: "EmailViewController") as? EmailViewController else { return }
+        let presenter = EmailPresenter()
+        presenter.view = emailVC
+        emailVC.presenter = EmailPresenter()
+        
+        viewController.navigationController?.pushViewController(emailVC, animated: true)
+    }
+    
+    private func goToFeedVC() {
+        let storyboard = viewController?.storyboard
         
         let tabBarVC = UITabBarController()
         
@@ -50,6 +75,6 @@ class SignInRouter {
                                     animated: false)
         
         tabBarVC.modalPresentationStyle = .fullScreen
-        navigationController?.pushViewController(tabBarVC, animated: false)
+        viewController.navigationController?.pushViewController(tabBarVC, animated: false)
     }
 }
