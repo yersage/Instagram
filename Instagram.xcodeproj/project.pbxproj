@@ -415,6 +415,16 @@
 			path = NetworkError;
 			sourceTree = "<group>";
 		};
+		FC78521227A2ED000013DD9F /* KeychainService */ = {
+			isa = PBXGroup;
+			children = (
+				FC78520E27A2E29C0013DD9F /* KeychainSwiftService.swift */,
+				FC78520C27A2E19C0013DD9F /* KeychainServiceDelegate.swift */,
+				FC78521027A2E7FC0013DD9F /* JWTDecoder.swift */,
+			);
+			path = KeychainService;
+			sourceTree = "<group>";
+		};
 		FC79B3EA272F77C100D4AFBD /* CachedImageView */ = {
 			isa = PBXGroup;
 			children = (
@@ -446,10 +456,6 @@
 				FC7188AC275CA4B000A6F2CA /* SignInPresenter.swift */,
 				FC7188AE275CA4E300A6F2CA /* SignInPresenterDelegate.swift */,
 				FCDE917A27A1396400725EBC /* SignInRouter.swift */,
-				FC78520A27A2DF0B0013DD9F /* AuthService.swift */,
-				FC78520E27A2E29C0013DD9F /* KeychainSwiftService.swift */,
-				FC78520C27A2E19C0013DD9F /* KeychainServiceDelegate.swift */,
-				FC78521027A2E7FC0013DD9F /* JWTDecoder.swift */,
 			);
 			path = "Sign In";
 			sourceTree = "<group>";
@@ -517,7 +523,6 @@
 				FC9B98482759B11400E8FB6E /* Password */,
 				FC9B98492759B11B00E8FB6E /* Confirmation */,
 				FC9B984A2759B12200E8FB6E /* Welcome */,
-				FCDE917827A1369200725EBC /* RegistrationService.swift */,
 			);
 			path = Registration;
 			sourceTree = "<group>";
@@ -742,7 +747,10 @@
 		FCF2EC572798746900250B57 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				FC78521227A2ED000013DD9F /* KeychainService */,
+				FC78520A27A2DF0B0013DD9F /* AuthService.swift */,
 				FCF2EC582798750700250B57 /* PostsService.swift */,
+				FCDE917827A1369200725EBC /* RegistrationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
