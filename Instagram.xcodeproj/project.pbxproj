@@ -69,6 +69,8 @@
 		FC768BD7272921CE003F0EBB /* NetworkRouterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC768BD6272921CE003F0EBB /* NetworkRouterDelegate.swift */; };
 		FC768BDF2729225D003F0EBB /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC768BDE2729225D003F0EBB /* EndPointType.swift */; };
 		FC78520B27A2DF0B0013DD9F /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC78520A27A2DF0B0013DD9F /* AuthService.swift */; };
+		FC78520D27A2E19C0013DD9F /* KeychainServiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC78520C27A2E19C0013DD9F /* KeychainServiceDelegate.swift */; };
+		FC78520F27A2E29C0013DD9F /* KeychainSwiftService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC78520E27A2E29C0013DD9F /* KeychainSwiftService.swift */; };
 		FC79B3EC272F77CD00D4AFBD /* CachedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC79B3EB272F77CD00D4AFBD /* CachedImageView.swift */; };
 		FC84EAD126F0F5DB0096BCC8 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC84EAD026F0F5DB0096BCC8 /* ProfileModel.swift */; };
 		FC84EAD426F0F7410096BCC8 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC84EAD326F0F7410096BCC8 /* ProfileViewController.swift */; };
@@ -188,6 +190,8 @@
 		FC768BD6272921CE003F0EBB /* NetworkRouterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouterDelegate.swift; sourceTree = "<group>"; };
 		FC768BDE2729225D003F0EBB /* EndPointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPointType.swift; sourceTree = "<group>"; };
 		FC78520A27A2DF0B0013DD9F /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		FC78520C27A2E19C0013DD9F /* KeychainServiceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainServiceDelegate.swift; sourceTree = "<group>"; };
+		FC78520E27A2E29C0013DD9F /* KeychainSwiftService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainSwiftService.swift; sourceTree = "<group>"; };
 		FC79B3EB272F77CD00D4AFBD /* CachedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedImageView.swift; sourceTree = "<group>"; };
 		FC84EAD026F0F5DB0096BCC8 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		FC84EAD326F0F7410096BCC8 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -441,6 +445,8 @@
 				FC7188AE275CA4E300A6F2CA /* SignInPresenterDelegate.swift */,
 				FCDE917A27A1396400725EBC /* SignInRouter.swift */,
 				FC78520A27A2DF0B0013DD9F /* AuthService.swift */,
+				FC78520E27A2E29C0013DD9F /* KeychainSwiftService.swift */,
+				FC78520C27A2E19C0013DD9F /* KeychainServiceDelegate.swift */,
 			);
 			path = "Sign In";
 			sourceTree = "<group>";
@@ -881,6 +887,7 @@
 				FC7188BB275CA84D00A6F2CA /* UsernamePresenterDelegate.swift in Sources */,
 				FCE7CEFD270DF52200A57919 /* EditProfileViewController.swift in Sources */,
 				FC73D2F22761E96E00BA5B35 /* CreatePostPresenter.swift in Sources */,
+				FC78520D27A2E19C0013DD9F /* KeychainServiceDelegate.swift in Sources */,
 				FC768BDF2729225D003F0EBB /* EndPointType.swift in Sources */,
 				FC7188C5275CAD9E00A6F2CA /* ConfirmationPresenter.swift in Sources */,
 				FC16D9662784599800A84488 /* SearchPresenterDelegate.swift in Sources */,
@@ -912,6 +919,7 @@
 				FC423FCE26F1D94B00F1BE5E /* FollowingViewController.swift in Sources */,
 				FC5AC37326F388C800114152 /* CommentsViewController.swift in Sources */,
 				FCD990A6278ABC240099CFD6 /* EditProfilePresenter.swift in Sources */,
+				FC78520F27A2E29C0013DD9F /* KeychainSwiftService.swift in Sources */,
 				FC768BCF272920CE003F0EBB /* AppError.swift in Sources */,
 				FC7188BD275CAB2200A6F2CA /* PasswordViewDelegate.swift in Sources */,
 				FCAE0BCB26EB48B0007DB573 /* AppDelegate.swift in Sources */,
