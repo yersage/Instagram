@@ -10,10 +10,11 @@ import Alamofire
 import KeychainSwift
 
 class KeychainSwiftInterceptor: RequestInterceptorDelegate {
-    private let requestManager = RequestManager()
+    private let requestService: RequestDelegate
     private let tokenService: TokenServiceDelegate
     
-    init(tokenService: TokenServiceDelegate) {
+    init(requestService: RequestDelegate, tokenService: TokenServiceDelegate) {
+        self.requestService = requestService
         self.tokenService = tokenService
     }
     
@@ -44,7 +45,7 @@ class KeychainSwiftInterceptor: RequestInterceptorDelegate {
             return
         }
         
-        requestManager.request(InstagramEndPoint.refreshToken(refreshToken: refreshToken), interceptor: nil, serializationType: .JSON) { [weak self] data, response, error in
+        requestService.request(InstagramEndPoint.refreshToken(refreshToken: refreshToken), interceptor: nil, serializationType: .JSON) { [weak self] data, response, error in
             
             if error != nil {
                 completion(false)
