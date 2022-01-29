@@ -41,7 +41,7 @@ final class SignInViewController: UIViewController, SignInViewDelegate {
     
     // MARK:- @IBActions
     @IBAction func passwordVisibilityButtonPressed(_ sender: UIButton) {
-        if passwordTextField.isSecureTextEntry == true {
+        if passwordTextField.isSecureTextEntry {
             passwordTextField.isSecureTextEntry = false
             passwordVisibilityButton.setImage(UIImage(systemName: "eye"), for: .normal)
             passwordVisibilityButton.tintColor = .blue
@@ -95,7 +95,6 @@ extension SignInViewController: UITextFieldDelegate {
         } else {
             loginButton.alpha = 1.0
             loginButton.isEnabled = true
-            return
         }
     }
 }
