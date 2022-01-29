@@ -10,7 +10,7 @@ import KeychainSwift
 
 class KeychainSwiftService: KeychainServiceDelegate {    
     private let keychain = KeychainSwift()
-    private let decoder: UserIDFetchable!
+    private let decoder: UserIDFetchable
     
     init(decoder: UserIDFetchable) {
         self.decoder = decoder
