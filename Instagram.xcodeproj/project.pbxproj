@@ -93,6 +93,7 @@
 		FCCC5EB22794258A00E07F1A /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCC5EB12794258A00E07F1A /* NetworkRouter.swift */; };
 		FCCC5EB62794667E00E07F1A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCC5EB52794667E00E07F1A /* Constants.swift */; };
 		FCCEFEF52736AD9B00C04D4D /* FeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCEFEF42736AD9B00C04D4D /* FeedService.swift */; };
+		FCD5174A27A537850039C351 /* TokenServiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD5174927A537850039C351 /* TokenServiceDelegate.swift */; };
 		FCD990A4278ABC1D0099CFD6 /* EditProfileViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD990A3278ABC1D0099CFD6 /* EditProfileViewDelegate.swift */; };
 		FCD990A6278ABC240099CFD6 /* EditProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD990A5278ABC240099CFD6 /* EditProfilePresenter.swift */; };
 		FCD990A8278ABC2B0099CFD6 /* EditProfilePresenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD990A7278ABC2B0099CFD6 /* EditProfilePresenterDelegate.swift */; };
@@ -216,6 +217,7 @@
 		FCCC5EB12794258A00E07F1A /* NetworkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
 		FCCC5EB52794667E00E07F1A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FCCEFEF42736AD9B00C04D4D /* FeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedService.swift; sourceTree = "<group>"; };
+		FCD5174927A537850039C351 /* TokenServiceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenServiceDelegate.swift; sourceTree = "<group>"; };
 		FCD990A3278ABC1D0099CFD6 /* EditProfileViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewDelegate.swift; sourceTree = "<group>"; };
 		FCD990A5278ABC240099CFD6 /* EditProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfilePresenter.swift; sourceTree = "<group>"; };
 		FCD990A7278ABC2B0099CFD6 /* EditProfilePresenterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfilePresenterDelegate.swift; sourceTree = "<group>"; };
@@ -685,6 +687,7 @@
 			isa = PBXGroup;
 			children = (
 				FCF1A1802727C4B5001846ED /* KeychainSwiftInterceptor.swift */,
+				FCD5174927A537850039C351 /* TokenServiceDelegate.swift */,
 			);
 			path = Interceptor;
 			sourceTree = "<group>";
@@ -984,6 +987,7 @@
 				FC043495273CFCA800DFE63D /* FollowingPresenterDelegate.swift in Sources */,
 				FC7188C7275CADC100A6F2CA /* ConfirmationPresenterDelegate.swift in Sources */,
 				FC7188C9275CAF4800A6F2CA /* WelcomeViewDelegate.swift in Sources */,
+				FCD5174A27A537850039C351 /* TokenServiceDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

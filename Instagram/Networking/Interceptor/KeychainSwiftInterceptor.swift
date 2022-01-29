@@ -10,12 +10,16 @@ import Alamofire
 import KeychainSwift
 
 class KeychainSwiftInterceptor: RequestInterceptorDelegate {
+    private let requestManager = RequestManager()
+    private let tokenService: TokenServiceDelegate
     
-    private let keychain = KeychainSwift()
+    init(tokenService: TokenServiceDelegate) {
+        self.tokenService = tokenService
+    }
     
     func adapt(_ urlRequest: URLRequest, for session: Session, completion: @escaping (Result<URLRequest, Error>) -> Void) {
         var request = urlRequest
-        guard let accessToken = keychain.get(K.keychainAccessTokenKey) else {
+        guard let accessToken = tokenService.getAccessToken() else {
             completion(.success(urlRequest))
             return
         }
@@ -35,26 +39,30 @@ class KeychainSwiftInterceptor: RequestInterceptorDelegate {
     }
     
     func refreshToken(completion: @escaping (_ isSuccess: Bool) -> Void) {
-        guard let refreshToken = self.keychain.get(K.keychainRefreshTokenKey) else { completion(false); return }
+        guard let refreshToken = tokenService.getRefreshToken() else {
+            completion(false)
+            return
+        }
         
         guard let url = InstagramEndPoint.refreshToken(refreshToken: refreshToken).url else {
             completion(false); return
         }
-        
-        AF.request(url, method: .post).responseJSON { [self] response in
+        requestManager.request(InstagramEndPoint.refreshToken(refreshToken: refreshToken), interceptor: nil, serializationType: .JSON) { [weak self] data, response, error in
             
-            if let safeData = response.data {
-                if let decodedData = try? JSONDecoder().decode(TokenModel.self, from: safeData) {
-                    keychain.set(decodedData.accessToken, forKey: K.keychainAccessTokenKey)
-                    keychain.set(decodedData.refreshToken, forKey: K.keychainRefreshTokenKey)
-                    completion(true)
-                } else {
-                    completion(false)
-                }
-                
+            if error != nil {
+                completion(false)
+            }
+            
+            guard let data = data else { completion(false); return }
+            
+            if let decodedData = try? JSONDecoder().decode(TokenModel.self, from: data) {
+                self?.tokenService.setAccessToken(accessToken: decodedData.accessToken)
+                self?.tokenService.setRefreshToken(refreshToken: decodedData.refreshToken)
+                completion(true)
             } else {
                 completion(false)
             }
+            
         }
     }
 }
