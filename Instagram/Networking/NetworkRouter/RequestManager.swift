@@ -13,6 +13,8 @@ enum SerializationType {
     case Data
 }
 
+public typealias NetworkRouterCompletion = (_ data: Data?,_ response: URLResponse?,_ error: Error?)->()
+
 class RequestManager {
     func request(_ route: EndPointType, interceptor: RequestInterceptorDelegate?, serializationType: SerializationType, completion: @escaping NetworkRouterCompletion) {
         

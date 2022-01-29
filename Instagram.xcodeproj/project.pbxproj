@@ -65,7 +65,6 @@
 		FC768BC627291B43003F0EBB /* InstagramEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC768BC527291B43003F0EBB /* InstagramEndPoint.swift */; };
 		FC768BCD272920BF003F0EBB /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC768BCC272920BF003F0EBB /* NetworkError.swift */; };
 		FC768BCF272920CE003F0EBB /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC768BCE272920CE003F0EBB /* AppError.swift */; };
-		FC768BD7272921CE003F0EBB /* NetworkRouterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC768BD6272921CE003F0EBB /* NetworkRouterDelegate.swift */; };
 		FC768BDF2729225D003F0EBB /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC768BDE2729225D003F0EBB /* EndPointType.swift */; };
 		FC78520B27A2DF0B0013DD9F /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC78520A27A2DF0B0013DD9F /* AuthService.swift */; };
 		FC78520D27A2E19C0013DD9F /* KeychainServiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC78520C27A2E19C0013DD9F /* KeychainServiceDelegate.swift */; };
@@ -90,7 +89,6 @@
 		FCB7E5EF26FC196E009DC8B0 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB7E5EE26FC196E009DC8B0 /* NotificationsViewController.swift */; };
 		FCB7E5F226FC19E7009DC8B0 /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB7E5F126FC19E7009DC8B0 /* CreatePostViewController.swift */; };
 		FCC69E9E2772169400FE8AE9 /* JWTPayloadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC69E9D2772169400FE8AE9 /* JWTPayloadModel.swift */; };
-		FCCC5EB22794258A00E07F1A /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCC5EB12794258A00E07F1A /* NetworkRouter.swift */; };
 		FCCC5EB62794667E00E07F1A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCC5EB52794667E00E07F1A /* Constants.swift */; };
 		FCCEFEF52736AD9B00C04D4D /* FeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCEFEF42736AD9B00C04D4D /* FeedService.swift */; };
 		FCD5174A27A537850039C351 /* TokenServiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD5174927A537850039C351 /* TokenServiceDelegate.swift */; };
@@ -187,7 +185,6 @@
 		FC768BC527291B43003F0EBB /* InstagramEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramEndPoint.swift; sourceTree = "<group>"; };
 		FC768BCC272920BF003F0EBB /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		FC768BCE272920CE003F0EBB /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
-		FC768BD6272921CE003F0EBB /* NetworkRouterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouterDelegate.swift; sourceTree = "<group>"; };
 		FC768BDE2729225D003F0EBB /* EndPointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPointType.swift; sourceTree = "<group>"; };
 		FC78520A27A2DF0B0013DD9F /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		FC78520C27A2E19C0013DD9F /* KeychainServiceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainServiceDelegate.swift; sourceTree = "<group>"; };
@@ -214,7 +211,6 @@
 		FCB7E5EE26FC196E009DC8B0 /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		FCB7E5F126FC19E7009DC8B0 /* CreatePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
 		FCC69E9D2772169400FE8AE9 /* JWTPayloadModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWTPayloadModel.swift; sourceTree = "<group>"; };
-		FCCC5EB12794258A00E07F1A /* NetworkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
 		FCCC5EB52794667E00E07F1A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FCCEFEF42736AD9B00C04D4D /* FeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedService.swift; sourceTree = "<group>"; };
 		FCD5174927A537850039C351 /* TokenServiceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenServiceDelegate.swift; sourceTree = "<group>"; };
@@ -537,9 +533,6 @@
 			children = (
 				FCDE917427A1338F00725EBC /* RequestManager.swift */,
 				FCDE917627A1348900725EBC /* UploadManager.swift */,
-				FCCC5EB12794258A00E07F1A /* NetworkRouter.swift */,
-				FC768BD6272921CE003F0EBB /* NetworkRouterDelegate.swift */,
-				FC3B27F4279E99C50019DBBF /* RequestInterceptorDelegate.swift */,
 			);
 			path = NetworkRouter;
 			sourceTree = "<group>";
@@ -688,6 +681,7 @@
 			children = (
 				FCF1A1802727C4B5001846ED /* KeychainSwiftInterceptor.swift */,
 				FCD5174927A537850039C351 /* TokenServiceDelegate.swift */,
+				FC3B27F4279E99C50019DBBF /* RequestInterceptorDelegate.swift */,
 			);
 			path = Interceptor;
 			sourceTree = "<group>";
@@ -936,7 +930,6 @@
 				FC43DCBF273A5F830098C882 /* ProfilePresenterDelegate.swift in Sources */,
 				FCFA350427035BD600B8E1AC /* FollowingModel.swift in Sources */,
 				FCD990A8278ABC2B0099CFD6 /* EditProfilePresenterDelegate.swift in Sources */,
-				FCCC5EB22794258A00E07F1A /* NetworkRouter.swift in Sources */,
 				FC72CD1126F87CBF002BF8A6 /* ProfilePostsViewController.swift in Sources */,
 				FCFC9F692736465100B69DFD /* FeedPresenterDelegate.swift in Sources */,
 				FCFA604127006E35005F1B4A /* PasswordViewController.swift in Sources */,
@@ -960,7 +953,6 @@
 				FCDE917927A1369200725EBC /* RegistrationService.swift in Sources */,
 				FC2EFA9C270ED85F00CD15AA /* ChangePropertyViewController.swift in Sources */,
 				FC84EAD426F0F7410096BCC8 /* ProfileViewController.swift in Sources */,
-				FC768BD7272921CE003F0EBB /* NetworkRouterDelegate.swift in Sources */,
 				FC78521127A2E7FC0013DD9F /* JWTDecoder.swift in Sources */,
 				FCAE0BCD26EB48B0007DB573 /* SceneDelegate.swift in Sources */,
 				FC04349B273D002200DFE63D /* FollowingService.swift in Sources */,
