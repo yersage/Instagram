@@ -9,10 +9,10 @@ import Foundation
 
 final class EmailPresenter: EmailPresenterDelegate {
     weak var view: EmailViewDelegate?
-    private let networkManager: NetworkManager = NetworkManager()
-
+    private let emailAvailabilityService = EmailAvailabilityService(requestService: RequestManager())
+    
     func isEmailAvailable(email: String) {
-        networkManager.request(InstagramEndPoint.emailAvailability(email: email)) { result in
+        emailAvailabilityService.checkEmailAvailability(email: email) { result in
             switch result {
             case .success(_):
                 self.view?.hideLabel()

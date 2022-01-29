@@ -9,7 +9,6 @@ import Foundation
 
 final class PasswordPresenter: PasswordPresenterDelegate {
     weak var view: PasswordViewDelegate?
-    private let networkManager: NetworkManager = NetworkManager()
     
     func isPasswordAcceptable(password: String) {
         let answer = isPasswordValid(password)

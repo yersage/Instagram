@@ -94,6 +94,10 @@
 		FCD5174A27A537850039C351 /* TokenServiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD5174927A537850039C351 /* TokenServiceDelegate.swift */; };
 		FCD5175027A540420039C351 /* RequestDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD5174F27A540420039C351 /* RequestDelegate.swift */; };
 		FCD5175227A5409B0039C351 /* UploadDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD5175127A5409B0039C351 /* UploadDelegate.swift */; };
+		FCD5175427A547510039C351 /* EmailAvailabilityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD5175327A547510039C351 /* EmailAvailabilityService.swift */; };
+		FCD5175627A548B00039C351 /* UsernameAvailabilityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD5175527A548B00039C351 /* UsernameAvailabilityService.swift */; };
+		FCD5175827A549860039C351 /* AccountVerificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD5175727A549860039C351 /* AccountVerificationService.swift */; };
+		FCD5175A27A54A260039C351 /* SignUpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD5175927A54A260039C351 /* SignUpService.swift */; };
 		FCD990A4278ABC1D0099CFD6 /* EditProfileViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD990A3278ABC1D0099CFD6 /* EditProfileViewDelegate.swift */; };
 		FCD990A6278ABC240099CFD6 /* EditProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD990A5278ABC240099CFD6 /* EditProfilePresenter.swift */; };
 		FCD990A8278ABC2B0099CFD6 /* EditProfilePresenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD990A7278ABC2B0099CFD6 /* EditProfilePresenterDelegate.swift */; };
@@ -103,7 +107,6 @@
 		FCDE7E1227719A5600A895CC /* SelfProfilePresenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDE7E1127719A5600A895CC /* SelfProfilePresenterDelegate.swift */; };
 		FCDE917527A1338F00725EBC /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDE917427A1338F00725EBC /* RequestManager.swift */; };
 		FCDE917727A1348900725EBC /* UploadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDE917627A1348900725EBC /* UploadManager.swift */; };
-		FCDE917927A1369200725EBC /* RegistrationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDE917827A1369200725EBC /* RegistrationService.swift */; };
 		FCDE917B27A1396400725EBC /* SignInRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDE917A27A1396400725EBC /* SignInRouter.swift */; };
 		FCE7CEFD270DF52200A57919 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE7CEFC270DF52200A57919 /* EditProfileViewController.swift */; };
 		FCEBB75D273BB7B2004FBB68 /* FollowersTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEBB75C273BB7B2004FBB68 /* FollowersTableViewCellDelegate.swift */; };
@@ -218,6 +221,10 @@
 		FCD5174927A537850039C351 /* TokenServiceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenServiceDelegate.swift; sourceTree = "<group>"; };
 		FCD5174F27A540420039C351 /* RequestDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestDelegate.swift; sourceTree = "<group>"; };
 		FCD5175127A5409B0039C351 /* UploadDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDelegate.swift; sourceTree = "<group>"; };
+		FCD5175327A547510039C351 /* EmailAvailabilityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailAvailabilityService.swift; sourceTree = "<group>"; };
+		FCD5175527A548B00039C351 /* UsernameAvailabilityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameAvailabilityService.swift; sourceTree = "<group>"; };
+		FCD5175727A549860039C351 /* AccountVerificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountVerificationService.swift; sourceTree = "<group>"; };
+		FCD5175927A54A260039C351 /* SignUpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpService.swift; sourceTree = "<group>"; };
 		FCD990A3278ABC1D0099CFD6 /* EditProfileViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewDelegate.swift; sourceTree = "<group>"; };
 		FCD990A5278ABC240099CFD6 /* EditProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfilePresenter.swift; sourceTree = "<group>"; };
 		FCD990A7278ABC2B0099CFD6 /* EditProfilePresenterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfilePresenterDelegate.swift; sourceTree = "<group>"; };
@@ -227,7 +234,6 @@
 		FCDE7E1127719A5600A895CC /* SelfProfilePresenterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfProfilePresenterDelegate.swift; sourceTree = "<group>"; };
 		FCDE917427A1338F00725EBC /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
 		FCDE917627A1348900725EBC /* UploadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadManager.swift; sourceTree = "<group>"; };
-		FCDE917827A1369200725EBC /* RegistrationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationService.swift; sourceTree = "<group>"; };
 		FCDE917A27A1396400725EBC /* SignInRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRouter.swift; sourceTree = "<group>"; };
 		FCE7CEFC270DF52200A57919 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		FCEBB75C273BB7B2004FBB68 /* FollowersTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersTableViewCellDelegate.swift; sourceTree = "<group>"; };
@@ -460,6 +466,7 @@
 				FC7188B0275CA60900A6F2CA /* EmailViewDelegate.swift */,
 				FC7188B2275CA62000A6F2CA /* EmailPresenter.swift */,
 				FC7188B4275CA68B00A6F2CA /* EmailPresenterDelegate.swift */,
+				FCD5175327A547510039C351 /* EmailAvailabilityService.swift */,
 			);
 			path = Email;
 			sourceTree = "<group>";
@@ -471,6 +478,7 @@
 				FC7188B6275CA81500A6F2CA /* UsernameViewDelegate.swift */,
 				FC7188B8275CA82000A6F2CA /* UsernamePresenter.swift */,
 				FC7188BA275CA84D00A6F2CA /* UsernamePresenterDelegate.swift */,
+				FCD5175527A548B00039C351 /* UsernameAvailabilityService.swift */,
 			);
 			path = Username;
 			sourceTree = "<group>";
@@ -493,6 +501,8 @@
 				FC7188C2275CAD8800A6F2CA /* ConfirmationViewDelegate.swift */,
 				FC7188C4275CAD9E00A6F2CA /* ConfirmationPresenter.swift */,
 				FC7188C6275CADC100A6F2CA /* ConfirmationPresenterDelegate.swift */,
+				FCD5175727A549860039C351 /* AccountVerificationService.swift */,
+				FCD5175927A54A260039C351 /* SignUpService.swift */,
 			);
 			path = Confirmation;
 			sourceTree = "<group>";
@@ -750,7 +760,6 @@
 			children = (
 				FC78521227A2ED000013DD9F /* KeychainService */,
 				FC78520A27A2DF0B0013DD9F /* AuthService.swift */,
-				FCDE917827A1369200725EBC /* RegistrationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -887,6 +896,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC423FC926F1D89300F1BE5E /* FollowersViewController.swift in Sources */,
+				FCD5175427A547510039C351 /* EmailAvailabilityService.swift in Sources */,
 				FC32333A27846D7A00F6A640 /* SearchResultsTableViewCellDelegate.swift in Sources */,
 				FCFA3D41271B1D0C00658DF2 /* FeedViewDelegate.swift in Sources */,
 				FC16D968278459A400A84488 /* SearchViewController.swift in Sources */,
@@ -961,11 +971,12 @@
 				FCFA604527006E42005F1B4A /* WelcomeViewController.swift in Sources */,
 				FCFA603F27006E28005F1B4A /* UsernameViewController.swift in Sources */,
 				FCB7E5EF26FC196E009DC8B0 /* NotificationsViewController.swift in Sources */,
+				FCD5175627A548B00039C351 /* UsernameAvailabilityService.swift in Sources */,
 				FC7188B5275CA68B00A6F2CA /* EmailPresenterDelegate.swift in Sources */,
 				FC78521427A2ED960013DD9F /* UserIDFetchable.swift in Sources */,
 				FC43DCBD273A5EF80098C882 /* ProfileViewDelegate.swift in Sources */,
+				FCD5175A27A54A260039C351 /* SignUpService.swift in Sources */,
 				FC2FFBAF278C2C1C00E30AB9 /* ProfileDataModel.swift in Sources */,
-				FCDE917927A1369200725EBC /* RegistrationService.swift in Sources */,
 				FC2EFA9C270ED85F00CD15AA /* ChangePropertyViewController.swift in Sources */,
 				FC84EAD426F0F7410096BCC8 /* ProfileViewController.swift in Sources */,
 				FC78521127A2E7FC0013DD9F /* JWTDecoder.swift in Sources */,
@@ -995,6 +1006,7 @@
 				FC043495273CFCA800DFE63D /* FollowingPresenterDelegate.swift in Sources */,
 				FC7188C7275CADC100A6F2CA /* ConfirmationPresenterDelegate.swift in Sources */,
 				FC7188C9275CAF4800A6F2CA /* WelcomeViewDelegate.swift in Sources */,
+				FCD5175827A549860039C351 /* AccountVerificationService.swift in Sources */,
 				FCD5174A27A537850039C351 /* TokenServiceDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

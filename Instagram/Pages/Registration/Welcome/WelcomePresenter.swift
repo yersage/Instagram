@@ -10,18 +10,23 @@ import KeychainSwift
 
 final class WelcomePresenter: WelcomePresenterDelegate {
     weak var view: WelcomeViewDelegate?
-    private let networkManager: NetworkManager = NetworkManager()
-    private let keychain = KeychainSwift()
+    private let keychainService: KeychainServiceDelegate = KeychainSwiftService()
+    private let userIDFetchService: UserIDFetchable = JWTDecoder()
+    private let authService = AuthService()
 
     func login(username: String, password: String) {
-        networkManager.request(InstagramEndPoint.login(username: username, password: password)) { [self] (result: Result<TokenModel, Error>) -> Void in
+        authService.login(username: username, password: password) { [weak self] result in
             switch result {
             case .success(let tokenModel):
-                keychain.set(tokenModel.accessToken, forKey: K.keychainAccessTokenKey)
-                keychain.set(tokenModel.refreshToken, forKey: K.keychainRefreshTokenKey)
-                self.view?.goToFeedVC()
+                self?.keychainService.set(tokenModel.accessToken, forKey: K.keychainAccessTokenKey)
+                self?.keychainService.set(tokenModel.refreshToken, forKey: K.keychainRefreshTokenKey)
+                if let userID = self?.userIDFetchService.fetchUserID(from: tokenModel.accessToken) {
+                    self?.keychainService.set(userID, forKey: K.keychainUserIDKey)
+
+                }
+                self?.view?.goToFeedVC()
             case .failure(let error):
-                self.view?.show(error: error.localizedDescription)
+                self?.view?.show(error: error.localizedDescription)
             }
         }
     }
