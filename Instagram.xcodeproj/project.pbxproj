@@ -28,7 +28,6 @@
 		FC32333827846D2F00F6A640 /* SearchResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC32333727846D2F00F6A640 /* SearchResultsTableViewCell.swift */; };
 		FC32333A27846D7A00F6A640 /* SearchResultsTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC32333927846D7A00F6A640 /* SearchResultsTableViewCellDelegate.swift */; };
 		FC3B27F5279E99C50019DBBF /* RequestInterceptorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3B27F4279E99C50019DBBF /* RequestInterceptorDelegate.swift */; };
-		FC3FD5892796FACF0071E78E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3FD5882796FACF0071E78E /* NetworkManager.swift */; };
 		FC423FC726F1D84F00F1BE5E /* FollowersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC423FC626F1D84F00F1BE5E /* FollowersTableViewCell.swift */; };
 		FC423FC926F1D89300F1BE5E /* FollowersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC423FC826F1D89300F1BE5E /* FollowersViewController.swift */; };
 		FC423FCE26F1D94B00F1BE5E /* FollowingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC423FCD26F1D94B00F1BE5E /* FollowingViewController.swift */; };
@@ -150,7 +149,6 @@
 		FC32333727846D2F00F6A640 /* SearchResultsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsTableViewCell.swift; sourceTree = "<group>"; };
 		FC32333927846D7A00F6A640 /* SearchResultsTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsTableViewCellDelegate.swift; sourceTree = "<group>"; };
 		FC3B27F4279E99C50019DBBF /* RequestInterceptorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestInterceptorDelegate.swift; sourceTree = "<group>"; };
-		FC3FD5882796FACF0071E78E /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		FC423FC626F1D84F00F1BE5E /* FollowersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersTableViewCell.swift; sourceTree = "<group>"; };
 		FC423FC826F1D89300F1BE5E /* FollowersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersViewController.swift; sourceTree = "<group>"; };
 		FC423FCD26F1D94B00F1BE5E /* FollowingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingViewController.swift; sourceTree = "<group>"; };
@@ -335,14 +333,6 @@
 				FC3165752771BA7700306012 /* LoaderCell.swift */,
 			);
 			path = LoaderCell;
-			sourceTree = "<group>";
-		};
-		FC3FD5872796FAB50071E78E /* NetworkManager */ = {
-			isa = PBXGroup;
-			children = (
-				FC3FD5882796FACF0071E78E /* NetworkManager.swift */,
-			);
-			path = NetworkManager;
 			sourceTree = "<group>";
 		};
 		FC423FC426F1D81800F1BE5E /* Followers */ = {
@@ -532,7 +522,6 @@
 			isa = PBXGroup;
 			children = (
 				FCC8C62B2760F6DF0093B6B3 /* Interceptor */,
-				FC3FD5872796FAB50071E78E /* NetworkManager */,
 				FCA4DB97272644050099E9C3 /* NetworkRouter */,
 				FCA4DB9A2726441D0099E9C3 /* EndPointType */,
 				FC768BCB27292080003F0EBB /* NetworkError */,
@@ -606,11 +595,11 @@
 		FCAE0BE226EB4D0E007DB573 /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
+				FCCC5EB52794667E00E07F1A /* Constants.swift */,
 				FCAE0BD326EB48B1007DB573 /* Assets.xcassets */,
 				FCAE0BCA26EB48B0007DB573 /* AppDelegate.swift */,
 				FCAE0BCC26EB48B0007DB573 /* SceneDelegate.swift */,
 				FCAE0BD526EB48B1007DB573 /* LaunchScreen.storyboard */,
-				FCCC5EB52794667E00E07F1A /* Constants.swift */,
 			);
 			path = Supporting;
 			sourceTree = "<group>";
@@ -967,7 +956,6 @@
 				FC2FFBAF278C2C1C00E30AB9 /* ProfileDataModel.swift in Sources */,
 				FCDE917927A1369200725EBC /* RegistrationService.swift in Sources */,
 				FC2EFA9C270ED85F00CD15AA /* ChangePropertyViewController.swift in Sources */,
-				FC3FD5892796FACF0071E78E /* NetworkManager.swift in Sources */,
 				FC84EAD426F0F7410096BCC8 /* ProfileViewController.swift in Sources */,
 				FC768BD7272921CE003F0EBB /* NetworkRouterDelegate.swift in Sources */,
 				FC78521127A2E7FC0013DD9F /* JWTDecoder.swift in Sources */,
