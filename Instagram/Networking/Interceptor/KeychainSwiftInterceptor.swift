@@ -44,9 +44,6 @@ class KeychainSwiftInterceptor: RequestInterceptorDelegate {
             return
         }
         
-        guard let url = InstagramEndPoint.refreshToken(refreshToken: refreshToken).url else {
-            completion(false); return
-        }
         requestManager.request(InstagramEndPoint.refreshToken(refreshToken: refreshToken), interceptor: nil, serializationType: .JSON) { [weak self] data, response, error in
             
             if error != nil {
