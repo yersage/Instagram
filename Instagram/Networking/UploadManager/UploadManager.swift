@@ -8,7 +8,7 @@
 import Foundation
 import Alamofire
 
-class UploadManager {
+class UploadManager: UploadDelegate {
     func upload(_ route: EndPointType, interceptor: RequestInterceptorDelegate?, formDataParts: [FormData]?, completion: @escaping NetworkRouterCompletion) {
         
         let uploadRequest = AF.upload(multipartFormData: { multipartFormData in
