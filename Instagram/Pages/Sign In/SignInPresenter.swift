@@ -10,7 +10,8 @@ import KeychainSwift
 
 final class SignInPresenter: SignInPresenterDelegate {
     weak var view: SignInViewDelegate?
-    private let keychainService: KeychainServiceDelegate = KeychainSwiftService(decoder: JWTDecoder())
+    private let keychainService: KeychainServiceDelegate = KeychainSwiftService()
+    private let userIDFetchService: UserIDFetchable = JWTDecoder()
     private let authService = AuthService()
     
     func login(username: String, password: String) {
@@ -24,8 +25,9 @@ final class SignInPresenter: SignInPresenterDelegate {
             case .success(let tokenModel):
                 self?.keychainService.set(tokenModel.accessToken, forKey: K.keychainAccessTokenKey)
                 self?.keychainService.set(tokenModel.refreshToken, forKey: K.keychainRefreshTokenKey)
-                if let userID = self?.keychainService.fetchUserID(from: tokenModel.accessToken) {
+                if let userID = self?.userIDFetchService.fetchUserID(from: tokenModel.accessToken) {
                     self?.keychainService.set(userID, forKey: K.keychainUserIDKey)
+
                 }
                 self?.view?.goToFeedVC()
             case .failure(let error):
