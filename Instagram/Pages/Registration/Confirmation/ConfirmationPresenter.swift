@@ -9,10 +9,11 @@ import Foundation
 
 final class ConfirmationPresenter: ConfirmationPresenterDelegate {
     weak var view: ConfirmationViewDelegate?
-    private let networkManager: NetworkManager = NetworkManager()
+    private let accountVerificationService = AccountVerificationService(requestService: RequestManager())
+    private let signUpService = SignUpService(requestService: RequestManager())
     
     func verify(email: String, verificationCode: String) {
-        networkManager.request(InstagramEndPoint.accountVerification(confirmationCode: verificationCode, email: email)) { result in
+        accountVerificationService.verify(confirmationCode: verificationCode, email: email) { result in
             switch result {
             case .success(let statusCode):
                 if statusCode == 200 {
@@ -29,7 +30,7 @@ final class ConfirmationPresenter: ConfirmationPresenterDelegate {
     }
     
     func signup(email: String, password: String, username: String) {
-        networkManager.request(InstagramEndPoint.signUp(username: username, password: password, email: email)) { result in
+        signUpService.signUp(username: username, password: password, email: email) { result in
             switch result {
             case .success(let statusCode):
                 if statusCode == 200 {

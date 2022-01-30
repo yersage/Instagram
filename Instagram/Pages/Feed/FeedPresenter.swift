@@ -11,7 +11,8 @@ import Alamofire
 final class FeedPresenter: FeedPresenterDelegate {
     // MARK:- Initialization
     private let feedService = FeedService()
-    private let networkManager: NetworkManager = NetworkManager()
+    private let postsService = PostsService()
+    //private let interceptor: RequestInterceptorDelegate = KeychainSwiftInterceptor(requestService: RequestManager(), tokenService: <#T##TokenServiceDelegate#>)
     
     weak var view: FeedViewDelegate?
     
@@ -25,6 +26,8 @@ final class FeedPresenter: FeedPresenterDelegate {
         }
         
         let page = self.feedService.getPage()
+        
+        postsService.requestPosts(page: page, interceptor: <#T##RequestInterceptorDelegate#>, completion: <#T##(Result<[PostModel], Error>) -> ()#>)
         
         networkManager.request(InstagramEndPoint.feedPosts(page: page)) { (result: Result<[PostModel], Error>) -> Void in
             switch result {
