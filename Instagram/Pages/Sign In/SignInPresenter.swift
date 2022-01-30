@@ -10,7 +10,7 @@ import KeychainSwift
 
 final class SignInPresenter: SignInPresenterDelegate {
     weak var view: SignInViewDelegate?
-    private let keychainService: KeychainServiceDelegate = KeychainSwiftService()
+    private let keychainService: KeychainServiceDelegate = KeychainService()
     private let userIDFetchService: UserIDFetchable = JWTDecoder()
     private let authService = AuthService()
     

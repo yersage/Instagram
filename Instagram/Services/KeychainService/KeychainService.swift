@@ -8,7 +8,7 @@
 import Foundation
 import KeychainSwift
 
-class KeychainSwiftService: KeychainServiceDelegate {    
+class KeychainService: KeychainServiceDelegate {    
     private let keychain = KeychainSwift()
     
     func set(_ value: String, forKey key: String) {
