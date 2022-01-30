@@ -10,8 +10,7 @@ import UIKit
 final class FeedPresenter: FeedPresenterDelegate {
     // MARK:- Initialization
     private let feedService = FeedService()
-    private let postsService = PostsService()
-    private let interceptor = KeychainSwiftInterceptor(requestService: RequestManager(), tokenService: TokenService())
+    private let postsService = PostsService(requestService: RequestManager(), interceptor: KeychainSwiftInterceptor(requestService: RequestManager(), tokenService: TokenService()))
     
     weak var view: FeedViewDelegate?
     
@@ -26,7 +25,7 @@ final class FeedPresenter: FeedPresenterDelegate {
         
         let page = self.feedService.getPage()
         
-        postsService.requestPosts(page: page, interceptor: interceptor) { result in
+        postsService.requestPosts(page: page) { result in
             switch result {
             case .success(let newPosts):
                 self.view?.removeSpinners()
@@ -43,7 +42,7 @@ final class FeedPresenter: FeedPresenterDelegate {
     }
     
     func like(like: Bool, postID: Int, index: Int) {
-        postsService.like(postID: "\(postID)", interceptor: interceptor) { result in
+        postsService.like(postID: "\(postID)") { result in
             switch result {
             case .success(let newPost):
                 self.view?.setPost(post: newPost, index: index)
@@ -56,7 +55,7 @@ final class FeedPresenter: FeedPresenterDelegate {
     }
     
     func unlike(like: Bool, postID: Int, index: Int) {
-        postsService.unlike(postID: "\(postID)", interceptor: interceptor) { result in
+        postsService.unlike(postID: "\(postID)") { result in
             switch result {
             case .success(let newPost):
                 self.view?.setPost(post: newPost, index: index)

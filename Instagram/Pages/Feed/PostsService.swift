@@ -9,10 +9,16 @@ import Foundation
 import Alamofire
 
 class PostsService {
-    private let requestManager: RequestDelegate = RequestManager()
+    private let requestService: RequestDelegate
+    private let interceptor: RequestInterceptor
     
-    func requestPosts(page: Int, interceptor: RequestInterceptor, completion: @escaping (Result<[PostModel], Error>) -> ()) {
-        requestManager.request(InstagramEndPoint.feedPosts(page: page), interceptor: interceptor, serializationType: .JSON) { data, response, error in
+    init(requestService: RequestDelegate, interceptor: RequestInterceptor) {
+        self.requestService = requestService
+        self.interceptor = interceptor
+    }
+    
+    func requestPosts(page: Int, completion: @escaping (Result<[PostModel], Error>) -> ()) {
+        requestService.request(InstagramEndPoint.feedPosts(page: page), interceptor: interceptor, serializationType: .JSON) { data, response, error in
             if let error = error {
                 completion(.failure(error))
                 return
@@ -29,8 +35,8 @@ class PostsService {
         }
     }
     
-    func like(postID: String, interceptor: RequestInterceptor, completion: @escaping (Result<PostModel, Error>) -> ()) {
-        requestManager.request(InstagramEndPoint.postLike(postID: postID), interceptor: interceptor, serializationType: .JSON) { data, response, error in
+    func like(postID: String, completion: @escaping (Result<PostModel, Error>) -> ()) {
+        requestService.request(InstagramEndPoint.postLike(postID: postID), interceptor: interceptor, serializationType: .JSON) { data, response, error in
             if let error = error {
                 completion(.failure(error))
                 return
@@ -47,8 +53,8 @@ class PostsService {
         }
     }
     
-    func unlike(postID: String, interceptor: RequestInterceptor, completion: @escaping (Result<PostModel, Error>) -> ()) {
-        requestManager.request(InstagramEndPoint.postUnlike(postID: postID), interceptor: interceptor, serializationType: .JSON) { data, response, error in
+    func unlike(postID: String, completion: @escaping (Result<PostModel, Error>) -> ()) {
+        requestService.request(InstagramEndPoint.postUnlike(postID: postID), interceptor: interceptor, serializationType: .JSON) { data, response, error in
             if let error = error {
                 completion(.failure(error))
                 return
