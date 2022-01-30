@@ -9,10 +9,10 @@ import Foundation
 
 final class SearchPresenter: SearchPresenterDelegate {
     weak var view: SearchViewDelegate?
-    private let networkManager: NetworkManager = NetworkManager()
+    private let searchService = SearchService(requestService: RequestManager(), interceptor: KeychainSwiftInterceptor(requestService: RequestManager(), tokenService: TokenService()))
     
     func search(by name: String) {
-        networkManager.request(InstagramEndPoint.search(name: name)) { (result: Result<[ProfileModel], Error>) -> Void in
+        searchService.searchResults(for: name) { result in
             switch result {
             case .success(let searchResult):
                 self.view?.set(newResults: searchResult)
