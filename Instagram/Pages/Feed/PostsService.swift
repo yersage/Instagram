@@ -6,11 +6,12 @@
 //
 
 import Foundation
+import Alamofire
 
 class PostsService {
     private let requestManager: RequestDelegate = RequestManager()
     
-    func requestPosts(page: Int, interceptor: RequestInterceptorDelegate, completion: @escaping (Result<[PostModel], Error>) -> ()) {
+    func requestPosts(page: Int, interceptor: RequestInterceptor, completion: @escaping (Result<[PostModel], Error>) -> ()) {
         requestManager.request(InstagramEndPoint.feedPosts(page: page), interceptor: interceptor, serializationType: .JSON) { data, response, error in
             if let error = error {
                 completion(.failure(error))
@@ -28,7 +29,7 @@ class PostsService {
         }
     }
     
-    func like(postID: String, interceptor: RequestInterceptorDelegate, completion: @escaping (Result<PostModel, Error>) -> ()) {
+    func like(postID: String, interceptor: RequestInterceptor, completion: @escaping (Result<PostModel, Error>) -> ()) {
         requestManager.request(InstagramEndPoint.postLike(postID: postID), interceptor: interceptor, serializationType: .JSON) { data, response, error in
             if let error = error {
                 completion(.failure(error))
@@ -46,7 +47,7 @@ class PostsService {
         }
     }
     
-    func unlike(postID: String, interceptor: RequestInterceptorDelegate, completion: @escaping (Result<PostModel, Error>) -> ()) {
+    func unlike(postID: String, interceptor: RequestInterceptor, completion: @escaping (Result<PostModel, Error>) -> ()) {
         requestManager.request(InstagramEndPoint.postUnlike(postID: postID), interceptor: interceptor, serializationType: .JSON) { data, response, error in
             if let error = error {
                 completion(.failure(error))

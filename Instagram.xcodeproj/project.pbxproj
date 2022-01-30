@@ -27,7 +27,6 @@
 		FC3165762771BA7700306012 /* LoaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3165752771BA7700306012 /* LoaderCell.swift */; };
 		FC32333827846D2F00F6A640 /* SearchResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC32333727846D2F00F6A640 /* SearchResultsTableViewCell.swift */; };
 		FC32333A27846D7A00F6A640 /* SearchResultsTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC32333927846D7A00F6A640 /* SearchResultsTableViewCellDelegate.swift */; };
-		FC3B27F5279E99C50019DBBF /* RequestInterceptorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3B27F4279E99C50019DBBF /* RequestInterceptorDelegate.swift */; };
 		FC423FC726F1D84F00F1BE5E /* FollowersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC423FC626F1D84F00F1BE5E /* FollowersTableViewCell.swift */; };
 		FC423FC926F1D89300F1BE5E /* FollowersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC423FC826F1D89300F1BE5E /* FollowersViewController.swift */; };
 		FC423FCE26F1D94B00F1BE5E /* FollowingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC423FCD26F1D94B00F1BE5E /* FollowingViewController.swift */; };
@@ -93,8 +92,6 @@
 		FCCC5EB62794667E00E07F1A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCC5EB52794667E00E07F1A /* Constants.swift */; };
 		FCCEFEF52736AD9B00C04D4D /* FeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCEFEF42736AD9B00C04D4D /* FeedService.swift */; };
 		FCD5174A27A537850039C351 /* TokenServiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD5174927A537850039C351 /* TokenServiceDelegate.swift */; };
-		FCD5175027A540420039C351 /* RequestDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD5174F27A540420039C351 /* RequestDelegate.swift */; };
-		FCD5175227A5409B0039C351 /* UploadDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD5175127A5409B0039C351 /* UploadDelegate.swift */; };
 		FCD5175427A547510039C351 /* EmailAvailabilityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD5175327A547510039C351 /* EmailAvailabilityService.swift */; };
 		FCD5175627A548B00039C351 /* UsernameAvailabilityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD5175527A548B00039C351 /* UsernameAvailabilityService.swift */; };
 		FCD5175827A549860039C351 /* AccountVerificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD5175727A549860039C351 /* AccountVerificationService.swift */; };
@@ -153,7 +150,6 @@
 		FC3165752771BA7700306012 /* LoaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderCell.swift; sourceTree = "<group>"; };
 		FC32333727846D2F00F6A640 /* SearchResultsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsTableViewCell.swift; sourceTree = "<group>"; };
 		FC32333927846D7A00F6A640 /* SearchResultsTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsTableViewCellDelegate.swift; sourceTree = "<group>"; };
-		FC3B27F4279E99C50019DBBF /* RequestInterceptorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestInterceptorDelegate.swift; sourceTree = "<group>"; };
 		FC423FC626F1D84F00F1BE5E /* FollowersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersTableViewCell.swift; sourceTree = "<group>"; };
 		FC423FC826F1D89300F1BE5E /* FollowersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersViewController.swift; sourceTree = "<group>"; };
 		FC423FCD26F1D94B00F1BE5E /* FollowingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingViewController.swift; sourceTree = "<group>"; };
@@ -221,8 +217,6 @@
 		FCCC5EB52794667E00E07F1A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FCCEFEF42736AD9B00C04D4D /* FeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedService.swift; sourceTree = "<group>"; };
 		FCD5174927A537850039C351 /* TokenServiceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenServiceDelegate.swift; sourceTree = "<group>"; };
-		FCD5174F27A540420039C351 /* RequestDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestDelegate.swift; sourceTree = "<group>"; };
-		FCD5175127A5409B0039C351 /* UploadDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDelegate.swift; sourceTree = "<group>"; };
 		FCD5175327A547510039C351 /* EmailAvailabilityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailAvailabilityService.swift; sourceTree = "<group>"; };
 		FCD5175527A548B00039C351 /* UsernameAvailabilityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameAvailabilityService.swift; sourceTree = "<group>"; };
 		FCD5175727A549860039C351 /* AccountVerificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountVerificationService.swift; sourceTree = "<group>"; };
@@ -457,6 +451,7 @@
 				FC7188AC275CA4B000A6F2CA /* SignInPresenter.swift */,
 				FC7188AE275CA4E300A6F2CA /* SignInPresenterDelegate.swift */,
 				FCDE917A27A1396400725EBC /* SignInRouter.swift */,
+				FC78520A27A2DF0B0013DD9F /* AuthService.swift */,
 			);
 			path = "Sign In";
 			sourceTree = "<group>";
@@ -690,7 +685,6 @@
 			children = (
 				FCF1A1802727C4B5001846ED /* KeychainSwiftInterceptor.swift */,
 				FCD5174927A537850039C351 /* TokenServiceDelegate.swift */,
-				FC3B27F4279E99C50019DBBF /* RequestInterceptorDelegate.swift */,
 			);
 			path = Interceptor;
 			sourceTree = "<group>";
@@ -724,7 +718,6 @@
 			isa = PBXGroup;
 			children = (
 				FCDE917427A1338F00725EBC /* RequestManager.swift */,
-				FCD5174F27A540420039C351 /* RequestDelegate.swift */,
 			);
 			path = RequestManager;
 			sourceTree = "<group>";
@@ -733,7 +726,6 @@
 			isa = PBXGroup;
 			children = (
 				FCDE917627A1348900725EBC /* UploadManager.swift */,
-				FCD5175127A5409B0039C351 /* UploadDelegate.swift */,
 			);
 			path = UploadManager;
 			sourceTree = "<group>";
@@ -762,7 +754,6 @@
 			isa = PBXGroup;
 			children = (
 				FC78521227A2ED000013DD9F /* KeychainService */,
-				FC78520A27A2DF0B0013DD9F /* AuthService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -946,7 +937,6 @@
 				FC78520F27A2E29C0013DD9F /* KeychainSwiftService.swift in Sources */,
 				FC768BCF272920CE003F0EBB /* AppError.swift in Sources */,
 				FC7188BD275CAB2200A6F2CA /* PasswordViewDelegate.swift in Sources */,
-				FCD5175027A540420039C351 /* RequestDelegate.swift in Sources */,
 				FCAE0BCB26EB48B0007DB573 /* AppDelegate.swift in Sources */,
 				FCDE917B27A1396400725EBC /* SignInRouter.swift in Sources */,
 				FC7188AF275CA4E300A6F2CA /* SignInPresenterDelegate.swift in Sources */,
@@ -996,13 +986,11 @@
 				FCF2EC5B27987C0100250B57 /* FeedRouter.swift in Sources */,
 				FC7188CD275CAF7D00A6F2CA /* WelcomePresenterDelegate.swift in Sources */,
 				FC3165762771BA7700306012 /* LoaderCell.swift in Sources */,
-				FC3B27F5279E99C50019DBBF /* RequestInterceptorDelegate.swift in Sources */,
 				FCDE7E0C277197DD00A895CC /* SelfProfileViewController.swift in Sources */,
 				FCCC5EB62794667E00E07F1A /* Constants.swift in Sources */,
 				FC7188AD275CA4B000A6F2CA /* SignInPresenter.swift in Sources */,
 				FCFA350227035A8600B8E1AC /* FollowerModel.swift in Sources */,
 				FCDE917527A1338F00725EBC /* RequestManager.swift in Sources */,
-				FCD5175227A5409B0039C351 /* UploadDelegate.swift in Sources */,
 				FC5AC37726F3891100114152 /* CommentModel.swift in Sources */,
 				FC84EAD126F0F5DB0096BCC8 /* ProfileModel.swift in Sources */,
 				FCFA603D27006E11005F1B4A /* EmailViewController.swift in Sources */,

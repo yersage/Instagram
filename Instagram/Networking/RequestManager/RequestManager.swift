@@ -8,15 +8,17 @@
 import Foundation
 import Alamofire
 
+protocol RequestDelegate {
+    func request(_ route: EndPointType, interceptor: RequestInterceptor?, serializationType: SerializationType, completion: @escaping (_ data: Data?,_ response: URLResponse?,_ error: Error?)->())
+}
+
 enum SerializationType {
     case JSON
     case Data
 }
 
-public typealias NetworkRouterCompletion = (_ data: Data?,_ response: URLResponse?,_ error: Error?)->()
-
 class RequestManager: RequestDelegate {
-    func request(_ route: EndPointType, interceptor: RequestInterceptorDelegate?, serializationType: SerializationType, completion: @escaping NetworkRouterCompletion) {
+    func request(_ route: EndPointType, interceptor: RequestInterceptor?, serializationType: SerializationType, completion: @escaping (_ data: Data?,_ response: URLResponse?,_ error: Error?) -> ()) {
         
         let request = AF.request(
             route.url!,

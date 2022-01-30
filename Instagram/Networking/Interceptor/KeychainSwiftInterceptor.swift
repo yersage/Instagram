@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 import KeychainSwift
 
-class KeychainSwiftInterceptor: RequestInterceptorDelegate {
+class KeychainSwiftInterceptor: RequestInterceptor {
     private let requestService: RequestDelegate
     private let tokenService: TokenServiceDelegate
     
