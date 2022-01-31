@@ -10,7 +10,7 @@ import Foundation
 final class ChangePropertyPresenter: ChangePropertyPresenterDelegate {
     
     weak var view: ChangePropertyViewDelegate?
-    private let networkManager: NetworkManager = NetworkManager()
+    private let usernameAvailabilityService = UsernameAvailabilityService(requestService: RequestManager())
 
     func checkUsername(_ username: String) {
         let usernameRegEx = "\\w{1,30}"
@@ -26,7 +26,7 @@ final class ChangePropertyPresenter: ChangePropertyPresenterDelegate {
     }
     
     private func isUsernameAvailable(username: String) {
-        networkManager.request(InstagramEndPoint.usernameAvailability(username: username)) { result in
+        usernameAvailabilityService.checkUsernameAvailability(username: username) { result in
             switch result {
             case .failure(let error):
                 self.view?.show(error: error.localizedDescription)
