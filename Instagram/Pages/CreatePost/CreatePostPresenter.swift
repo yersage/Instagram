@@ -9,7 +9,7 @@ import UIKit
 
 final class CreatePostPresenter: CreatePostPresenterDelegate {
     weak var view: CreatePostViewDelegate?
-    private let networkManager: NetworkManager = NetworkManager()
+    private let createPostService = CreatePostService(requestService: RequestManager(), interceptor: KeychainSwiftInterceptor(requestService: RequestManager(), tokenService: TokenService()))
 
     func uploadPost(image: UIImage?, caption: String) {
         guard let image = image else { view?.show(error: "Image is not provided."); return }
@@ -22,7 +22,7 @@ final class CreatePostPresenter: CreatePostPresenterDelegate {
         guard let caption = caption.data(using: .utf8) else { return }
         guard let image = image.pngData() else { return }
         
-        networkManager.request(InstagramEndPoint.uploadPost(caption: caption, images: image)) { (result: Result<PostModel, Error>) -> Void in
+        createPostService.uploadPost(caption: caption, images: image) { result in
             switch result {
             case .success(_):
                 self.view?.showSuccess()
