@@ -9,10 +9,10 @@ import Foundation
 
 final class UsernamePresenter: UsernamePresenterDelegate {
     weak var view: UsernameViewDelegate?
-    private let networkManager: NetworkManager = NetworkManager()
+    private let usernameAvailabilityService = UsernameAvailabilityService(requestService: RequestManager())
     
     func isUsernameAvailable(username: String) {
-        networkManager.request(InstagramEndPoint.usernameAvailability(username: username)) { result in
+        usernameAvailabilityService.checkUsernameAvailability(username: username) { result in
             switch result {
             case .success(_):
                 self.view?.hideLabel()
