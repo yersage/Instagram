@@ -9,7 +9,7 @@ import Foundation
 
 final class FollowingPresenter: FollowingPresenterDelegate {
     
-    private let service = FollowingService()
+    private let paginationService = PaginationService()
     weak var view: FollowingViewDelegate?
     private let networkManager: NetworkManager = NetworkManager()
     
@@ -22,11 +22,11 @@ final class FollowingPresenter: FollowingPresenterDelegate {
     func getFollowings(firstPage: Bool) {
         guard let userID = userID else { return }
         
-        if service.getIsPaginating() { return }
-        service.changeIsPaginating()
+        if paginationService.getIsPaginating() { return }
+        paginationService.changeIsPaginating()
         
         if firstPage {
-            service.nullifyPage()
+            paginationService.nullifyPage()
         }
         
         networkManager.request(InstagramEndPoint.followingList(userID: userID)) { (result: Result<[ProfileModel], Error>) -> Void in

@@ -15,7 +15,6 @@
 		FC043495273CFCA800DFE63D /* FollowingPresenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC043494273CFCA800DFE63D /* FollowingPresenterDelegate.swift */; };
 		FC043497273CFFAC00DFE63D /* FollowingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC043496273CFFAC00DFE63D /* FollowingPresenter.swift */; };
 		FC043499273CFFFA00DFE63D /* FollowingViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC043498273CFFFA00DFE63D /* FollowingViewDelegate.swift */; };
-		FC04349B273D002200DFE63D /* FollowingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC04349A273D002200DFE63D /* FollowingService.swift */; };
 		FC04349D273D013B00DFE63D /* FollowingTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC04349C273D013B00DFE63D /* FollowingTableViewCellDelegate.swift */; };
 		FC16D9642784599100A84488 /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC16D9632784599100A84488 /* SearchPresenter.swift */; };
 		FC16D9662784599800A84488 /* SearchPresenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC16D9652784599800A84488 /* SearchPresenterDelegate.swift */; };
@@ -144,7 +143,6 @@
 		FC043494273CFCA800DFE63D /* FollowingPresenterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingPresenterDelegate.swift; sourceTree = "<group>"; };
 		FC043496273CFFAC00DFE63D /* FollowingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingPresenter.swift; sourceTree = "<group>"; };
 		FC043498273CFFFA00DFE63D /* FollowingViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingViewDelegate.swift; sourceTree = "<group>"; };
-		FC04349A273D002200DFE63D /* FollowingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingService.swift; sourceTree = "<group>"; };
 		FC04349C273D013B00DFE63D /* FollowingTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingTableViewCellDelegate.swift; sourceTree = "<group>"; };
 		FC16D9632784599100A84488 /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
 		FC16D9652784599800A84488 /* SearchPresenterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenterDelegate.swift; sourceTree = "<group>"; };
@@ -384,7 +382,6 @@
 				FC043494273CFCA800DFE63D /* FollowingPresenterDelegate.swift */,
 				FC043496273CFFAC00DFE63D /* FollowingPresenter.swift */,
 				FC043498273CFFFA00DFE63D /* FollowingViewDelegate.swift */,
-				FC04349A273D002200DFE63D /* FollowingService.swift */,
 			);
 			path = Following;
 			sourceTree = "<group>";
@@ -998,7 +995,6 @@
 				FC84EAD426F0F7410096BCC8 /* ProfileViewController.swift in Sources */,
 				FC78521127A2E7FC0013DD9F /* JWTDecoder.swift in Sources */,
 				FCAE0BCD26EB48B0007DB573 /* SceneDelegate.swift in Sources */,
-				FC04349B273D002200DFE63D /* FollowingService.swift in Sources */,
 				FCDE7E1227719A5600A895CC /* SelfProfilePresenterDelegate.swift in Sources */,
 				FC0322DD272011FC00DBDE82 /* FollowersPresenter.swift in Sources */,
 				FCEBB75D273BB7B2004FBB68 /* FollowersTableViewCellDelegate.swift in Sources */,
