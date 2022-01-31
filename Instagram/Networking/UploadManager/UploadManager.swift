@@ -13,7 +13,7 @@ protocol UploadDelegate {
 }
 
 class UploadManager: UploadDelegate {
-    func upload(_ route: EndPointType, interceptor: RequestInterceptor?, formDataParts: [FormData]?, completion: @escaping NetworkRouterCompletion) {
+    func upload(_ route: EndPointType, interceptor: RequestInterceptor?, formDataParts: [FormData]?, completion: @escaping (_ data: Data?,_ response: URLResponse?,_ error: Error?)->()) {
         
         let uploadRequest = AF.upload(multipartFormData: { multipartFormData in
             if formDataParts != nil {
