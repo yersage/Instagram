@@ -112,6 +112,7 @@
 		FCE32BCF27A7CB5200E902FD /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE32BCE27A7CB5200E902FD /* ProfileService.swift */; };
 		FCE32BD127A7CE8800E902FD /* FollowersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE32BD027A7CE8800E902FD /* FollowersService.swift */; };
 		FCE32BD327A7CF9B00E902FD /* FollowingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE32BD227A7CF9B00E902FD /* FollowingService.swift */; };
+		FCE32BD527A7D02B00E902FD /* ProfileDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE32BD427A7D02B00E902FD /* ProfileDataService.swift */; };
 		FCE7CEFD270DF52200A57919 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE7CEFC270DF52200A57919 /* EditProfileViewController.swift */; };
 		FCEBB75D273BB7B2004FBB68 /* FollowersTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEBB75C273BB7B2004FBB68 /* FollowersTableViewCellDelegate.swift */; };
 		FCF1A1812727C4B5001846ED /* KeychainSwiftInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF1A1802727C4B5001846ED /* KeychainSwiftInterceptor.swift */; };
@@ -243,6 +244,7 @@
 		FCE32BCE27A7CB5200E902FD /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
 		FCE32BD027A7CE8800E902FD /* FollowersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersService.swift; sourceTree = "<group>"; };
 		FCE32BD227A7CF9B00E902FD /* FollowingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingService.swift; sourceTree = "<group>"; };
+		FCE32BD427A7D02B00E902FD /* ProfileDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataService.swift; sourceTree = "<group>"; };
 		FCE7CEFC270DF52200A57919 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		FCEBB75C273BB7B2004FBB68 /* FollowersTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersTableViewCellDelegate.swift; sourceTree = "<group>"; };
 		FCF1A1802727C4B5001846ED /* KeychainSwiftInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainSwiftInterceptor.swift; sourceTree = "<group>"; };
@@ -653,6 +655,7 @@
 				FCD990A3278ABC1D0099CFD6 /* EditProfileViewDelegate.swift */,
 				FCD990A5278ABC240099CFD6 /* EditProfilePresenter.swift */,
 				FCD990A7278ABC2B0099CFD6 /* EditProfilePresenterDelegate.swift */,
+				FCE32BD427A7D02B00E902FD /* ProfileDataService.swift */,
 			);
 			path = EditProfile;
 			sourceTree = "<group>";
@@ -930,6 +933,7 @@
 				FC7188B7275CA81500A6F2CA /* UsernameViewDelegate.swift in Sources */,
 				FCB6AB7A2789F5420018DCA7 /* ChangePropertyViewDelegate.swift in Sources */,
 				FC768BC627291B43003F0EBB /* InstagramEndPoint.swift in Sources */,
+				FCE32BD527A7D02B00E902FD /* ProfileDataService.swift in Sources */,
 				FCF1AF2F26F48A5F00E4BEF5 /* CommentTableViewCell.swift in Sources */,
 				FC7188C3275CAD8800A6F2CA /* ConfirmationViewDelegate.swift in Sources */,
 				FC7188C1275CACA900A6F2CA /* PasswordPresenterDelegate.swift in Sources */,
