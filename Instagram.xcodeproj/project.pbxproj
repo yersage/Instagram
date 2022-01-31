@@ -113,6 +113,7 @@
 		FCE32BD127A7CE8800E902FD /* FollowersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE32BD027A7CE8800E902FD /* FollowersService.swift */; };
 		FCE32BD327A7CF9B00E902FD /* FollowingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE32BD227A7CF9B00E902FD /* FollowingService.swift */; };
 		FCE32BD527A7D02B00E902FD /* ProfileDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE32BD427A7D02B00E902FD /* ProfileDataService.swift */; };
+		FCE32BD727A7D2D600E902FD /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE32BD627A7D2D600E902FD /* ImageService.swift */; };
 		FCE7CEFD270DF52200A57919 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE7CEFC270DF52200A57919 /* EditProfileViewController.swift */; };
 		FCEBB75D273BB7B2004FBB68 /* FollowersTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEBB75C273BB7B2004FBB68 /* FollowersTableViewCellDelegate.swift */; };
 		FCF1A1812727C4B5001846ED /* KeychainSwiftInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF1A1802727C4B5001846ED /* KeychainSwiftInterceptor.swift */; };
@@ -245,6 +246,7 @@
 		FCE32BD027A7CE8800E902FD /* FollowersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersService.swift; sourceTree = "<group>"; };
 		FCE32BD227A7CF9B00E902FD /* FollowingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingService.swift; sourceTree = "<group>"; };
 		FCE32BD427A7D02B00E902FD /* ProfileDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataService.swift; sourceTree = "<group>"; };
+		FCE32BD627A7D2D600E902FD /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		FCE7CEFC270DF52200A57919 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		FCEBB75C273BB7B2004FBB68 /* FollowersTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersTableViewCellDelegate.swift; sourceTree = "<group>"; };
 		FCF1A1802727C4B5001846ED /* KeychainSwiftInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainSwiftInterceptor.swift; sourceTree = "<group>"; };
@@ -442,6 +444,7 @@
 			isa = PBXGroup;
 			children = (
 				FC79B3EB272F77CD00D4AFBD /* CachedImageView.swift */,
+				FCE32BD627A7D2D600E902FD /* ImageService.swift */,
 			);
 			path = CachedImageView;
 			sourceTree = "<group>";
@@ -923,6 +926,7 @@
 				FCFA3D43271B1ED600658DF2 /* FeedPresenter.swift in Sources */,
 				FC7188BB275CA84D00A6F2CA /* UsernamePresenterDelegate.swift in Sources */,
 				FCE7CEFD270DF52200A57919 /* EditProfileViewController.swift in Sources */,
+				FCE32BD727A7D2D600E902FD /* ImageService.swift in Sources */,
 				FC73D2F22761E96E00BA5B35 /* CreatePostPresenter.swift in Sources */,
 				FCE32BCB27A7C89400E902FD /* CreatePostService.swift in Sources */,
 				FC78520D27A2E19C0013DD9F /* KeychainServiceDelegate.swift in Sources */,

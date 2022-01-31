@@ -9,7 +9,7 @@ import UIKit
 
 class CachedImageView: UIImageView {
     static let imageCache = NSCache<NSString, UIImage>()
-    private let networkManager: NetworkManager = NetworkManager()
+    private let imageService = ImageService(requestService: RequestManager(), interceptor: KeychainSwiftInterceptor(requestService: RequestManager(), tokenService: TokenService()))
     
     private var imageURLString: String?
     
@@ -25,7 +25,7 @@ class CachedImageView: UIImageView {
             return
         }
         
-        networkManager.imageRequest(InstagramEndPoint.postImage(postID: postID)) { result in
+        imageService.getPostImage(postID: postID) { result in
             switch result {
             case .success(let postImageData):
                 let path = InstagramEndPoint.postImage(postID: postID).baseURL + InstagramEndPoint.postImage(postID: postID).path
@@ -56,7 +56,7 @@ class CachedImageView: UIImageView {
             return
         }
         
-        networkManager.imageRequest(InstagramEndPoint.profileImage(userID: userID)) { result in
+        imageService.getProfileImage(userID: userID) { result in
             switch result {
             case .success(let profileImageData):
                 let urlString = InstagramEndPoint.profileImage(userID: userID).baseURL + InstagramEndPoint.profileImage(userID: userID).path
