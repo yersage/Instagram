@@ -11,7 +11,7 @@ final class FollowersPresenter: FollowersPresenterDelegate {
     
     weak var view: FollowersViewDelegate?
     private let paginationService = PaginationService()
-    private let networkManager: NetworkManager = NetworkManager()
+    private let followersService = FollowersService(requestService: RequestManager(), interceptor: KeychainSwiftInterceptor(requestService: RequestManager(), tokenService: TokenService()))
     
     func getFollowers(firstPage: Bool, userID: Int?) {
         guard let userID = userID else { return }
@@ -23,20 +23,20 @@ final class FollowersPresenter: FollowersPresenterDelegate {
             paginationService.nullifyPage()
         }
         
-        networkManager.request(InstagramEndPoint.followersList(userID: userID)) { (result: Result<[ProfileModel], Error>) -> Void in
+        followersService.getFollowersList(by: userID) { result in
             switch result {
             case .success(let newFollowers):
                 self.view?.removeSpinners()
-                self.service.changeIsPaginating()
+                self.paginationService.changeIsPaginating()
                 self.view?.set(followers: newFollowers)
                 self.view?.refresh()
-                self.service.increasePage()
+                self.paginationService.increasePage()
             case .failure(let error):
                 if error.localizedDescription != NetworkError.noData.localizedDescription {
                     self.view?.show(error: error.localizedDescription)
                 }
                 self.view?.removeSpinners()
-                self.service.changeIsPaginating()
+                self.paginationService.changeIsPaginating()
             }
         }
     }
