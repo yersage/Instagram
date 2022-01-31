@@ -109,6 +109,7 @@
 		FCDE917727A1348900725EBC /* UploadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDE917627A1348900725EBC /* UploadManager.swift */; };
 		FCDE917B27A1396400725EBC /* SignInRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDE917A27A1396400725EBC /* SignInRouter.swift */; };
 		FCE32BCB27A7C89400E902FD /* CreatePostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE32BCA27A7C89400E902FD /* CreatePostService.swift */; };
+		FCE32BCD27A7C9EA00E902FD /* SelfProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE32BCC27A7C9EA00E902FD /* SelfProfileService.swift */; };
 		FCE7CEFD270DF52200A57919 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE7CEFC270DF52200A57919 /* EditProfileViewController.swift */; };
 		FCEBB75D273BB7B2004FBB68 /* FollowersTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEBB75C273BB7B2004FBB68 /* FollowersTableViewCellDelegate.swift */; };
 		FCF1A1812727C4B5001846ED /* KeychainSwiftInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF1A1802727C4B5001846ED /* KeychainSwiftInterceptor.swift */; };
@@ -237,6 +238,7 @@
 		FCDE917627A1348900725EBC /* UploadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadManager.swift; sourceTree = "<group>"; };
 		FCDE917A27A1396400725EBC /* SignInRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRouter.swift; sourceTree = "<group>"; };
 		FCE32BCA27A7C89400E902FD /* CreatePostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostService.swift; sourceTree = "<group>"; };
+		FCE32BCC27A7C9EA00E902FD /* SelfProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfProfileService.swift; sourceTree = "<group>"; };
 		FCE7CEFC270DF52200A57919 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		FCEBB75C273BB7B2004FBB68 /* FollowersTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersTableViewCellDelegate.swift; sourceTree = "<group>"; };
 		FCF1A1802727C4B5001846ED /* KeychainSwiftInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainSwiftInterceptor.swift; sourceTree = "<group>"; };
@@ -746,6 +748,7 @@
 				FCDE7E0D27719A4700A895CC /* SelfProfileViewDelegate.swift */,
 				FCDE7E0F27719A4E00A895CC /* SelfProfilePresenter.swift */,
 				FCDE7E1127719A5600A895CC /* SelfProfilePresenterDelegate.swift */,
+				FCE32BCC27A7C9EA00E902FD /* SelfProfileService.swift */,
 			);
 			path = SelfProfile;
 			sourceTree = "<group>";
@@ -901,6 +904,7 @@
 				FC423FC926F1D89300F1BE5E /* FollowersViewController.swift in Sources */,
 				FCD5175427A547510039C351 /* EmailAvailabilityService.swift in Sources */,
 				FC32333A27846D7A00F6A640 /* SearchResultsTableViewCellDelegate.swift in Sources */,
+				FCE32BCD27A7C9EA00E902FD /* SelfProfileService.swift in Sources */,
 				FCFA3D41271B1D0C00658DF2 /* FeedViewDelegate.swift in Sources */,
 				FC16D968278459A400A84488 /* SearchViewController.swift in Sources */,
 				FCFA604327006E3C005F1B4A /* ConfirmationViewController.swift in Sources */,

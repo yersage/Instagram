@@ -10,7 +10,7 @@ import Foundation
 final class SelfProfilePresenter: SelfProfilePresenterDelegate {
     weak var view: SelfProfileViewDelegate?
     private let feedService = FeedService()
-    private let networkManager: NetworkManager = NetworkManager()
+    private let selfProfileService = SelfProfileService(requestService: RequestManager(), interceptor: KeychainSwiftInterceptor(requestService: RequestManager(), tokenService: TokenService()))
     
     func getPosts(firstPage: Bool, userID: String) {
         
@@ -23,7 +23,7 @@ final class SelfProfilePresenter: SelfProfilePresenterDelegate {
         
         let page = feedService.getPage()
         
-        networkManager.request(InstagramEndPoint.profilePosts(userID: userID, page: page)) { (result: Result<[PostModel], Error>) -> Void in
+        selfProfileService.getProfilePosts(userID: userID, page: page) { result in
             switch result {
             case .success(let newPosts):
                 self.feedService.changeIsPaginating()
@@ -39,7 +39,7 @@ final class SelfProfilePresenter: SelfProfilePresenterDelegate {
     }
     
     func getProfileData(userID: Int) {
-        networkManager.request(InstagramEndPoint.profileData(userID: userID)) { (result: Result<ProfileModel, Error>) -> Void in
+        selfProfileService.getProfileData(userID: userID) { result in
             switch result {
             case .success(let profileModel):
                 self.view?.set(profileModel: profileModel)
