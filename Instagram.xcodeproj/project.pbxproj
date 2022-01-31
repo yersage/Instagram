@@ -110,6 +110,7 @@
 		FCDE917B27A1396400725EBC /* SignInRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDE917A27A1396400725EBC /* SignInRouter.swift */; };
 		FCE32BCB27A7C89400E902FD /* CreatePostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE32BCA27A7C89400E902FD /* CreatePostService.swift */; };
 		FCE32BCD27A7C9EA00E902FD /* SelfProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE32BCC27A7C9EA00E902FD /* SelfProfileService.swift */; };
+		FCE32BCF27A7CB5200E902FD /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE32BCE27A7CB5200E902FD /* ProfileService.swift */; };
 		FCE7CEFD270DF52200A57919 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE7CEFC270DF52200A57919 /* EditProfileViewController.swift */; };
 		FCEBB75D273BB7B2004FBB68 /* FollowersTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEBB75C273BB7B2004FBB68 /* FollowersTableViewCellDelegate.swift */; };
 		FCF1A1812727C4B5001846ED /* KeychainSwiftInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF1A1802727C4B5001846ED /* KeychainSwiftInterceptor.swift */; };
@@ -239,6 +240,7 @@
 		FCDE917A27A1396400725EBC /* SignInRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRouter.swift; sourceTree = "<group>"; };
 		FCE32BCA27A7C89400E902FD /* CreatePostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostService.swift; sourceTree = "<group>"; };
 		FCE32BCC27A7C9EA00E902FD /* SelfProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfProfileService.swift; sourceTree = "<group>"; };
+		FCE32BCE27A7CB5200E902FD /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
 		FCE7CEFC270DF52200A57919 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		FCEBB75C273BB7B2004FBB68 /* FollowersTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersTableViewCellDelegate.swift; sourceTree = "<group>"; };
 		FCF1A1802727C4B5001846ED /* KeychainSwiftInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainSwiftInterceptor.swift; sourceTree = "<group>"; };
@@ -367,6 +369,7 @@
 				FC43DCBC273A5EF80098C882 /* ProfileViewDelegate.swift */,
 				FC43DCBA273A5C8D0098C882 /* ProfilePresenter.swift */,
 				FC43DCBE273A5F830098C882 /* ProfilePresenterDelegate.swift */,
+				FCE32BCE27A7CB5200E902FD /* ProfileService.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -946,6 +949,7 @@
 				FCFA603B27006997005F1B4A /* SignInViewController.swift in Sources */,
 				FCB7E5F226FC19E7009DC8B0 /* CreatePostViewController.swift in Sources */,
 				FC32333827846D2F00F6A640 /* SearchResultsTableViewCell.swift in Sources */,
+				FCE32BCF27A7CB5200E902FD /* ProfileService.swift in Sources */,
 				FC423FCE26F1D94B00F1BE5E /* FollowingViewController.swift in Sources */,
 				FC5AC37326F388C800114152 /* CommentsViewController.swift in Sources */,
 				FCD990A6278ABC240099CFD6 /* EditProfilePresenter.swift in Sources */,
