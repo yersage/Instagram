@@ -10,17 +10,17 @@ import UIKit
 final class FollowersPresenter: FollowersPresenterDelegate {
     
     weak var view: FollowersViewDelegate?
-    private let service = FollowersService()
+    private let paginationService = PaginationService()
     private let networkManager: NetworkManager = NetworkManager()
     
     func getFollowers(firstPage: Bool, userID: Int?) {
         guard let userID = userID else { return }
         
-        if service.getIsPaginating() { return }
-        service.changeIsPaginating()
+        if paginationService.getIsPaginating() { return }
+        paginationService.changeIsPaginating()
         
         if firstPage {
-            service.nullifyPage()
+            paginationService.nullifyPage()
         }
         
         networkManager.request(InstagramEndPoint.followersList(userID: userID)) { (result: Result<[ProfileModel], Error>) -> Void in

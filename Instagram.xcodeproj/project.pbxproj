@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		191D60E988D0C89985AFC7DB /* Pods_Instagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89021AC8BEE3490AEFEFE0F8 /* Pods_Instagram.framework */; };
-		FC0322DB272011EB00DBDE82 /* FollowersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0322DA272011EB00DBDE82 /* FollowersService.swift */; };
+		FC0322DB272011EB00DBDE82 /* PaginationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0322DA272011EB00DBDE82 /* PaginationService.swift */; };
 		FC0322DD272011FC00DBDE82 /* FollowersPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0322DC272011FC00DBDE82 /* FollowersPresenter.swift */; };
 		FC0322DF2720120600DBDE82 /* FollowersViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0322DE2720120600DBDE82 /* FollowersViewDelegate.swift */; };
 		FC03365926EBAF1B00985244 /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC03365826EBAF1B00985244 /* PostModel.swift */; };
@@ -136,7 +136,7 @@
 		89021AC8BEE3490AEFEFE0F8 /* Pods_Instagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Instagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CCCCA78BF272E2919738263 /* Pods-Instagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram.release.xcconfig"; path = "Target Support Files/Pods-Instagram/Pods-Instagram.release.xcconfig"; sourceTree = "<group>"; };
 		C8EF0658B7D1C48B4F93B917 /* Pods-PostFeed.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PostFeed.release.xcconfig"; path = "Target Support Files/Pods-PostFeed/Pods-PostFeed.release.xcconfig"; sourceTree = "<group>"; };
-		FC0322DA272011EB00DBDE82 /* FollowersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersService.swift; sourceTree = "<group>"; };
+		FC0322DA272011EB00DBDE82 /* PaginationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginationService.swift; sourceTree = "<group>"; };
 		FC0322DC272011FC00DBDE82 /* FollowersPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersPresenter.swift; sourceTree = "<group>"; };
 		FC0322DE2720120600DBDE82 /* FollowersViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersViewDelegate.swift; sourceTree = "<group>"; };
 		FC03365826EBAF1B00985244 /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
@@ -357,7 +357,7 @@
 				FC0322DE2720120600DBDE82 /* FollowersViewDelegate.swift */,
 				FC0322DC272011FC00DBDE82 /* FollowersPresenter.swift */,
 				FC677E3C273AD14800104866 /* FollowersPresenterDelegate.swift */,
-				FC0322DA272011EB00DBDE82 /* FollowersService.swift */,
+				FC0322DA272011EB00DBDE82 /* PaginationService.swift */,
 			);
 			path = Followers;
 			sourceTree = "<group>";
@@ -933,7 +933,7 @@
 				FC03365926EBAF1B00985244 /* PostModel.swift in Sources */,
 				FCC69E9E2772169400FE8AE9 /* JWTPayloadModel.swift in Sources */,
 				FC73D2F42761E97500BA5B35 /* CreatePostPresenterDelegate.swift in Sources */,
-				FC0322DB272011EB00DBDE82 /* FollowersService.swift in Sources */,
+				FC0322DB272011EB00DBDE82 /* PaginationService.swift in Sources */,
 				FC16D96A278459B200A84488 /* SearchViewDelegate.swift in Sources */,
 				FCAE0BCF26EB48B0007DB573 /* FeedViewController.swift in Sources */,
 				FC73D2F02761E96500BA5B35 /* CreatePostViewDelegate.swift in Sources */,

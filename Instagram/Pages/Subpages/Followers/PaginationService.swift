@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class FollowersService {
+final class PaginationService {
     private var page: Int = 0
     private var isPaginating: Bool = false
     
