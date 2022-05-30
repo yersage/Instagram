@@ -58,12 +58,6 @@ final class ChangePropertyViewController: UIViewController, ChangePropertyViewDe
         self.validationLabel?.text = text
         self.validationLabel?.isHidden = false
     }
-    
-    func show(error: String) {
-        let alert = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-    }
 }
 
 // MARK:- UITextFieldDelegate

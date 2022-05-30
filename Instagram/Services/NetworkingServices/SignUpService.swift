@@ -1,5 +1,5 @@
 //
-//  EmailAvailabilityService.swift
+//  SignUpService.swift
 //  Instagram
 //
 //  Created by Yersage on 29.01.2022.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class EmailAvailabilityService {
+class SignUpService {
     
     private let requestService: RequestDelegate
     
@@ -15,13 +15,9 @@ class EmailAvailabilityService {
         self.requestService = requestService
     }
     
-    func checkEmailAvailability(email: String, completion: @escaping (Result<Int, Error>) -> ()) {
-        requestService.request(InstagramEndPoint.emailAvailability(email: email), interceptor: nil, serializationType: .JSON) { data, response, error in
-            if let error = error {
-                completion(.failure(error))
-                return
-            }
-            
+    func signUp(username: String, password: String, email: String, completion: @escaping (Result<Int, Error>) -> ()) {
+        requestService.request(InstagramEndPoint.signUp(username: username, password: password, email: email), interceptor: nil, serializationType: .JSON) { data, response, error in
+           
             guard let response = response as? HTTPURLResponse else {
                 completion(.failure(NetworkError.dataLoad))
                 return

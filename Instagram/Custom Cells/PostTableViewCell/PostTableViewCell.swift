@@ -7,70 +7,15 @@
 
 import UIKit
 
-struct PostState {
-    var isMorePressed: Bool
-    var isSavePressed: Bool
-}
-
 final class PostTableViewCell: UITableViewCell {
     
     // MARK:- Initalization
     static let identifier = "PostTableViewCell"
     
-    weak var feedTableViewCellDelegate: PostTableViewCellDelegate?
+    weak var presenter: PostCellPresenterDelegate?
     
     private var postState: PostState?
     private var postModel: PostModel?
-    
-    func set(_ postState: PostState) {
-        if postState.isMorePressed {
-            postCaptionLabel.numberOfLines = 0
-            captionMoreButton.isHidden = true
-        }
-
-        if postState.isSavePressed {
-            savePostImageView.tintColor = .red
-        }
-    }
-    
-    func set(_ postModel: PostModel) {
-        let postID = postModel.post.id
-        postImageView.loadImagesFromPostID(postID: postID)
-        
-        let userID = postModel.post.user.id
-        profileImageView.loadImagesFromUserID(userID: userID)
-        
-        usernameLabel.text = postModel.post.user.username
-        
-        if postModel.postMetaData.isPostLikedByCurrentUser {
-            likePostImageView.tintColor = .red
-        }
-        
-        let text = "\(postModel.post.user.username) \(postModel.post.caption)"
-        postCaptionLabel.text = text
-        let underlineAttrString = NSMutableAttributedString(string: text)
-        let range1 = (text as NSString).range(of: "\(postModel.post.caption)")
-        underlineAttrString.addAttribute(NSAttributedString.Key.font, value: UIFont.systemFont(ofSize: 12), range: range1)
-        underlineAttrString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.black, range: range1)
-        postCaptionLabel.attributedText = underlineAttrString
-        
-        if calculateCaptionLines() <= 2 {
-            captionMoreButton.isHidden = true
-        }
-        
-        howManyLikesLabel.text = "\(postModel.post.numberOfLikes) Likes"
-        howManyCommentsLabel.text = "View all \(postModel.post.numberOfComments) comments"
-        dateOfCreationLabel.text = postModel.post.created
-    }
-    
-    private func calculateCaptionLines() -> Int {
-        let maxSize = CGSize(width: postCaptionLabel.frame.size.width, height: CGFloat(Float.infinity))
-        let charSize = UIFont.systemFont(ofSize: 12).lineHeight
-        let text = (postCaptionLabel.text)! as NSString
-        let textSize = text.boundingRect(with: maxSize, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 12)], context: nil)
-        let linesRoundedUp = Int(ceil(textSize.height/charSize))
-        return linesRoundedUp
-    }
     
     // MARK:- Lifecycle functions
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -468,6 +413,56 @@ final class PostTableViewCell: UITableViewCell {
         usernameButton.addTarget(self, action: #selector(usernameButtonPressed), for: .touchUpInside)
         commentPostButton.addTarget(self, action: #selector(commentButtonPressed), for: .touchUpInside)
     }
+    
+    func set(_ postState: PostState) {
+        if postState.isMorePressed {
+            postCaptionLabel.numberOfLines = 0
+            captionMoreButton.isHidden = true
+        }
+
+        if postState.isSavePressed {
+            savePostImageView.tintColor = .red
+        }
+    }
+    
+    func set(_ postModel: PostModel) {
+        let postID = postModel.post.id
+        postImageView.loadImagesFromPostID(postID: postID)
+        
+        let userID = postModel.post.user.id
+        profileImageView.loadImagesFromUserID(userID: userID)
+        
+        usernameLabel.text = postModel.post.user.username
+        
+        if postModel.postMetaData.isPostLikedByCurrentUser {
+            likePostImageView.tintColor = .red
+        }
+        
+        let text = "\(postModel.post.user.username) \(postModel.post.caption)"
+        postCaptionLabel.text = text
+        let underlineAttrString = NSMutableAttributedString(string: text)
+        let range1 = (text as NSString).range(of: "\(postModel.post.caption)")
+        underlineAttrString.addAttribute(NSAttributedString.Key.font, value: UIFont.systemFont(ofSize: 12), range: range1)
+        underlineAttrString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.black, range: range1)
+        postCaptionLabel.attributedText = underlineAttrString
+        
+        if calculateCaptionLines() <= 2 {
+            captionMoreButton.isHidden = true
+        }
+        
+        howManyLikesLabel.text = "\(postModel.post.numberOfLikes) Likes"
+        howManyCommentsLabel.text = "View all \(postModel.post.numberOfComments) comments"
+        dateOfCreationLabel.text = postModel.post.created
+    }
+    
+    private func calculateCaptionLines() -> Int {
+        let maxSize = CGSize(width: postCaptionLabel.frame.size.width, height: CGFloat(Float.infinity))
+        let charSize = UIFont.systemFont(ofSize: 12).lineHeight
+        let text = (postCaptionLabel.text)! as NSString
+        let textSize = text.boundingRect(with: maxSize, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 12)], context: nil)
+        let linesRoundedUp = Int(ceil(textSize.height/charSize))
+        return linesRoundedUp
+    }
 }
 
 // MARK:- addTarget functions
@@ -478,20 +473,19 @@ extension PostTableViewCell {
             postCaptionLabel.numberOfLines = 0
             captionMoreButton.isHidden = false
         }
-        feedTableViewCellDelegate?.morePressed(self)
+        presenter?.morePressed(postID: postModel?.post.id)
     }
     
     @objc private func likeButtonPressed(sender: UIButton) {
-        guard let postModel = postModel else { return }
         DispatchQueue.main.async { [self] in
             if likePostImageView.tintColor == .red {
-                howManyLikesLabel.text = "\(postModel.post.numberOfLikes == 0 ? 0 : postModel.post.numberOfLikes - 1) Likes"
+                howManyLikesLabel.text = "\(postModel?.post.numberOfLikes == 0 ? 0 : (postModel?.post.numberOfLikes)! - 1) Likes"
                 likePostImageView.tintColor = .black
-                feedTableViewCellDelegate?.unlikePressed(self, postID: postModel.post.id)
+                presenter?.unlikePressed(postID: postModel!.post.id)
             } else {
-                howManyLikesLabel.text = "\(postModel.post.numberOfLikes + 1) Likes"
+                howManyLikesLabel.text = "\(postModel!.post.numberOfLikes + 1) Likes"
                 likePostImageView.tintColor = .red
-                feedTableViewCellDelegate?.likePressed(self, postID: postModel.post.id)
+                presenter?.likePressed(postID: postModel?.post.id)
             }
         }
     }
@@ -504,14 +498,14 @@ extension PostTableViewCell {
                 savePostImageView.tintColor = .red
             }
         }
-        feedTableViewCellDelegate?.savePressed(self)
+        presenter?.savePressed(postID: postModel?.post.id)
     }
     
     @objc private func usernameButtonPressed(sender: UIButton) {
-        feedTableViewCellDelegate?.usernamePressed(self)
+        presenter?.usernamePressed(userProjection: postModel?.post.user)
     }
     
     @objc private func commentButtonPressed(sender: UIButton) {
-        feedTableViewCellDelegate?.commentPressed(self, postID: postModel?.post.id ?? 0)
+        presenter?.commentPressed(postID: postModel?.post.id)
     }
 }

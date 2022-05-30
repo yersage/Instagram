@@ -8,5 +8,6 @@
 import Foundation
 
 protocol PasswordPresenterDelegate: AnyObject {
-    func isPasswordAcceptable(password: String)
+    func nextButtonPressed(password: String)
+    func signup(authModel: AuthModel)
 }

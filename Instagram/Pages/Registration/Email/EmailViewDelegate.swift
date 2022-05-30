@@ -9,7 +9,5 @@ import Foundation
 
 protocol EmailViewDelegate: AnyObject {
     func show(error: String)
-    func showLabel(text: String)
-    func hideLabel()
-    func goToUsernameVC()
+    func updateLabel(isHidden: Bool, text: String?)
 }

@@ -8,5 +8,5 @@
 import Foundation
 
 protocol WelcomePresenterDelegate: AnyObject {
-    func login(username: String, password: String)
+    func nextButtonPressed()
 }

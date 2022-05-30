@@ -17,10 +17,6 @@ class UsernameAvailabilityService {
     
     func checkUsernameAvailability(username: String, completion: @escaping (Result<Int, Error>) -> ()) {
         requestService.request(InstagramEndPoint.usernameAvailability(username: username), interceptor: nil, serializationType: .JSON) { data, response, error in
-            if let error = error {
-                completion(.failure(error))
-                return
-            }
             
             guard let response = response as? HTTPURLResponse else {
                 completion(.failure(NetworkError.dataLoad))

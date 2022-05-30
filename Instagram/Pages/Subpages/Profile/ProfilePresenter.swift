@@ -10,7 +10,7 @@ import Foundation
 final class ProfilePresenter: ProfilePresenterDelegate {
     
     weak var view: ProfileViewDelegate?
-    private let feedService = FeedService()
+    private let feedService = PaginationService()
     private let profileService = ProfileService(requestService: RequestManager(), interceptor: KeychainSwiftInterceptor(requestService: RequestManager(), tokenService: TokenService()))
     
     func getPosts(firstPage: Bool, userID: String) {

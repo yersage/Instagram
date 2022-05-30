@@ -7,7 +7,7 @@
 
 import Foundation
 
-class AuthService {
+class LoginService {
     private let requestManager = RequestManager()
     
     func login(username: String, password: String, completion: @escaping (Result<TokenModel, Error>) -> ()) {

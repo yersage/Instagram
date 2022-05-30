@@ -9,5 +9,4 @@ import Foundation
 
 protocol SignInViewDelegate: AnyObject {
     func show(error: String)
-    func goToFeedVC()
 }

@@ -1,5 +1,5 @@
 //
-//  SignUpService.swift
+//  ConfirmationService.swift
 //  Instagram
 //
 //  Created by Yersage on 29.01.2022.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class SignUpService {
+class AccountVerificationService {
     
     private let requestService: RequestDelegate
     
@@ -15,12 +15,8 @@ class SignUpService {
         self.requestService = requestService
     }
     
-    func signUp(username: String, password: String, email: String, completion: @escaping (Result<Int, Error>) -> ()) {
-        requestService.request(InstagramEndPoint.signUp(username: username, password: password, email: email), interceptor: nil, serializationType: .JSON) { data, response, error in
-            if let error = error {
-                completion(.failure(error))
-                return
-            }
+    func verify(confirmationCode: String, email: String, completion: @escaping (Result<Int, Error>) -> ()) {
+        requestService.request(InstagramEndPoint.accountVerification(confirmationCode: confirmationCode, email: email), interceptor: nil, serializationType: .JSON) { data, response, error in
             
             guard let response = response as? HTTPURLResponse else {
                 completion(.failure(NetworkError.dataLoad))

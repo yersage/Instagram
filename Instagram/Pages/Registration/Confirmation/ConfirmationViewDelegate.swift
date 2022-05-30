@@ -8,9 +8,8 @@
 import Foundation
 
 protocol ConfirmationViewDelegate: AnyObject {
+    func setupLabel(email: String)
     func showWarning()
     func show(error: String)
-    func showLabel()
-    func hideLabel()
-    func goToWelcomeVC()
+    func updateLabel(isHidden: Bool, text: String?)
 }

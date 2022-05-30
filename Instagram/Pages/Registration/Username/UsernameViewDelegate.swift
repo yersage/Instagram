@@ -9,7 +9,5 @@ import Foundation
 
 protocol UsernameViewDelegate: AnyObject {
     func show(error: String)
-    func showLabel(text: String)
-    func hideLabel()
-    func goToPasswordVC()
+    func updateLabel(isHidden: Bool, text: String?)
 }

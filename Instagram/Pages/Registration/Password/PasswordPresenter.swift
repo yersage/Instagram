@@ -9,22 +9,36 @@ import Foundation
 
 final class PasswordPresenter: PasswordPresenterDelegate {
     weak var view: PasswordViewDelegate?
+    var coordinator: SignUpCoordinator?
     
-    func isPasswordAcceptable(password: String) {
-        let answer = isPasswordValid(password)
+    private let signUpService = SignUpService(requestService: RequestManager())
+    
+    var authModel: AuthModel
+    
+    init (authModel: AuthModel) {
+        self.authModel = authModel
+    }
+    
+    func nextButtonPressed(password: String) {
+        let isPasswordValid = NSPredicate(format: "SELF MATCHES %@", K.passwordRegEx).evaluate(with: password)
         
-        if answer {
-            self.view?.hideLabel()
-            self.view?.goToWelcomeVC()
+        if isPasswordValid {
+            view?.updateLabel(isHidden: true, text: nil)
+            authModel.password = password
+            self.signup(authModel: authModel)
         } else {
-            self.view?.showLabel(text: "Invalid password format.")
+            view?.updateLabel(isHidden: false, text: "Invalid password format.")
         }
     }
     
-    func isPasswordValid(_ password: String) -> Bool {
-        let passwordRegEx = "^(?=.*[a-z])(?=.*[0-9]).{6,}$"
-        let passwordTest = NSPredicate(format:"SELF MATCHES %@", passwordRegEx)
-        
-        return passwordTest.evaluate(with: password)
+    func signup(authModel: AuthModel) {
+        signUpService.signUp(username: authModel.username!, password: authModel.password!, email: authModel.email!) { result in
+            switch result {
+            case .success(_):
+                self.coordinator?.confirmation(authModel: authModel)
+            case .failure(let error):
+                self.view?.show(error: error.localizedDescription)
+            }
+        }
     }
 }

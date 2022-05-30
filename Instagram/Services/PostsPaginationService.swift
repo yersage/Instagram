@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class FeedService {
+final class PostsPaginationService {
     private var page: Int = 0
     private var isPaginating: Bool = false
     

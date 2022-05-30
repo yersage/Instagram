@@ -8,31 +8,40 @@
 import Foundation
 
 final class UsernamePresenter: UsernamePresenterDelegate {
+    
     weak var view: UsernameViewDelegate?
+    var coordinator: SignUpCoordinator?
+
     private let usernameAvailabilityService = UsernameAvailabilityService(requestService: RequestManager())
     
-    func isUsernameAvailable(username: String) {
-        usernameAvailabilityService.checkUsernameAvailability(username: username) { result in
-            switch result {
-            case .success(_):
-                self.view?.hideLabel()
-                self.view?.goToPasswordVC()
-            case .failure(let error):
-                self.view?.show(error: error.localizedDescription)
-            }
+    var authModel: AuthModel
+    
+    init (authModel: AuthModel) {
+        self.authModel = authModel
+    }
+    
+    func nextButtonPressed(username: String) {
+        let isUsernameFormatValid = NSPredicate(format:"SELF MATCHES[c] %@", K.usernameRegEx).evaluate(with: username)
+        
+        if isUsernameFormatValid {
+            self.view?.updateLabel(isHidden: true, text: nil)
+            self.isUsernameAvailable(username: username)
+        } else {
+            self.view?.updateLabel(isHidden: false, text: "Invalid username format.")
         }
     }
     
-    func isUsernameAcceptable(username: String) {
-        let usernameRegEx = "\\w{1,30}"
-        let usernameTest = NSPredicate(format:"SELF MATCHES[c] %@", usernameRegEx)
-        let isUsernameFormatValid = usernameTest.evaluate(with: username)
-        
-        if isUsernameFormatValid {
-            self.view?.hideLabel()
-            self.isUsernameAvailable(username: username)
-        } else {
-            self.view?.showLabel(text: "Invalid username format.")
+    func isUsernameAvailable(username: String) {
+        usernameAvailabilityService.checkUsernameAvailability(username: username) {  [weak self] result in
+            switch result {
+            case .success(_):
+                self?.view?.updateLabel(isHidden: true, text: nil)
+                self?.authModel.username = username
+                guard let authModel = self?.authModel else { return }
+                self?.coordinator?.password(authModel: authModel)
+            case .failure(let error):
+                self?.view?.show(error: error.localizedDescription)
+            }
         }
     }
 }

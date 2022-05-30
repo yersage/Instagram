@@ -9,7 +9,7 @@ import Foundation
 
 final class SelfProfilePresenter: SelfProfilePresenterDelegate {
     weak var view: SelfProfileViewDelegate?
-    private let feedService = FeedService()
+    private let feedService = PaginationService()
     private let selfProfileService = SelfProfileService(requestService: RequestManager(), interceptor: KeychainSwiftInterceptor(requestService: RequestManager(), tokenService: TokenService()))
     
     func getPosts(firstPage: Bool, userID: String) {

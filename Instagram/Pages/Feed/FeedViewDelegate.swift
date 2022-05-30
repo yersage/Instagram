@@ -5,12 +5,12 @@
 //  Created by Yersage on 16.10.2021.
 //
 
-import UIKit
+import Foundation
 
 protocol FeedViewDelegate: NSObjectProtocol {    
-    func set(newPosts: [PostModel])
     func removeSpinners()
-    func setPost(post: PostModel, index: Int)
-    func showError(error: String)
-    func reload()
+    func show(error: String)
+    func reloadTableView()
+    func reloadRow(at index: Int)
+    func createLoader(from position: LoaderPosition)
 }

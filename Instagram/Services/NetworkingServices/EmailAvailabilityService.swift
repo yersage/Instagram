@@ -1,5 +1,5 @@
 //
-//  ConfirmationService.swift
+//  EmailAvailabilityService.swift
 //  Instagram
 //
 //  Created by Yersage on 29.01.2022.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class AccountVerificationService {
+class EmailAvailabilityService {
     
     private let requestService: RequestDelegate
     
@@ -15,12 +15,8 @@ class AccountVerificationService {
         self.requestService = requestService
     }
     
-    func verify(confirmationCode: String, email: String, completion: @escaping (Result<Int, Error>) -> ()) {
-        requestService.request(InstagramEndPoint.accountVerification(confirmationCode: confirmationCode, email: email), interceptor: nil, serializationType: .JSON) { data, response, error in
-            if let error = error {
-                completion(.failure(error))
-                return
-            }
+    func checkEmailAvailability(email: String, completion: @escaping (Result<Int, Error>) -> ()) {
+        requestService.request(InstagramEndPoint.emailAvailability(email: email), interceptor: nil, serializationType: .JSON) { data, response, error in
             
             guard let response = response as? HTTPURLResponse else {
                 completion(.failure(NetworkError.dataLoad))
@@ -33,7 +29,7 @@ class AccountVerificationService {
         }
     }
     
-    fileprivate func handleNetworkResponse(_ response: HTTPURLResponse, completion: @escaping (Result<Int, Error>) -> Void) {
+    private func handleNetworkResponse(_ response: HTTPURLResponse, completion: @escaping (Result<Int, Error>) -> Void) {
         switch response.statusCode {
         case 200...299:
             completion(.success(response.statusCode))

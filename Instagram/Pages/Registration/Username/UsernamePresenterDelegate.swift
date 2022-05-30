@@ -8,5 +8,5 @@
 import Foundation
 
 protocol UsernamePresenterDelegate: AnyObject {
-    func isUsernameAcceptable(username: String)
+    func nextButtonPressed(username: String)
 }

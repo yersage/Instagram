@@ -63,7 +63,6 @@ extension ProfilePostsViewController: UITableViewDataSource {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: PostTableViewCell.identifier) as? PostTableViewCell else { print("FeedVC: Error dequeuing FeedTableViewCell."); return UITableViewCell() }
         
-        cell.feedTableViewCellDelegate = self
         cell.set(posts[indexPath.row])
         cell.set(postsState[indexPath.row])
         
@@ -172,7 +171,7 @@ extension ProfilePostsViewController {
         return footerView
     }
 }
-
+/*
 extension ProfilePostsViewController: PostTableViewCellDelegate {
     func morePressed(_ cell: UITableViewCell) {
         let indexPath = postsTableView.indexPath(for: cell)
@@ -215,7 +214,7 @@ extension ProfilePostsViewController: PostTableViewCellDelegate {
 
     }
 }
-
+*/
 // Like/Unlike Post Process
 extension ProfilePostsViewController {
     

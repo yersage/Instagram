@@ -8,5 +8,6 @@
 import Foundation
 
 protocol EmailPresenterDelegate: AnyObject {
-    func isEmailAcceptable(email: String)
+    func nextButtonPressed(email: String)
+    func signInButtonPressed()
 }

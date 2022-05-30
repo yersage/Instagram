@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ydu-Ym-owk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bM8-SK-OkP">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -14,7 +14,7 @@
             <objects>
                 <viewController storyboardIdentifier="FeedViewController" id="BYZ-38-t0r" customClass="FeedViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -53,7 +53,7 @@
             <objects>
                 <viewController storyboardIdentifier="CreatePostViewController" id="WSX-xN-Nzp" customClass="CreatePostViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QRb-t7-59R">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="camera.badge.ellipsis" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="6bq-RA-rko">
@@ -346,26 +346,26 @@
             <objects>
                 <viewController storyboardIdentifier="SearchViewController" id="lPy-YW-H8s" customClass="SearchViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Wpw-Oq-zrO">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="fsW-1D-RS1">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Search" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="fsW-1D-RS1">
                                 <rect key="frame" x="6" y="88" width="400" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="search"/>
                             </textField>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0Vp-vV-g5p">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0Vp-vV-g5p">
                                 <rect key="frame" x="0.0" y="124" width="414" height="689"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchResultsTableViewCell" id="DYF-bT-ajj" customClass="SearchResultsTableViewCell" customModule="Instagram" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DYF-bT-ajj" id="M97-og-NNU">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -391,7 +391,7 @@
                 <navigationController id="dAy-nZ-rbV" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="plus" catalog="system" id="qup-FJ-a1J"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="DBx-PB-6aE">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -407,7 +407,7 @@
             <objects>
                 <viewController storyboardIdentifier="NotificationsViewController" id="FcN-tf-2aT" customClass="NotificationsViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dy8-Cq-U9i">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="4OB-av-Qhs"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -436,7 +436,7 @@
                                 <rect key="frame" x="20" y="348" width="374" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="go" secureTextEntry="YES" textContentType="password"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="go" textContentType="password"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Forgot Password?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dYH-KY-B06">
                                 <rect key="frame" x="271" y="406" width="123" height="18"/>
@@ -475,7 +475,7 @@
                                 <color key="textColor" systemColor="systemRedColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IxG-Os-z7X">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IxG-Os-z7X">
                                 <rect key="frame" x="105" y="482" width="204" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
@@ -486,15 +486,6 @@
                                     <action selector="loginButtonPressed:" destination="bM8-SK-OkP" eventType="touchUpInside" id="Vcp-UX-MQd"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ha5-lL-o2F">
-                                <rect key="frame" x="365" y="353" width="25" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" systemColor="systemGrayColor"/>
-                                <state key="normal" title="Button" image="eye.slash" catalog="system"/>
-                                <connections>
-                                    <action selector="passwordVisibilityButtonPressed:" destination="bM8-SK-OkP" eventType="touchUpInside" id="N1p-24-kDw"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="LEt-0d-HFI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -503,7 +494,6 @@
                     <connections>
                         <outlet property="loginButton" destination="IxG-Os-z7X" id="ty2-ze-q80"/>
                         <outlet property="passwordTextField" destination="GkI-Om-A7A" id="nTy-8D-CJ6"/>
-                        <outlet property="passwordVisibilityButton" destination="ha5-lL-o2F" id="2by-IN-WWP"/>
                         <outlet property="usernameTextField" destination="XcC-EE-7yv" id="sdi-bu-iVk"/>
                         <outlet property="validationLabel" destination="7I4-oY-R2Z" id="V5V-7p-ZDE"/>
                     </connections>
@@ -511,22 +501,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7rJ-1H-sIV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-907" y="-1408"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="eyT-N2-KO8">
-            <objects>
-                <navigationController id="Ydu-Ym-owk" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8eb-2g-4yh">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="bM8-SK-OkP" kind="relationship" relationship="rootViewController" id="G2J-E3-Hjs"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ahm-UE-T4a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1816" y="-1408"/>
         </scene>
         <!--Email View Controller-->
         <scene sceneID="2sq-I4-6TG">
@@ -591,7 +565,6 @@
                     <connections>
                         <outlet property="emailTextField" destination="Cnx-uM-DDD" id="RgF-aw-tJ4"/>
                         <outlet property="validationLabel" destination="8dP-RO-9iU" id="LLh-MZ-AEa"/>
-                        <segue destination="YFo-jT-v70" kind="push" identifier="goToUsernameVC" id="uHE-Cu-CMc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hH0-yH-Y50" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -601,9 +574,9 @@
         <!--Username View Controller-->
         <scene sceneID="tsk-ma-2zP">
             <objects>
-                <viewController id="YFo-jT-v70" customClass="UsernameViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UsernameViewController" id="YFo-jT-v70" customClass="UsernameViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="y1G-UT-U6O">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Create Username" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="igb-rX-87P">
@@ -652,7 +625,6 @@
                     <connections>
                         <outlet property="usernameTextField" destination="agv-Rr-fL6" id="xMf-19-vyM"/>
                         <outlet property="validationLabel" destination="61m-Qa-wc5" id="wth-2U-XDj"/>
-                        <segue destination="Ib5-iu-dO0" kind="push" identifier="goToPasswordVC" id="6Fc-2k-tam"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yMM-1O-ZUW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -662,9 +634,9 @@
         <!--Password View Controller-->
         <scene sceneID="imF-2L-kX3">
             <objects>
-                <viewController id="Ib5-iu-dO0" customClass="PasswordViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PasswordViewController" id="Ib5-iu-dO0" customClass="PasswordViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gGQ-sa-4Eg">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Create Password" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vYd-eb-GdL">
@@ -713,7 +685,6 @@
                     <connections>
                         <outlet property="passwordTextField" destination="Xfp-qF-QmA" id="aPk-nh-oLk"/>
                         <outlet property="validationLabel" destination="hYH-wy-nko" id="NAb-aA-w48"/>
-                        <segue destination="Oqh-iw-5aU" kind="push" identifier="goToConfirmationVC" id="OAa-3j-0C1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A3a-zT-4Gc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -723,9 +694,9 @@
         <!--Confirmation View Controller-->
         <scene sceneID="RU9-8K-xSk">
             <objects>
-                <viewController id="Oqh-iw-5aU" customClass="ConfirmationViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ConfirmationViewController" id="Oqh-iw-5aU" customClass="ConfirmationViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mHM-Jc-syk">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enter Confirmation Code" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bQB-Je-2MT">
@@ -775,7 +746,6 @@
                         <outlet property="captionLabel" destination="wR5-wb-iF7" id="YC0-ka-4Ns"/>
                         <outlet property="validationLabel" destination="nvT-T8-Fvy" id="4na-nY-OEr"/>
                         <outlet property="verificationCodeTextField" destination="nwI-TB-glg" id="a7Q-bH-dig"/>
-                        <segue destination="AAU-Bs-4zj" kind="push" identifier="goToWelcomeVC" id="5kX-o3-vZV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RI7-Wz-JXW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -785,9 +755,9 @@
         <!--Welcome View Controller-->
         <scene sceneID="3IW-Rw-iUh">
             <objects>
-                <viewController id="AAU-Bs-4zj" customClass="WelcomeViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WelcomeViewController" id="AAU-Bs-4zj" customClass="WelcomeViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xnP-oz-Zuo">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome to Instagram, Username" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZNR-Yy-0DS">
@@ -822,7 +792,6 @@
                     <navigationItem key="navigationItem" id="Zfg-un-LEo"/>
                     <connections>
                         <outlet property="welcomeLabel" destination="ZNR-Yy-0DS" id="64v-Ry-R3n"/>
-                        <segue destination="JHB-mn-62i" kind="push" identifier="goToFeedVC" id="uww-ZX-tGy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lYh-Y9-Xcd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1004,7 +973,7 @@
             <objects>
                 <viewController storyboardIdentifier="SelfProfileViewController" id="tLI-kA-yg9" customClass="SelfProfileViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6m9-0i-uFn">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Opb-uP-iFa" customClass="CachedImageView" customModule="Instagram" customModuleProvider="target">
@@ -1143,7 +1112,6 @@
     </scenes>
     <resources>
         <image name="camera.badge.ellipsis" catalog="system" width="128" height="92"/>
-        <image name="eye.slash" catalog="system" width="128" height="86"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="house" catalog="system" width="128" height="106"/>
         <image name="image" width="1280" height="720"/>
@@ -1168,9 +1136,6 @@
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemGrayColor">
-            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

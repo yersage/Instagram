@@ -19,12 +19,13 @@ class PostsService {
     
     func requestPosts(page: Int, completion: @escaping (Result<[PostModel], Error>) -> ()) {
         requestService.request(InstagramEndPoint.feedPosts(page: page), interceptor: interceptor, serializationType: .JSON) { data, response, error in
+            
             if let error = error {
                 completion(.failure(error))
                 return
             }
             
-            guard let data = data else { completion(.failure(NetworkError.noData)); return }
+            guard let data = data else { completion(.success([])); return }
             
             do {
                 let newPosts = try JSONDecoder().decode([PostModel].self, from: data)

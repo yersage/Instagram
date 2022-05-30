@@ -8,6 +8,6 @@
 import Foundation
 
 protocol ConfirmationPresenterDelegate: AnyObject {
-    func signup(email: String, password: String, username: String)
-    func verify(email: String, verificationCode: String)
+    func nextButtonPressed(verificationCode: String)
+    func viewDidLoad()
 }
