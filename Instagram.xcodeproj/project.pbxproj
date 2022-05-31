@@ -122,6 +122,7 @@
 		FCDE917727A1348900725EBC /* UploadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDE917627A1348900725EBC /* UploadManager.swift */; };
 		FCE2E8532845FF560076E4EB /* RequestDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE2E8522845FF560076E4EB /* RequestDelegate.swift */; };
 		FCE2E8552845FF820076E4EB /* SerializationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE2E8542845FF820076E4EB /* SerializationType.swift */; };
+		FCE2E8572845FFF00076E4EB /* UploadDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE2E8562845FFF00076E4EB /* UploadDelegate.swift */; };
 		FCE32BCB27A7C89400E902FD /* CreatePostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE32BCA27A7C89400E902FD /* CreatePostService.swift */; };
 		FCE32BCD27A7C9EA00E902FD /* SelfProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE32BCC27A7C9EA00E902FD /* SelfProfileService.swift */; };
 		FCE32BCF27A7CB5200E902FD /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE32BCE27A7CB5200E902FD /* ProfileService.swift */; };
@@ -269,6 +270,7 @@
 		FCDE917627A1348900725EBC /* UploadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadManager.swift; sourceTree = "<group>"; };
 		FCE2E8522845FF560076E4EB /* RequestDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestDelegate.swift; sourceTree = "<group>"; };
 		FCE2E8542845FF820076E4EB /* SerializationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerializationType.swift; sourceTree = "<group>"; };
+		FCE2E8562845FFF00076E4EB /* UploadDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDelegate.swift; sourceTree = "<group>"; };
 		FCE32BCA27A7C89400E902FD /* CreatePostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostService.swift; sourceTree = "<group>"; };
 		FCE32BCC27A7C9EA00E902FD /* SelfProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfProfileService.swift; sourceTree = "<group>"; };
 		FCE32BCE27A7CB5200E902FD /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
@@ -796,6 +798,7 @@
 			isa = PBXGroup;
 			children = (
 				FCDE917627A1348900725EBC /* UploadManager.swift */,
+				FCE2E8562845FFF00076E4EB /* UploadDelegate.swift */,
 			);
 			path = UploadManager;
 			sourceTree = "<group>";
@@ -1110,6 +1113,7 @@
 				FC7188AD275CA4B000A6F2CA /* SignInPresenter.swift in Sources */,
 				FCFA350227035A8600B8E1AC /* FollowerModel.swift in Sources */,
 				FCDE917527A1338F00725EBC /* RequestManager.swift in Sources */,
+				FCE2E8572845FFF00076E4EB /* UploadDelegate.swift in Sources */,
 				FC5AC37726F3891100114152 /* CommentModel.swift in Sources */,
 				FC84EAD126F0F5DB0096BCC8 /* ProfileModel.swift in Sources */,
 				FCFA603D27006E11005F1B4A /* EmailViewController.swift in Sources */,
