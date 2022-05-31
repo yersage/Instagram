@@ -39,7 +39,7 @@ class KeychainSwiftInterceptor: RequestInterceptor {
         }
     }
     
-    func refreshToken(completion: @escaping (_ isSuccess: Bool) -> Void) {
+    private func refreshToken(completion: @escaping (_ isSuccess: Bool) -> Void) {
         guard let refreshToken = tokenService.getRefreshToken() else {
             completion(false)
             return
